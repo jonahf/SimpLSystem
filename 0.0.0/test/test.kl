@@ -1,0 +1,49 @@
+require JFLSystem;
+require PsyopUtil;
+
+operator entry() {
+  SimpleTimer timer("JFLSystem");
+  {
+    Size evolutions = 7;
+
+    JFLRule rules[];
+    rules.push( JFLRule("A", "AB"));
+    rules.push( JFLRule("B", "A"));
+    JFLSystem lsys("A", rules);
+    String evolved = lsys.evolve(evolutions);
+
+    report(evolved.length());
+    if (evolved != "ABAABABAABAABABAABABAABAABABAABAAB")
+      report("Wrong evolution.");
+    timer.reportUS(evolutions + " evolutions");
+  }
+
+  {
+    Size evolutions = 3;
+
+    JFLRule rules[];
+    rules.push( JFLRule("1", "11"));
+    rules.push( JFLRule("0", "1[0]0"));
+    JFLSystem lsys("0", rules);
+    String evolved = lsys.evolve(evolutions);
+
+    report(evolved.length());
+    if (evolved != "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0")
+      report("Wrong evolution." + evolved);
+    timer.reportUS(evolutions + " evolutions");
+  }
+
+  {
+    Size evolutions = 2;
+
+    JFLRule rules[];
+    rules.push( JFLRule("F", "F+F−F−F+F"));
+    JFLSystem lsys("F", rules);
+    String evolved = lsys.evolve(evolutions);
+
+    report(evolved.length());
+    if (evolved != "F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F")
+      report("Wrong evolution." + evolved);
+    timer.reportUS(evolutions + " evolutions");
+  }
+}

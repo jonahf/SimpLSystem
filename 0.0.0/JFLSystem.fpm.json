@@ -1,0 +1,10 @@
+{
+  "version": "0.0.0",
+  "code": [
+    "LSystem.kl"
+  ],
+  "dfgPresets": {
+    "dir": "DFG",
+    "presetPath": "Jonah.Exts.JFLSystem"
+  }
+}

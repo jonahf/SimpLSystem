@@ -1,0 +1,119 @@
+require Util;
+
+
+struct JFLRule {
+  String input;
+  String output;
+};
+
+function JFLRule(String input, String output) {
+  this.input = input;
+  this.output = output;
+}
+
+
+object JFLSystem {
+  JFLRule rules[];
+  String start;
+  private Size iterations;
+  private String evolved;
+};
+
+inline JFLSystem(String start, JFLRule rules[]) {
+  this.start = start;
+  this.evolved = start;
+  this.rules = rules;
+  this.resetEvolution();
+}
+
+function String JFLSystem.evolve!(Size iterations) {
+  this.evolved = this.start;
+  for (Size i=0; i<iterations; i++) {
+    this.evolveOnce();
+  }
+  return this.evolved;
+}
+
+/// \internal
+inline JFLSystem.resetEvolution!() {
+  this.evolved = this.start;
+  this.iterations = 0;
+}
+
+/// \internal
+inline JFLSystem.evolveOnce!() {
+  String newState;
+  for (Size i=0; i<this.evolved.length(); i++) {
+    String char = this.evolved[i];
+    String mutation = char;
+    for (Size j=0; j<this.rules.size(); j++) { 
+      if (char == this.rules[j].input) { 
+        mutation = this.rules[j].output;
+        break;
+      }
+    }
+    newState += mutation;
+  }
+  this.iterations++;
+  this.evolved = newState;
+}
+
+/// \dfgPresetOmit
+function String JFLSystem.getString() {
+  return this.evolved;
+}
+
+
+
+struct JFLxform{
+  Xfo transform;
+  Integer branch;
+};
+
+
+object JFLInterpreter{
+  Mat44 transform;
+  JFLxform rules[String];
+  Mat44 stack[];
+  JFLSystem lSystem;
+};
+
+function JFLInterpreter(JFLSystem lSystem) {
+  this.lSystem = lSystem;
+  this.transform.setIdentity();
+}
+
+function JFLInterpreter.addSymbol!(String symbol, Xfo transform) {
+  JFLxform xformRule();
+  xformRule.branch = 0;
+  xformRule.transform = transform.toMat44();
+  this.rules[symbol] = xformRule;
+}
+
+function JFLInterpreter.addBranchSymbol!(String pushSymbol, String popSymbol, Xfo transform) {
+  JFLxform branchRule();
+  branchRule.branch = 1;
+  branchRule.transform = transform.toMat44();
+  this.rules[pushSymbol] = branchRule;
+  JFLxform unbranchRule();
+  unbranchRule.branch = 1;
+  unbranchRule.transform = transform.toMat44().inverse();
+  this.rules[popSymbol] = unbranchRule;
+}
+
+function Vec3[] JFLInterpreter.walkTheTurtle!() {
+  String lstring = this.lSystem.getString();
+  Vec3 points[]; points.resize(lstring.length());
+  for (Size i=0; i<lstring.length(); i++) {
+    JFLxform rule = this.rules[lstring[i]];
+    if (rule.branch == 1)
+      this.stack.push(this.transform);
+    else if (rule.branch == -1)
+      this.transform = this.stack.pop();
+    this.transform = rule.transform * this.transform;
+    points[i] = this.transform.multiplyVector(Vec3());
+  }
+  return points;
+}
+
+
