@@ -1,0 +1,39 @@
+// Created by kl2dfg (processComposeFunction)
+{
+  "objectType" : "Func",
+  "title" : "-> JFLRule",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "input",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "output",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "JFLRule"
+      }
+    ],
+  "extDeps" : {
+    "JFLSystem" : "*"
+    },
+  "presetGUID" : "A221FC3E1CF768AF46CE5A5BF816E293",
+  "code" : "require JFLSystem;
+
+dfgEntry {
+  result.input = input;
+  result.output = output;
+}
+"
+  }

@@ -1,0 +1,41 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  start: String\n  rules: JFLRule[]\n  result: JFLSystem\n"
+    },
+  "title" : "JFLSystem",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "start",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "rules",
+      "execPortType" : "In",
+      "typeSpec" : "JFLRule[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "JFLSystem"
+      }
+    ],
+  "extDeps" : {
+    "JFLSystem" : "*"
+    },
+  "presetGUID" : "3D9CCE9074E938A7E8C02F6991E3F935",
+  "code" : "require JFLSystem;
+
+dfgEntry {
+  result = JFLSystem(start, rules);
+}
+"
+  }

@@ -1,10 +1,10 @@
 {
   "version": "0.0.0",
   "code": [
-    "LSystem.kl"
+    "SimpLSystem.kl"
   ],
   "dfgPresets": {
     "dir": "DFG",
-    "presetPath": "Jonah.Exts.JFLSystem"
+    "presetPath": "ThirdParty.Exts.SimpLSystem"
   }
 }

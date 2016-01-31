@@ -1,0 +1,41 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: JFLSystem\n  iterations: Size\n  result: String\n"
+    },
+  "title" : "Evolve",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "JFLSystem"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "iterations",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "String"
+      }
+    ],
+  "extDeps" : {
+    "JFLSystem" : "*"
+    },
+  "presetGUID" : "D53D6278D2C069332C194E5C13ABA791",
+  "code" : "require JFLSystem;
+
+dfgEntry {
+  result = this.evolve(iterations);
+}
+"
+  }

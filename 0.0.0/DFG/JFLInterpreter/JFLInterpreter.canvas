@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  lSystem: JFLSystem\n  result: JFLInterpreter\n"
+    },
+  "title" : "JFLInterpreter",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "lSystem",
+      "execPortType" : "In",
+      "typeSpec" : "JFLSystem"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "JFLInterpreter"
+      }
+    ],
+  "extDeps" : {
+    "JFLSystem" : "*"
+    },
+  "presetGUID" : "ECA6B33486FA6A62BF939F8925251A9D",
+  "code" : "require JFLSystem;
+
+dfgEntry {
+  result = JFLInterpreter(lSystem);
+}
+"
+  }

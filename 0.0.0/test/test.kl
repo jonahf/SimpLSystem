@@ -1,15 +1,15 @@
-require JFLSystem;
+require SimpLSystem;
 require PsyopUtil;
 
 operator entry() {
-  SimpleTimer timer("JFLSystem");
+  SimpleTimer timer("SimpLSystem");
   {
     Size evolutions = 7;
 
-    JFLRule rules[];
-    rules.push( JFLRule("A", "AB"));
-    rules.push( JFLRule("B", "A"));
-    JFLSystem lsys("A", rules);
+    SimpLRule rules[];
+    rules.push( SimpLRule("A", "AB"));
+    rules.push( SimpLRule("B", "A"));
+    SimpLSystem lsys("A", rules);
     String evolved = lsys.evolve(evolutions);
 
     report(evolved.length());
@@ -21,10 +21,10 @@ operator entry() {
   {
     Size evolutions = 3;
 
-    JFLRule rules[];
-    rules.push( JFLRule("1", "11"));
-    rules.push( JFLRule("0", "1[0]0"));
-    JFLSystem lsys("0", rules);
+    SimpLRule rules[];
+    rules.push( SimpLRule("1", "11"));
+    rules.push( SimpLRule("0", "1[0]0"));
+    SimpLSystem lsys("0", rules);
     String evolved = lsys.evolve(evolutions);
 
     report(evolved.length());
@@ -36,14 +36,26 @@ operator entry() {
   {
     Size evolutions = 2;
 
-    JFLRule rules[];
-    rules.push( JFLRule("F", "F+F−F−F+F"));
-    JFLSystem lsys("F", rules);
+    SimpLRule rules[];
+    rules.push( SimpLRule("F", "F+F-F-F+F"));
+    SimpLSystem lsys("F", rules);
     String evolved = lsys.evolve(evolutions);
 
     report(evolved.length());
-    if (evolved != "F+F−F−F+F+F+F−F−F+F−F+F−F−F+F−F+F−F−F+F+F+F−F−F+F")
+    if (evolved != "F+F-F-F+F+F+F-F-F+F-F+F-F-F+F-F+F-F-F+F+F+F-F-F+F")
       report("Wrong evolution." + evolved);
     timer.reportUS(evolutions + " evolutions");
+  }
+  {
+    Size evolutions = 8;
+
+    SimpLRule rules[];
+    rules.push( SimpLRule("F", "F+F-F-F+F"));
+    SimpLSystem lsys("F", rules);
+    for (Size i  = 0; i< 35; i++) {
+      String evolved = lsys.evolve(evolutions);
+      timer.trial(true, "Evolved. " + evolved.length());
+    }
+    timer.endTrials("Done.");  
   }
 }

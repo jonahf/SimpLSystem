@@ -1,0 +1,151 @@
+require Util;
+
+
+struct SimpLRule {
+  String input;
+  String output;
+};
+
+function SimpLRule(String input, String output) {
+  this.input = input;
+  this.output = output;
+}
+
+object SimpLSystem {
+  private String evolved;
+  private Size safety;
+  SimpLRule rules[];
+  String start;
+  private Size iterations;
+
+};
+
+inline SimpLSystem(String start, SimpLRule rules[]) {
+  this.start = start;
+  this.evolved = start;
+  this.rules = rules;
+  this.resetEvolution();
+  this.safety = 5000000;
+}
+
+function String SimpLSystem.evolve!(Size iterations) {
+  this.evolved = this.start;
+  for (Size i=0; i<iterations; i++) {
+    this.evolveOnce(1.0f);
+    if (this.evolved.length() > this.safety)
+      break;
+  }
+  return this.evolved;
+}
+
+function String SimpLSystem.partialEvolve!(Scalar iterations) {
+  this.evolved = this.start;
+  Size evolutions = floor(iterations);
+  for (Size i=0; i<evolutions+1; i++) {
+    if (i == evolutions)
+      this.evolveOnce(iterations - evolutions);
+    else
+      this.evolveOnce(1.0f);
+    if (this.evolved.length() > this.safety)
+      break;
+  }
+  return this.evolved;
+}
+
+/// \internal
+inline SimpLSystem.resetEvolution!() {
+  this.evolved = this.start;
+  this.iterations = 0;
+}
+
+/// \internal
+inline SimpLSystem.evolveOnce!(Scalar completeness) {
+  String newState;
+  Size safety = this.safety;
+  Size charNum = this.evolved.length() * completeness;
+  for (Size i=0; i<this.evolved.length(); i++) {
+    String char = this.evolved[i];
+    String mutation = char;
+    if (i <= charNum) {      
+      for (Size j=0; j<this.rules.size(); j++) {
+        if (char == this.rules[j].input) { 
+          mutation = this.rules[j].output;
+          break;
+        }
+      }
+    }
+    newState += mutation;
+    if (newState.length() > safety)
+      break;
+  }
+  if (newState.length() > safety)
+    report("Safety tripped. " + this.safety);
+  this.iterations++;
+  this.evolved = newState;
+}
+
+/// \dfgPresetOmit
+function String SimpLSystem.getString() {
+  return this.evolved;
+}
+
+
+
+struct SimpLxform{
+  Mat44 transform;
+  Integer branch;
+  Integer leaf;
+};
+
+object SimpLInterpreter{
+  Mat44 transform;
+  SimpLxform rules[String];
+  Mat44 stack[];
+  SimpLSystem lSystem;
+};
+
+function SimpLInterpreter(SimpLSystem lSystem) {
+  this.lSystem = lSystem;
+  this.transform.setIdentity();
+}
+
+function SimpLInterpreter.addSymbol!(String symbol, Xfo transform, Integer leaf) {
+  SimpLxform xformRule();
+  xformRule.branch = 0;
+  xformRule.transform = transform.toMat44();
+  xformRule.leaf = leaf;
+  this.rules[symbol] = xformRule;
+}
+
+/// \dfgPresetDefault pushSymbol "["
+/// \dfgPresetDefault popSymbol "["
+function SimpLInterpreter.addBranchSymbol!(String pushSymbol, String popSymbol, Xfo transform) {
+  SimpLxform branchRule();
+  branchRule.branch = 1;
+  branchRule.transform = transform.toMat44();
+  this.rules[pushSymbol] = branchRule;
+  SimpLxform unbranchRule();
+  unbranchRule.branch = -1;
+  unbranchRule.transform = transform.toMat44().inverse();
+  this.rules[popSymbol] = unbranchRule;
+}
+
+function Vec3[] SimpLInterpreter.walkTheTurtle!(io Xfo leaves[]) {
+  leaves.resize(0);
+  String lstring = this.lSystem.getString();
+  Vec3 points[]; points.resize(lstring.length());
+  for (Size i=0; i<lstring.length(); i++) {
+    SimpLxform rule = this.rules[lstring[i]];
+    if (rule.branch == 1)
+      this.stack.push(this.transform);
+    else if (rule.branch == -1)
+      this.transform = this.stack.pop();
+    this.transform =  this.transform * rule.transform;
+    points[i] = this.transform.multiplyVector3(Vec3());
+    if (rule.leaf != 0)
+      leaves.push(Xfo(this.transform));
+  }
+  return points;
+}
+
+

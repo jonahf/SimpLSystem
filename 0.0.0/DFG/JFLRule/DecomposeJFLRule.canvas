@@ -1,0 +1,39 @@
+// Created by kl2dfg (processDecomposeFunction)
+{
+  "objectType" : "Func",
+  "title" : "JFLRule ->",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "value",
+      "execPortType" : "In",
+      "typeSpec" : "JFLRule"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "input",
+      "execPortType" : "Out",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "output",
+      "execPortType" : "Out",
+      "typeSpec" : "String"
+      }
+    ],
+  "extDeps" : {
+    "JFLSystem" : "*"
+    },
+  "presetGUID" : "0475D2439F1C0FE4F5DB09358DA406F9",
+  "code" : "require JFLSystem;
+
+dfgEntry {
+  input = value.input;
+  output = value.output;
+}
+"
+  }
