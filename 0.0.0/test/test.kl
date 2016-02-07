@@ -1,9 +1,37 @@
 require SimpLSystem;
-require PsyopUtil;
+
+
+struct Microtimer{
+  UInt64 start;
+  String prefix;
+  Boolean reported;
+};
+
+inline Microtimer(String prefix) {
+  this.prefix = prefix;
+  this.start = getCurrentTicks();
+}
+
+inline Microtimer.report!() {
+  this.report("");
+}
+
+inline Microtimer.report!(String msg) {
+  this.reported = true;
+  Scalar time  = getSecondsBetweenTicks(this.start, getCurrentTicks());
+  Integer microseconds = Integer(time * 10000000);
+  report(this.prefix+": "+microseconds+" us. " + msg);
+  this.start = getCurrentTicks();
+}
+
+inline ~Microtimer() {
+  if (!this.reported)
+    this.report("~");
+}
 
 operator entry() {
-  SimpleTimer timer("SimpLSystem");
   {
+    Microtimer timer("[Evolution trial]");
     Size evolutions = 7;
 
     SimpLRule rules[];
@@ -12,13 +40,12 @@ operator entry() {
     SimpLSystem lsys("A", rules);
     String evolved = lsys.evolve(evolutions);
 
-    report(evolved.length());
     if (evolved != "ABAABABAABAABABAABABAABAABABAABAAB")
       report("Wrong evolution.");
-    timer.reportUS(evolutions + " evolutions");
   }
 
   {
+    Microtimer timer("[Evolution trial]");
     Size evolutions = 3;
 
     SimpLRule rules[];
@@ -27,13 +54,12 @@ operator entry() {
     SimpLSystem lsys("0", rules);
     String evolved = lsys.evolve(evolutions);
 
-    report(evolved.length());
     if (evolved != "1111[11[1[0]0]1[0]0]11[1[0]0]1[0]0")
       report("Wrong evolution." + evolved);
-    timer.reportUS(evolutions + " evolutions");
   }
 
   {
+    Microtimer timer("[Evolution trial]");
     Size evolutions = 2;
 
     SimpLRule rules[];
@@ -41,10 +67,8 @@ operator entry() {
     SimpLSystem lsys("F", rules);
     String evolved = lsys.evolve(evolutions);
 
-    report(evolved.length());
     if (evolved != "F+F-F-F+F+F+F-F-F+F-F+F-F-F+F-F+F-F-F+F+F+F-F-F+F")
       report("Wrong evolution." + evolved);
-    timer.reportUS(evolutions + " evolutions");
   }
   {
     Size evolutions = 8;
@@ -53,9 +77,8 @@ operator entry() {
     rules.push( SimpLRule("F", "F+F-F-F+F"));
     SimpLSystem lsys("F", rules);
     for (Size i  = 0; i< 35; i++) {
+      Microtimer timer("[Evolution trial]");
       String evolved = lsys.evolve(evolutions);
-      timer.trial(true, "Evolved. " + evolved.length());
     }
-    timer.endTrials("Done.");  
   }
 }
