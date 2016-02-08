@@ -2,40 +2,40 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  input: String\n  output: String\n  result: JFLRule\n"
+    "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  result: SimpLSystem\n"
     },
-  "title" : "JFLRule",
+  "title" : "SimpLSystem",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "input",
+      "name" : "start",
       "execPortType" : "In",
       "typeSpec" : "String"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "output",
+      "name" : "rules",
       "execPortType" : "In",
-      "typeSpec" : "String"
+      "typeSpec" : "SimpLRule[]"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "JFLRule"
+      "typeSpec" : "SimpLSystem"
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "2E3F5FB302923E99A8A458E4CE037B1E",
-  "code" : "require JFLSystem;
+  "presetGUID" : "41E1A91CC7C93DB433768C8D637BF1AB",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = JFLRule(input, output);
+  result = SimpLSystem(start, rules);
 }
 "
   }

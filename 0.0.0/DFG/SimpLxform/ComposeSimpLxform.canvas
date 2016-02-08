@@ -1,7 +1,7 @@
 // Created by kl2dfg (processComposeFunction)
 {
   "objectType" : "Func",
-  "title" : "-> JFLxform",
+  "title" : "-> SimpLxform",
   "ports" : [
     {
       "objectType" : "Port",
@@ -66,14 +66,14 @@
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "JFLxform"
+      "typeSpec" : "SimpLxform"
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "A221FC3E1CF768AF46CE5A5BF816E293",
-  "code" : "require JFLSystem;
+  "presetGUID" : "448EEB552D7F47331F36277063268754",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
   result.transform = transform;

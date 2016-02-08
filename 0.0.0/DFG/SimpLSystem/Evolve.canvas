@@ -2,23 +2,23 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: JFLSystem\n  iterations: Scalar\n  result: String\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Size\n  result: String\n"
     },
-  "title" : "PartialEvolve",
+  "title" : "Evolve",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "JFLSystem"
+      "typeSpec" : "SimpLSystem"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "name" : "iterations",
       "execPortType" : "In",
-      "typeSpec" : "Scalar"
+      "typeSpec" : "Size"
       },
     {
       "objectType" : "Port",
@@ -29,13 +29,13 @@
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "06C6E434C1F1FE6665A00DAB88B65645",
-  "code" : "require JFLSystem;
+  "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = this.partialEvolve(iterations);
+  result = this.evolve(iterations);
 }
 "
   }

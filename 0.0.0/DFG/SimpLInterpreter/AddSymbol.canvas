@@ -2,28 +2,21 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: JFLInterpreter\n  pushSymbol: String\n  popSymbol: String\n  transform: Xfo\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  symbol: String\n  transform: Xfo\n  leaf: Integer\n"
     },
-  "title" : "AddBranchSymbol",
+  "title" : "AddSymbol",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "JFLInterpreter"
+      "typeSpec" : "SimpLInterpreter"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "pushSymbol",
-      "execPortType" : "In",
-      "typeSpec" : "String"
-      },
-    {
-      "objectType" : "Port",
-      "nodePortType" : "Out",
-      "name" : "popSymbol",
+      "name" : "symbol",
       "execPortType" : "In",
       "typeSpec" : "String"
       },
@@ -36,16 +29,23 @@
       "name" : "transform",
       "execPortType" : "In",
       "typeSpec" : "Xfo"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "leaf",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "C73422E9B4B4465226E9DB3126C24B46",
-  "code" : "require JFLSystem;
+  "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.addBranchSymbol(pushSymbol, popSymbol, transform);
+  this.addSymbol(symbol, transform, leaf);
 }
 "
   }

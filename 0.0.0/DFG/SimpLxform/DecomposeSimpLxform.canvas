@@ -1,13 +1,13 @@
 // Created by kl2dfg (processDecomposeFunction)
 {
   "objectType" : "Func",
-  "title" : "JFLxform ->",
+  "title" : "SimpLxform ->",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "defaultValues" : {
-        "JFLxform" : {
+        "SimpLxform" : {
           "transform" : {
             "row0" : {
               "x" : 1,
@@ -40,7 +40,7 @@
         },
       "name" : "value",
       "execPortType" : "In",
-      "typeSpec" : "JFLxform"
+      "typeSpec" : "SimpLxform"
       },
     {
       "objectType" : "Port",
@@ -68,10 +68,10 @@
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "0475D2439F1C0FE4F5DB09358DA406F9",
-  "code" : "require JFLSystem;
+  "presetGUID" : "F9FE6CC9AFFE53F728151D3080F133F4",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
   transform = value.transform;

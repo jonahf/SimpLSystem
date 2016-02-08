@@ -1,14 +1,14 @@
 // Created by kl2dfg (processDecomposeFunction)
 {
   "objectType" : "Func",
-  "title" : "JFLRule ->",
+  "title" : "SimpLRule ->",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "name" : "value",
       "execPortType" : "In",
-      "typeSpec" : "JFLRule"
+      "typeSpec" : "SimpLRule"
       },
     {
       "objectType" : "Port",
@@ -26,10 +26,10 @@
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "0475D2439F1C0FE4F5DB09358DA406F9",
-  "code" : "require JFLSystem;
+  "presetGUID" : "F9FE6CC9AFFE53F728151D3080F133F4",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
   input = value.input;

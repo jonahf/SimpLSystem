@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: JFLInterpreter\n  leaves: Xfo[]\n  result: Vec3[]\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  leaves: Xfo[]\n  result: Vec3[]\n"
     },
   "title" : "WalkTheTurtle",
   "ports" : [
@@ -11,7 +11,7 @@
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "JFLInterpreter"
+      "typeSpec" : "SimpLInterpreter"
       },
     {
       "objectType" : "Port",
@@ -35,10 +35,10 @@
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "901E04367574A17ACCD7F878B9B24887",
-  "code" : "require JFLSystem;
+  "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
   result = this.walkTheTurtle(leaves);

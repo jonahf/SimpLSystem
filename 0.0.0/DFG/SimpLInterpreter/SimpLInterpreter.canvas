@@ -2,33 +2,33 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  lSystem: JFLSystem\n  result: JFLInterpreter\n"
+    "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  result: SimpLInterpreter\n"
     },
-  "title" : "JFLInterpreter",
+  "title" : "SimpLInterpreter",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "name" : "lSystem",
       "execPortType" : "In",
-      "typeSpec" : "JFLSystem"
+      "typeSpec" : "SimpLSystem"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "JFLInterpreter"
+      "typeSpec" : "SimpLInterpreter"
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "ECA6B33486FA6A62BF939F8925251A9D",
-  "code" : "require JFLSystem;
+  "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3",
+  "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = JFLInterpreter(lSystem);
+  result = SimpLInterpreter(lSystem);
 }
 "
   }

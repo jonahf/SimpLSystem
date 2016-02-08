@@ -4,13 +4,13 @@
   "metadata" : {
     "uiAlwaysShowDaisyChainPorts" : "true"
     },
-  "title" : "JFLxform",
+  "title" : "SimpLxform",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "defaultValues" : {
-        "JFLxform" : {
+        "SimpLxform" : {
           "transform" : {
             "row0" : {
               "x" : 1,
@@ -43,13 +43,13 @@
         },
       "name" : "value",
       "execPortType" : "In",
-      "typeSpec" : "JFLxform"
+      "typeSpec" : "SimpLxform"
       }
     ],
   "extDeps" : {
-    "JFLSystem" : "*"
+    "SimpLSystem" : "*"
     },
-  "presetGUID" : "2E1A4881F892ED07CE83D7E4580E05BB",
+  "presetGUID" : "8380285D8EA807A48DE47A388B1F6B1B",
   "code" : "dfgEntry {
 }
 "
