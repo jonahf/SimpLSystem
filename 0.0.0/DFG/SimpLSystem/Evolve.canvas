@@ -16,6 +16,9 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Size" : 3
+        },
       "name" : "iterations",
       "execPortType" : "In",
       "typeSpec" : "Size"

@@ -20,7 +20,13 @@ object SimpLSystem {
 
 };
 
+/// \dfgPresetOmit
 inline SimpLSystem(String start, SimpLRule rules[]) {
+  this = SimpLSystem(start, rules, 5000000);
+}
+
+/// \dfgPresetDefault safety 5000000
+inline SimpLSystem(String start, SimpLRule rules[], Size safety) {
   this.start = start;
   this.evolved = start;
   this.rules = rules;
@@ -28,6 +34,7 @@ inline SimpLSystem(String start, SimpLRule rules[]) {
   this.safety = 5000000;
 }
 
+/// \dfgPresetDefault iterations 3
 function String SimpLSystem.evolve!(Size iterations) {
   this.evolved = this.start;
   for (Size i=0; i<iterations; i++) {
@@ -38,6 +45,7 @@ function String SimpLSystem.evolve!(Size iterations) {
   return this.evolved;
 }
 
+/// \dfgPresetDefault iterations 3.5
 function String SimpLSystem.partialEvolve!(Scalar iterations) {
   this.evolved = this.start;
   Size evolutions = floor(iterations);
@@ -79,7 +87,7 @@ inline SimpLSystem.evolveOnce!(Scalar completeness) {
       break;
   }
   if (newState.length() > safety)
-    report("Safety tripped. " + this.safety);
+    report("[SimpLSystem] Safety tripped. (<" + this.safety + " characters in evolved string.");
   this.iterations++;
   this.evolved = newState;
 }

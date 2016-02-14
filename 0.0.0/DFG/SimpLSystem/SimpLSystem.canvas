@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  result: SimpLSystem\n"
+    "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  safety: Size\n  result: SimpLSystem\n"
     },
   "title" : "SimpLSystem",
   "ports" : [
@@ -22,6 +22,16 @@
       },
     {
       "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Size" : 5000000
+        },
+      "name" : "safety",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
@@ -31,11 +41,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "41E1A91CC7C93DB433768C8D637BF1AB",
+  "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLSystem(start, rules);
+  result = SimpLSystem(start, rules, safety);
 }
 "
   }
