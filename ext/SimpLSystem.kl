@@ -108,8 +108,6 @@ function Boolean[String] SimpLSystem.getAllUsedSymbols() {
   return usedChars;
 }
 
-
-/// \dfgPresetOmit
 function String SimpLSystem.getString() {
   return this.evolved;
 }
@@ -164,6 +162,7 @@ function SimpLInterpreter.addBranchSymbol!(String pushSymbol, String popSymbol, 
   this.rules[popSymbol] = unbranchRule;
 }
 
+/// \internal
 function SimpLxform[String] SimpLInterpreter.getCleanRules!() {
   Boolean usedChars[String] = this.lSystem.getAllUsedSymbols();
   SimpLxform newRules[String];  

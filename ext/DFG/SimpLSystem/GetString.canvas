@@ -2,33 +2,33 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  result: SimpLxform[String]\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  result: String\n"
     },
-  "title" : "GetCleanRules",
+  "title" : "GetString",
   "ports" : [
     {
       "objectType" : "Port",
-      "nodePortType" : "IO",
+      "nodePortType" : "Out",
       "name" : "this",
-      "execPortType" : "IO",
-      "typeSpec" : "SimpLInterpreter"
+      "execPortType" : "In",
+      "typeSpec" : "SimpLSystem"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "SimpLxform[String]"
+      "typeSpec" : "String"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "340A0A7F0E380F9D486962B913911C12",
+  "presetGUID" : "39E53FF51415F1E23D5464BB0ECFBF75",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = this.getCleanRules();
+  result = this.getString();
 }
 "
   }
