@@ -17,7 +17,6 @@ object SimpLSystem {
   SimpLRule rules[];
   String start;
   private Size iterations;
-
 };
 
 /// \dfgPresetOmit
@@ -92,29 +91,56 @@ inline SimpLSystem.evolveOnce!(Scalar completeness) {
   this.evolved = newState;
 }
 
+
+/// \internal
+function SimpLSystem.addAllLettersToDict(String string, io Boolean usedChars[String]) {
+  for (Size i; i<string.length(); i++)
+    usedChars[string[i]] = true;
+}
+/// \internal
+function Boolean[String] SimpLSystem.getAllUsedSymbols() {
+  Boolean usedChars[String];
+  this.addAllLettersToDict(this.start, usedChars);
+  for (Size i; i<this.rules.size(); i++) {
+    this.addAllLettersToDict(this.rules[i].input, usedChars);
+    this.addAllLettersToDict(this.rules[i].output, usedChars);
+  }
+  return usedChars;
+}
+
+
 /// \dfgPresetOmit
 function String SimpLSystem.getString() {
   return this.evolved;
 }
 
 
-
+/// \internal
 struct SimpLxform{
   Mat44 transform;
   Integer branch;
   Integer leaf;
 };
+/// \internal
+function SimpLxform() {
+  this.transform.setIdentity();
+}
 
 object SimpLInterpreter{
   Mat44 transform;
   SimpLxform rules[String];
   Mat44 stack[];
   SimpLSystem lSystem;
+  Boolean warnings;
 };
 
 function SimpLInterpreter(SimpLSystem lSystem) {
   this.lSystem = lSystem;
   this.transform.setIdentity();
+}
+/// \dfgPresetDefault warnings true
+function SimpLInterpreter.reportWarnings!(Boolean warnings) {
+  this.warnings = warnings;
 }
 
 function SimpLInterpreter.addSymbol!(String symbol, Xfo transform, Integer leaf) {
@@ -127,23 +153,50 @@ function SimpLInterpreter.addSymbol!(String symbol, Xfo transform, Integer leaf)
 
 /// \dfgPresetDefault pushSymbol "["
 /// \dfgPresetDefault popSymbol "["
-function SimpLInterpreter.addBranchSymbol!(String pushSymbol, String popSymbol, Xfo transform) {
+function SimpLInterpreter.addBranchSymbol!(String pushSymbol, String popSymbol, Xfo pushTransform, Xfo popTransform) {
   SimpLxform branchRule();
   branchRule.branch = 1;
-  branchRule.transform = transform.toMat44();
+  branchRule.transform = pushTransform.toMat44();
   this.rules[pushSymbol] = branchRule;
   SimpLxform unbranchRule();
   unbranchRule.branch = -1;
-  unbranchRule.transform = transform.toMat44().inverse();
+  unbranchRule.transform = popTransform.toMat44();
   this.rules[popSymbol] = unbranchRule;
 }
 
+function SimpLxform[String] SimpLInterpreter.getCleanRules!() {
+  Boolean usedChars[String] = this.lSystem.getAllUsedSymbols();
+  SimpLxform newRules[String];  
+  String definedButNotUsed[], usedButNotDefined[];
+  
+  for (key, value in this.rules) {
+    if (usedChars.has(key))
+      newRules[key] = value;
+    else
+      definedButNotUsed.push(key);
+  }
+  for (key, value in usedChars) {
+    if (!newRules.has(key)) {
+      usedButNotDefined.push(key);
+      newRules[key] = SimpLxform();
+    }
+  }
+  if (this.warnings) {
+    if (usedButNotDefined)
+      report('[SimpLInterpreter] Symbols "'+",".join(usedButNotDefined)+'" used but not defined. (Empty interpretations added).');
+    if (definedButNotUsed)
+      report('[SimpLInterpreter] Symbols "'+",".join(definedButNotUsed)+'" have interpretations defined but are not used in the L-System.');
+  }
+  return(newRules);
+}
+
 function Vec3[] SimpLInterpreter.walkTheTurtle!(io Xfo leaves[]) {
+  SimpLxform rules[String] = this.getCleanRules();
   leaves.resize(0);
   String lstring = this.lSystem.getString();
   Vec3 points[]; points.resize(lstring.length());
   for (Size i=0; i<lstring.length(); i++) {
-    SimpLxform rule = this.rules[lstring[i]];
+    SimpLxform rule = rules[lstring[i]];
     if (rule.branch == 1)
       this.stack.push(this.transform);
     else if (rule.branch == -1)

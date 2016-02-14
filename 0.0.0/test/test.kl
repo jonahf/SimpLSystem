@@ -31,7 +31,7 @@ inline ~Microtimer() {
 
 operator entry() {
   {
-    Microtimer timer("[Evolution trial]");
+    Microtimer timer("[Agae test]");
     Size evolutions = 7;
 
     SimpLRule rules[];
@@ -45,7 +45,7 @@ operator entry() {
   }
 
   {
-    Microtimer timer("[Evolution trial]");
+    Microtimer timer("[1001010 test]");
     Size evolutions = 3;
 
     SimpLRule rules[];
@@ -59,7 +59,7 @@ operator entry() {
   }
 
   {
-    Microtimer timer("[Evolution trial]");
+    Microtimer timer("[F+F- test");
     Size evolutions = 2;
 
     SimpLRule rules[];
@@ -77,7 +77,7 @@ operator entry() {
     rules.push( SimpLRule("F", "F+F-F-F+F"));
     SimpLSystem lsys("F", rules);
     for (Size i  = 0; i< 35; i++) {
-      Microtimer timer("[Evolution trial]");
+      Microtimer timer("[F+F- test");
       String evolved = lsys.evolve(evolutions);
     }
   }
