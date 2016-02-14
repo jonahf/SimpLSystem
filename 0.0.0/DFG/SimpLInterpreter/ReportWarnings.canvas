@@ -1,0 +1,37 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  warnings: Boolean\n"
+    },
+  "title" : "ReportWarnings",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLInterpreter"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Boolean" : true
+        },
+      "name" : "warnings",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "3C517542429A6CE1276F929FBEC1FD6D",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.reportWarnings(warnings);
+}
+"
+  }

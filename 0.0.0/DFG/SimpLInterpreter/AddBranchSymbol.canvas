@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  pushSymbol: String\n  popSymbol: String\n  transform: Xfo\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  pushSymbol: String\n  popSymbol: String\n  pushTransform: Xfo\n  popTransform: Xfo\n"
     },
   "title" : "AddBranchSymbol",
   "ports" : [
@@ -39,7 +39,17 @@
         "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
         },
       "nodePortType" : "Out",
-      "name" : "transform",
+      "name" : "pushTransform",
+      "execPortType" : "In",
+      "typeSpec" : "Xfo"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+        },
+      "nodePortType" : "Out",
+      "name" : "popTransform",
       "execPortType" : "In",
       "typeSpec" : "Xfo"
       }
@@ -47,11 +57,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "C902A204C051B2C3BFAA0D68E7F2F2A1",
+  "presetGUID" : "9BD10CDF36BEECD0CCE01C1C55334F4A",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.addBranchSymbol(pushSymbol, popSymbol, transform);
+  this.addBranchSymbol(pushSymbol, popSymbol, pushTransform, popTransform);
 }
 "
   }

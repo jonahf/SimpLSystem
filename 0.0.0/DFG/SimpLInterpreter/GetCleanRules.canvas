@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  result: SimpLxform[String]\n"
+    },
+  "title" : "GetCleanRules",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLInterpreter"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLxform[String]"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "340A0A7F0E380F9D486962B913911C12",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.getCleanRules();
+}
+"
+  }
