@@ -121,7 +121,7 @@
       ]
     },
   "requiredPresets" : {
-    "SimpLSystem.Compounds.DegreesToRadians" : {
+    "ThirdParty.SimpLSystem.Compounds.DegreesToRadians" : {
       "objectType" : "Graph",
       "metadata" : {
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",

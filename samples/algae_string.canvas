@@ -63,7 +63,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
       "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
       },
     {
@@ -95,7 +95,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+      "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
       "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
       },
     {
@@ -169,7 +169,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
       "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
       },
     {
@@ -214,7 +214,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.PartialEvolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.PartialEvolve",
       "presetGUID" : "7459A954CE009BD3F2135D614230179C"
       },
     {
@@ -267,7 +267,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+      "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
       "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
       },
     {
@@ -358,7 +358,7 @@
       ]
     },
   "requiredPresets" : {
-    "SimpLSystem.SimpLSystem.SimpLSystem" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  safety: Size\n  result: SimpLSystem\n"
@@ -408,7 +408,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLRule.SimpLRule" : {
+    "ThirdParty.SimpLSystem.SimpLRule.SimpLRule" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  input: String\n  output: String\n  result: SimpLRule\n"
@@ -506,7 +506,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLSystem.Evolve" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.Evolve" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Size\n  result: String\n"
@@ -573,7 +573,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLSystem.PartialEvolve" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.PartialEvolve" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Scalar\n  result: String\n"

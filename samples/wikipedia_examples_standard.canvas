@@ -174,7 +174,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.SimpLInterpreter",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
             },
           {
@@ -200,7 +200,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.WalkTheTurtle",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
             "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
@@ -825,7 +825,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -908,7 +908,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -991,7 +991,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1227,7 +1227,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1310,7 +1310,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1488,7 +1488,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1571,7 +1571,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1749,7 +1749,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -1869,7 +1869,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -1890,7 +1890,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -1914,7 +1914,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -1935,7 +1935,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   }
                 ],
@@ -2200,7 +2200,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+            "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
             "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
             },
           {
@@ -2232,7 +2232,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -2333,7 +2333,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+            "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
             "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
             },
           {
@@ -2365,7 +2365,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -2418,7 +2418,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -2488,7 +2488,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
       "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
       },
     {
@@ -2636,7 +2636,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.SimpLInterpreter",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
             },
           {
@@ -2673,7 +2673,7 @@
                 "name" : "leaf"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.AddSymbol",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
             "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
             },
           {
@@ -2783,7 +2783,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.WalkTheTurtle",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
             "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
@@ -2820,7 +2820,7 @@
                 "name" : "leaf"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.AddSymbol",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
             "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
             },
           {
@@ -2862,7 +2862,7 @@
                 "name" : "popTransform"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.AddBranchSymbol",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddBranchSymbol",
             "presetGUID" : "9BD10CDF36BEECD0CCE01C1C55334F4A"
             },
           {
@@ -2976,7 +2976,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -2997,7 +2997,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -3078,7 +3078,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -3099,7 +3099,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -3293,7 +3293,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+            "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
             "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
             },
           {
@@ -3325,7 +3325,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -3378,7 +3378,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -3534,7 +3534,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.SimpLInterpreter",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
             },
           {
@@ -3560,7 +3560,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.WalkTheTurtle",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
             "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
@@ -4184,7 +4184,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4267,7 +4267,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4350,7 +4350,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4586,7 +4586,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4669,7 +4669,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4847,7 +4847,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -4930,7 +4930,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -5108,7 +5108,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -5228,7 +5228,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -5249,7 +5249,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -5273,7 +5273,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -5294,7 +5294,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   }
                 ],
@@ -5504,7 +5504,7 @@
                 "name" : "leaf"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.AddSymbol",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
             "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
             },
           {
@@ -5538,7 +5538,7 @@
                 "name" : "leaf"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.AddSymbol",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
             "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
             },
           {
@@ -5668,7 +5668,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
       "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
       },
     {
@@ -5734,7 +5734,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+            "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
             "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
             },
           {
@@ -5766,7 +5766,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -5819,7 +5819,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -5996,7 +5996,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.SimpLInterpreter",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
             },
           {
@@ -6022,7 +6022,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.WalkTheTurtle",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
             "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
@@ -6649,7 +6649,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -6732,7 +6732,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -6815,7 +6815,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7051,7 +7051,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7134,7 +7134,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7312,7 +7312,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7395,7 +7395,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7573,7 +7573,7 @@
                       "name" : "leaf"
                       }
                     ],
-                  "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+                  "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
                   "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
                   },
                 {
@@ -7693,7 +7693,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -7714,7 +7714,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -7738,7 +7738,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   },
                 {
@@ -7759,7 +7759,7 @@
                       "name" : "degrees"
                       }
                     ],
-                  "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+                  "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
                   "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
                   }
                 ],
@@ -7992,7 +7992,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -8121,7 +8121,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
       "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
       },
     {
@@ -8187,7 +8187,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+            "executable" : "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem",
             "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
             },
           {
@@ -8219,7 +8219,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -8272,7 +8272,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+            "executable" : "ThirdParty.SimpLSystem.SimpLRule.SimpLRule",
             "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
             },
           {
@@ -8467,7 +8467,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.SimpLInterpreter",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
             },
           {
@@ -8493,7 +8493,7 @@
                 "name" : "result"
                 }
               ],
-            "executable" : "SimpLSystem.SimpLInterpreter.WalkTheTurtle",
+            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
             "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
@@ -8728,7 +8728,7 @@
                 "name" : "unbranchTransform"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.SimpLInterpreter.AddStandardSymbols",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.SimpLInterpreter.AddStandardSymbols",
             "presetGUID" : "241065ACF1038DCA612052F1A258BED7"
             },
           {
@@ -8794,7 +8794,7 @@
                 "name" : "degrees"
                 }
               ],
-            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
             "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             },
           {
@@ -8929,7 +8929,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.PartialEvolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.PartialEvolve",
       "presetGUID" : "7459A954CE009BD3F2135D614230179C"
       },
     {
@@ -8958,7 +8958,7 @@
           "name" : "result"
           }
         ],
-      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
       "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
       }
     ],
@@ -9526,7 +9526,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLInterpreter.SimpLInterpreter" : {
+    "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  result: SimpLInterpreter\n"
@@ -9559,7 +9559,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLInterpreter.WalkTheTurtle" : {
+    "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  leaves: Xfo[]\n  result: Vec3[]\n"
@@ -9605,7 +9605,7 @@ dfgEntry {
 }
 "
       },
-    "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol" : {
+    "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  symbol: String\n  transform: Xfo\n  leaf: Integer\n"
@@ -9947,7 +9947,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.Compounds.DegreesToRadians" : {
+    "ThirdParty.SimpLSystem.Compounds.DegreesToRadians" : {
       "objectType" : "Graph",
       "metadata" : {
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
@@ -10130,7 +10130,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLSystem.SimpLSystem" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.SimpLSystem" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  safety: Size\n  result: SimpLSystem\n"
@@ -10180,7 +10180,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLRule.SimpLRule" : {
+    "ThirdParty.SimpLSystem.SimpLRule.SimpLRule" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  input: String\n  output: String\n  result: SimpLRule\n"
@@ -10247,7 +10247,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLSystem.Evolve" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.Evolve" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Size\n  result: String\n"
@@ -10290,7 +10290,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLInterpreter.AddSymbol" : {
+    "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  symbol: String\n  transform: Xfo\n  leaf: Integer\n"
@@ -10340,7 +10340,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.SimpLInterpreter.AddBranchSymbol" : {
+    "ThirdParty.SimpLSystem.SimpLInterpreter.AddBranchSymbol" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  pushSymbol: String\n  popSymbol: String\n  pushTransform: Xfo\n  popTransform: Xfo\n"
@@ -10523,7 +10523,7 @@ dfgEntry {
 }
 "
       },
-    "SimpLSystem.Compounds.SimpLInterpreter.AddStandardSymbols" : {
+    "ThirdParty.SimpLSystem.Compounds.SimpLInterpreter.AddStandardSymbols" : {
       "objectType" : "Graph",
       "metadata" : {
         "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
@@ -11049,7 +11049,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11132,7 +11132,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11215,7 +11215,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11451,7 +11451,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11534,7 +11534,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11712,7 +11712,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11795,7 +11795,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -11973,7 +11973,7 @@ dfgEntry {
               "name" : "leaf"
               }
             ],
-          "executable" : "ThirdParty.Exts.SimpLSystem.SimpLInterpreter.AddSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol",
           "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196"
           },
         {
@@ -12093,7 +12093,7 @@ dfgEntry {
               "name" : "degrees"
               }
             ],
-          "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+          "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
           "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
           },
         {
@@ -12114,7 +12114,7 @@ dfgEntry {
               "name" : "degrees"
               }
             ],
-          "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+          "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
           "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
           },
         {
@@ -12138,7 +12138,7 @@ dfgEntry {
               "name" : "degrees"
               }
             ],
-          "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+          "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
           "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
           },
         {
@@ -12159,7 +12159,7 @@ dfgEntry {
               "name" : "degrees"
               }
             ],
-          "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+          "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
           "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
           },
         {
@@ -12195,7 +12195,7 @@ dfgEntry {
               "name" : "popTransform"
               }
             ],
-          "executable" : "SimpLSystem.SimpLInterpreter.AddBranchSymbol",
+          "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.AddBranchSymbol",
           "presetGUID" : "9BD10CDF36BEECD0CCE01C1C55334F4A"
           }
         ],
@@ -12388,7 +12388,7 @@ dfgEntry {
           ]
         }
       },
-    "SimpLSystem.SimpLSystem.PartialEvolve" : {
+    "ThirdParty.SimpLSystem.SimpLSystem.PartialEvolve" : {
       "objectType" : "Func",
       "metadata" : {
         "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Scalar\n  result: String\n"

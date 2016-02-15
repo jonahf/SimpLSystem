@@ -5,6 +5,6 @@
   ],
   "dfgPresets": {
     "dir": "DFG",
-    "presetPath": "SimpLSystem"
+    "presetPath": "ThirdParty.SimpLSystem"
   }
 }
