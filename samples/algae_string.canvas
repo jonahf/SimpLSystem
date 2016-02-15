@@ -1,0 +1,657 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9999516010284424,\n    \"y\" : 0.01764755509793758,\n    \"z\" : -0.008309726603329182,\n    \"t\" : 4.961779594421387\n    },\n  \"row1\" : {\n    \"x\" : -4.163602511653153e-07,\n    \"y\" : 0.4259463250637054,\n    \"z\" : 0.9048817753791809,\n    \"t\" : 18.44480514526367\n    },\n  \"row2\" : {\n    \"x\" : 0.01950884610414505,\n    \"y\" : -0.9045395851135254,\n    \"z\" : 0.4259453117847443,\n    \"t\" : 12.3049373626709\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "timeline_start" : "1",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7622793912887573\n  }",
+    "timeline_loopMode" : "1",
+    "timeline_simMode" : "0",
+    "camera_focalDistance" : "24.27158927917481",
+    "timeline_current" : "1",
+    "timeline_timerInterval" : "1",
+    "timeline_end" : "50",
+    "uiGraphPan" : "{\n  \"x\" : -466.9468688964844,\n  \"y\" : 451.81396484375\n  }"
+    },
+  "title" : "",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "debugHandle",
+      "execPortType" : "Out",
+      "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {},
+      "nodePortType" : "In",
+      "name" : "value",
+      "execPortType" : "Out",
+      "typeSpec" : "String"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1394.7294921875,\"y\":-328.7282104492188}"
+        },
+      "name" : "SimpLSystem_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "A"
+            },
+          "name" : "start"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "rules"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "safety"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "SimpLSystem.SimpLSystem.SimpLSystem",
+      "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":920.296630859375,\"y\":-300.3108825683594}"
+        },
+      "name" : "SimpLRule_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "A"
+            },
+          "name" : "input"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "AB"
+            },
+          "name" : "output"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+      "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1082.427368164063,\"y\":-352.9903259277344}"
+        },
+      "name" : "Push_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "array"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "element"
+          }
+        ],
+      "executable" : "Fabric.Core.Array.Push",
+      "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2085.882568359375,\"y\":-357.431884765625}"
+        },
+      "name" : "LabeledReport_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "L system String"
+            },
+          "name" : "label"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Compounds.Debug.LabeledReport",
+      "presetGUID" : "76C3D7E18AFAF34E2A6ECFB6D79DA3CA"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1641.561767578125,\"y\":-411.9453735351563}"
+        },
+      "name" : "Evolve_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Size" : 16
+            },
+          "name" : "iterations"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "SimpLSystem.SimpLSystem.Evolve",
+      "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1907.818115234375,\"y\":-274.4873352050781}"
+        },
+      "name" : "Cache_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1629.97998046875,\"y\":-248.404052734375}"
+        },
+      "name" : "PartialEvolve_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 4
+            },
+          "name" : "iterations"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "SimpLSystem.SimpLSystem.PartialEvolve",
+      "presetGUID" : "7459A954CE009BD3F2135D614230179C"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1229.441650390625,\"y\":-299.3567810058594}"
+        },
+      "name" : "Push_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "array"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "element"
+          }
+        ],
+      "executable" : "Fabric.Core.Array.Push",
+      "presetGUID" : "572880BF96ACC34D6987BE3333715F52"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1092.050537109375,\"y\":-273.4943237304688}"
+        },
+      "name" : "SimpLRule_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "B"
+            },
+          "name" : "input"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "A"
+            },
+          "name" : "output"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "SimpLSystem.SimpLRule.SimpLRule",
+      "presetGUID" : "7420B84176D3136AE6E5838798C5349D"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1902.1201171875,\"y\":-365.7636413574219}"
+        },
+      "name" : "ToString_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "string"
+          }
+        ],
+      "executable" : "Fabric.Core.Func.ToString",
+      "presetGUID" : "7BA90EA327E381FB13CC71C5664325D6"
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Rules definition",
+        "uiGraphPos" : "{\"x\":875.60498046875,\"y\":-480.4644470214844}",
+        "uiGraphSize" : "{\"w\":682.7628173828125,\"h\":364.2858276367188}"
+        },
+      "name" : "backDrop",
+      "ports" : []
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Evolve System",
+        "uiGraphPos" : "{\"x\":1581.382690429688,\"y\":-481.7763977050781}",
+        "uiGraphSize" : "{\"w\":244.60302734375,\"h\":361.662109375}"
+        },
+      "name" : "backDrop_2",
+      "ports" : []
+      },
+    {
+      "objectType" : "User",
+      "metadata" : {
+        "uiTitle" : "Report results (see log messages)",
+        "uiGraphPos" : "{\"x\":1843.753540039063,\"y\":-480.4645080566406}",
+        "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+        "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+        "uiGraphSize" : "{\"w\":458.4355163574219,\"h\":366.9096374511719}"
+        },
+      "name" : "backDrop_3",
+      "ports" : []
+      }
+    ],
+  "connections" : {
+    "SimpLSystem_1.result" : [
+      "Evolve_1.this",
+      "PartialEvolve_2.this"
+      ],
+    "SimpLRule_2.result" : [
+      "Push_2.element"
+      ],
+    "Push_2.array" : [
+      "Push_3.array"
+      ],
+    "LabeledReport_1.value" : [
+      "value"
+      ],
+    "Cache_1.value" : [
+      "LabeledReport_1.value"
+      ],
+    "PartialEvolve_2.iterations" : [
+      "ToString_1.value"
+      ],
+    "PartialEvolve_2.result" : [
+      "Cache_1.value"
+      ],
+    "Push_3.array" : [
+      "SimpLSystem_1.rules"
+      ],
+    "SimpLRule_3.result" : [
+      "Push_3.element"
+      ],
+    "ToString_1.string" : [
+      "LabeledReport_1.label"
+      ]
+    },
+  "requiredPresets" : {
+    "SimpLSystem.SimpLSystem.SimpLSystem" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  start: String\n  rules: SimpLRule[]\n  safety: Size\n  result: SimpLSystem\n"
+        },
+      "title" : "SimpLSystem",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "start",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "rules",
+          "execPortType" : "In",
+          "typeSpec" : "SimpLRule[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Size" : 5000000
+            },
+          "name" : "safety",
+          "execPortType" : "In",
+          "typeSpec" : "Size"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "SimpLSystem"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "E269A0ADD0DBFEE3FD2A3B95D4096F0C",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLSystem(start, rules, safety);
+}
+"
+      },
+    "SimpLSystem.SimpLRule.SimpLRule" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  input: String\n  output: String\n  result: SimpLRule\n"
+        },
+      "title" : "SimpLRule",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "input",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "output",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "SimpLRule"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "7420B84176D3136AE6E5838798C5349D",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLRule(input, output);
+}
+"
+      },
+    "Fabric.Core.Array.Push" : {
+      "objectType" : "Func",
+      "title" : "Push[]",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "array",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE$[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "element",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "572880BF96ACC34D6987BE3333715F52",
+      "code" : "
+dfgEntry {
+	array.push(element);
+}
+"
+      },
+    "Fabric.Compounds.Debug.LabeledReport" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "LabeledReport",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "label",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "76C3D7E18AFAF34E2A6ECFB6D79DA3CA",
+      "code" : "dfgEntry {
+  report( label + \": \" + value );
+}
+"
+      },
+    "SimpLSystem.SimpLSystem.Evolve" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Size\n  result: String\n"
+        },
+      "title" : "Evolve",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "SimpLSystem"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Size" : 3
+            },
+          "name" : "iterations",
+          "execPortType" : "In",
+          "typeSpec" : "Size"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.evolve(iterations);
+}
+"
+      },
+    "Fabric.Core.Data.Cache" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "Cache",
+      "cacheRule" : "always",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "SimpLSystem.SimpLSystem.PartialEvolve" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: SimpLSystem\n  iterations: Scalar\n  result: String\n"
+        },
+      "title" : "PartialEvolve",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "SimpLSystem"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 3.5
+            },
+          "name" : "iterations",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "7459A954CE009BD3F2135D614230179C",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.partialEvolve(iterations);
+}
+"
+      },
+    "Fabric.Core.Func.ToString" : {
+      "objectType" : "Func",
+      "title" : "ToString",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "string",
+          "execPortType" : "Out",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "7BA90EA327E381FB13CC71C5664325D6",
+      "code" : "dfgEntry {
+  string = String(value);
+}
+"
+      }
+    },
+  "args" : [
+    {
+      "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "String",
+      "value" : null
+      }
+    ]
+  }
