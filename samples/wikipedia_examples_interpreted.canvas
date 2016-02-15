@@ -1,16 +1,16 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.3367407619953156,\n    \"y\" : 0.4752798080444336,\n    \"z\" : 0.8129730820655823,\n    \"t\" : 29.17714500427246\n    },\n  \"row1\" : {\n    \"x\" : 1.99682972379378e-06,\n    \"y\" : 0.863137423992157,\n    \"z\" : -0.5049068927764893,\n    \"t\" : -11.66978073120117\n    },\n  \"row2\" : {\n    \"x\" : -0.9416368007659912,\n    \"y\" : 0.1699677109718323,\n    \"z\" : 0.290727972984314,\n    \"t\" : 8.295112609863281\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.8781304359436035,\n    \"y\" : 0.3725849092006683,\n    \"z\" : 0.3027279675006867,\n    \"t\" : 16.21753883361816\n    },\n  \"row1\" : {\n    \"x\" : 2.356541472181561e-06,\n    \"y\" : 0.63015216588974,\n    \"z\" : -0.7772156596183777,\n    \"t\" : -5.232431888580322\n    },\n  \"row2\" : {\n    \"x\" : -0.4803344309329987,\n    \"y\" : -0.6811434626579285,\n    \"z\" : -0.5534403920173645,\n    \"t\" : -5.464702606201172\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.7083730101585388\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.9449254870414734\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "25.6930103302002",
+    "camera_focalDistance" : "8.293212890625",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -138.0577312066848,\n  \"y\" : -121.3092174585374\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -492.691650390625,\n  \"y\" : -191.6790161132813\n  }"
     },
   "title" : "",
   "ports" : [
@@ -27,7 +27,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1538.165161132813,\"y\":256.7361145019531}"
+        "uiGraphPos" : "{\"x\":1578.78076171875,\"y\":398.6536865234375}"
         },
       "name" : "DrawPoints_1",
       "ports" : [
@@ -74,7 +74,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1245.294189453125,\"y\":-96.02754211425781}"
+        "uiGraphPos" : "{\"x\":1239.647338867188,\"y\":-156.7300109863281}"
         },
       "name" : "WalkKochCurve",
       "ports" : [
@@ -165,7 +165,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 0.07000000029802322
@@ -176,7 +175,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Float32" : 0.1400000005960465
@@ -550,7 +548,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":853.416015625,\"y\":-82.77994537353516}"
+        "uiGraphPos" : "{\"x\":847.769287109375,\"y\":-143.4824066162109}"
         },
       "name" : "KochCurveLSystem",
       "ports" : [
@@ -904,7 +902,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1198.239379882813,\"y\":21.88167953491211}"
+        "uiGraphPos" : "{\"x\":1242.001953125,\"y\":20.46999359130859}"
         },
       "name" : "WalkPythagorasTree",
       "ports" : [
@@ -959,7 +957,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1.289999961853027
+            "Scalar" : 1.340000033378601
             },
           "name" : "scaleOnBranch"
           }
@@ -970,7 +968,7 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 0.9733426570892334\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -725.6513671875,\n  \"y\" : -271.3403930664063\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -968.6513671875,\n  \"y\" : -355.3403930664063\n  }"
           },
         "title" : "graph",
         "ports" : [
@@ -1635,7 +1633,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1808.870971679688,\"y\":570.5498046875}"
+              "uiGraphPos" : "{\"x\":1802.706787109375,\"y\":596.2345581054688}"
               },
             "name" : "Inverse_2",
             "ports" : [
@@ -1933,7 +1931,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1262.62841796875,\"y\":239.6651153564453}"
+        "uiGraphPos" : "{\"x\":1259.804931640625,\"y\":246.7236022949219}"
         },
       "name" : "WalkSirpinksi",
       "ports" : [
@@ -2595,7 +2593,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1197.000244140625,\"y\":395.4533996582031}"
+        "uiGraphPos" : "{\"x\":1230.881103515625,\"y\":396.8650817871094}"
         },
       "name" : "WalkDragonCurve",
       "ports" : [
@@ -2626,7 +2624,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 0.05000000074505806
+            "Float32" : 0
             },
           "name" : "twistDegrees"
           },
@@ -2634,9 +2632,17 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 81.76999664306641
+            "Float32" : 80.72000122070313
             },
           "name" : "turnDegrees"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 9.999999747378752e-05
+            },
+          "name" : "scaleDifference"
           }
         ],
       "definition" : {
@@ -2645,7 +2651,7 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 0.9544172883033752\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -461.8409423828125,\n  \"y\" : 256.2015380859375\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -514.8409423828125,\n  \"y\" : 264.2015380859375\n  }"
           },
         "title" : "graph",
         "ports" : [
@@ -2703,6 +2709,17 @@
             "name" : "turnDegrees",
             "execPortType" : "In",
             "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Scalar" : 9.999999747378752e-05
+              },
+            "name" : "scaleDifference",
+            "execPortType" : "In",
+            "typeSpec" : "Scalar"
             }
           ],
         "extDeps" : {},
@@ -2891,7 +2908,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1190.088134765625,\"y\":-209.7631225585938}",
+              "uiGraphPos" : "{\"x\":1207.899536132813,\"y\":-203.4765625}",
               "uiCollapsedState" : "1"
               },
             "name" : "Xfo_1",
@@ -2923,7 +2940,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":757.3645629882813,\"y\":-212.9064025878906}",
+              "uiGraphPos" : "{\"x\":654.6845703125,\"y\":-203.4765625}",
               "uiCollapsedState" : "1"
               },
             "name" : "DegreesToRadians_1",
@@ -2948,7 +2965,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":933.3873291015625,\"y\":-209.7631225585938}",
+              "uiGraphPos" : "{\"x\":884.142822265625,\"y\":-167.8527221679688}",
               "uiCollapsedState" : "1"
               },
             "name" : "Euler_1",
@@ -2961,6 +2978,9 @@
               {
                 "objectType" : "InstPort",
                 "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0
+                  },
                 "name" : "y"
                 },
               {
@@ -3003,6 +3023,198 @@
               ],
             "executable" : "Fabric.Exts.Math.Quat.SetFromEuler",
             "presetGUID" : "FCDF5BF056AE4ED6E25A3268BAC86C77"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1123.03076171875,\"y\":-50.50363159179688}",
+              "uiCollapsedState" : "1"
+              },
+            "name" : "Vec3_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 1
+                  },
+                "name" : "x"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 1.000100016593933
+                  },
+                "name" : "y"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 1
+                  },
+                "name" : "z"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+            "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":765.7454223632813,\"y\":100.373779296875}",
+              "uiCollapsedState" : "0"
+              },
+            "name" : "Scalar_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 9.999999747378752e-05
+                  },
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Scalar",
+            "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1244.572509765625,\"y\":-51.55138778686523}",
+              "uiCollapsedState" : "1"
+              },
+            "name" : "Xfo_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "ori"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "tr"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "sc"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Exts.Math.Xfo.Xfo",
+            "presetGUID" : "A0F6CD63A2069530481F214C62A069AA"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":644.2054443359375,\"y\":-74.60208129882813}",
+              "uiCollapsedState" : "0"
+              },
+            "name" : "DegreesToRadians_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "radians"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : -0.3799999952316284
+                  },
+                "name" : "degrees"
+                }
+              ],
+            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":970.0575561523438,\"y\":22.83954620361328}"
+              },
+            "name" : "Add_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "lhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 9.999999747378752e-05
+                  },
+                "name" : "rhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Math.Add",
+            "presetGUID" : "8146B3E77857E24CAE33F8B5284585E7"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":778.318603515625,\"y\":7.123149871826172}"
+              },
+            "name" : "Scalar_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 1
+                  },
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Scalar",
+            "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":963.772216796875,\"y\":-79.84090423583984}"
+              },
+            "name" : "Sub_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "lhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "rhs"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Math.Sub",
+            "presetGUID" : "F9754B19F43BC017056B8BA291E7B8B4"
             }
           ],
         "connections" : {
@@ -3017,6 +3229,9 @@
             ],
           "turnDegrees" : [
             "AddStandardSymbols_1.turnDegrees"
+            ],
+          "scaleDifference" : [
+            "Scalar_1.value"
             ],
           "SimpLInterpreter_1.result" : [
             "AddStandardSymbols_1.this"
@@ -3033,14 +3248,35 @@
           "Xfo_1.result" : [
             "AddStandardSymbols_1.forwardXfo"
             ],
-          "DegreesToRadians_1.radians" : [
-            "Euler_1.z"
-            ],
           "Euler_1.result" : [
             "SetFromEuler_1.e"
             ],
           "SetFromEuler_1.result" : [
             "Xfo_1.ori"
+            ],
+          "Vec3_1.result" : [
+            "Xfo_2.sc"
+            ],
+          "Scalar_1.value" : [
+            "Sub_1.rhs",
+            "Add_1.rhs"
+            ],
+          "Xfo_2.result" : [
+            "AddStandardSymbols_1.rightXfo"
+            ],
+          "DegreesToRadians_2.radians" : [
+            "Euler_1.z"
+            ],
+          "Add_1.result" : [
+            "Vec3_1.y"
+            ],
+          "Scalar_2.value" : [
+            "Add_1.lhs",
+            "Sub_1.lhs"
+            ],
+          "Sub_1.result" : [
+            "Vec3_1.x",
+            "Vec3_1.z"
             ]
           }
         }
@@ -3269,7 +3505,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1222.023193359375,\"y\":563.9658813476563}"
+        "uiGraphPos" : "{\"x\":1291.869506835938,\"y\":628.521484375}"
         },
       "name" : "WalkPlant",
       "ports" : [
@@ -3300,7 +3536,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 0.9900000095367432
+            "Float32" : 1.200000047683716
             },
           "name" : "twistOnWalk"
           },
@@ -3308,7 +3544,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 30.89999961853027
+            "Float32" : 26.5
             },
           "name" : "turnDegrees"
           },
@@ -3316,7 +3552,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1.100000023841858
+            "Scalar" : 1.009999990463257
             },
           "name" : "scaleOnTurn"
           }
@@ -3327,7 +3563,7 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 0.6883881688117981\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -723.0780639648438,\n  \"y\" : 44.0330810546875\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -596.0780639648438,\n  \"y\" : 112.0330810546875\n  }"
           },
         "title" : "graph",
         "ports" : [
@@ -3402,7 +3638,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1368.693969726563,\"y\":-37.36358261108398}"
+              "uiGraphPos" : "{\"x\":1368.693969726563,\"y\":-33.00557708740234}"
               },
             "name" : "SimpLInterpreter_1",
             "ports" : [
@@ -3726,7 +3962,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1359.79638671875,\"y\":63.84147644042969}"
+              "uiGraphPos" : "{\"x\":1371.417602539063,\"y\":18.80875396728516}"
               },
             "name" : "DegreesToRadians_1",
             "ports" : [
@@ -3798,6 +4034,54 @@
               ],
             "executable" : "Fabric.Exts.Math.Quat.SetFromEuler",
             "presetGUID" : "FCDF5BF056AE4ED6E25A3268BAC86C77"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1362.716796875,\"y\":181.5355072021484}"
+              },
+            "name" : "DegreesToRadians_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "radians"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : -0.2199999988079071
+                  },
+                "name" : "degrees"
+                }
+              ],
+            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\n  \"x\" : 1494.955444335938,\n  \"y\" : 206.3170166015625\n  }"
+              },
+            "name" : "DegreesToRadians_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "radians"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Float32" : -0.640999972820282
+                  },
+                "name" : "degrees"
+                }
+              ],
+            "executable" : "SimpLSystem.Compounds.DegreesToRadians",
+            "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             }
           ],
         "connections" : {
@@ -3849,6 +4133,9 @@
             ],
           "SetFromEuler_1.result" : [
             "Xfo_1.ori"
+            ],
+          "DegreesToRadians_2.radians" : [
+            "Euler_1.z"
             ]
           }
         }
@@ -3856,7 +4143,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1064.4833984375,\"y\":-75.60643768310547}"
+        "uiGraphPos" : "{\"x\":1058.836547851563,\"y\":-136.3088989257813}"
         },
       "name" : "PartialEvolve_1",
       "ports" : [
@@ -3898,7 +4185,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 8.5
+            "Float32" : 8.819999694824219
             },
           "name" : "iterations"
           },
@@ -7311,6 +7598,95 @@ dfgEntry {
 
 dfgEntry {
   result = this.multiplyScalar(other);
+}
+"
+      },
+    "Fabric.Core.Constants.Scalar" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiAlwaysShowDaisyChainPorts" : "true"
+        },
+      "title" : "Scalar",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Core.Math.Add" : {
+      "objectType" : "Func",
+      "title" : "Add",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "lhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "rhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "8146B3E77857E24CAE33F8B5284585E7",
+      "code" : "
+dfgEntry {
+	result = lhs + rhs;
+}
+"
+      },
+    "Fabric.Core.Math.Sub" : {
+      "objectType" : "Func",
+      "title" : "Sub",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "lhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "rhs",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "F9754B19F43BC017056B8BA291E7B8B4",
+      "code" : "
+dfgEntry {
+	result = lhs - rhs;
 }
 "
       },
