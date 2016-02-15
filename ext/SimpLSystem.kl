@@ -47,7 +47,7 @@ function String SimpLSystem.evolve!(Size iterations) {
 /// \dfgPresetDefault iterations 3.5
 function String SimpLSystem.partialEvolve!(Scalar iterations) {
   this.evolved = this.start;
-  Size evolutions = floor(iterations);
+  Size evolutions = Math_max(0.0, floor(iterations));
   for (Size i=0; i<evolutions+1; i++) {
     if (i == evolutions)
       this.evolveOnce(iterations - evolutions);
