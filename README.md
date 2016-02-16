@@ -8,9 +8,9 @@ This is a personal project not affiliated with Psyop, but I'd like to thank Psyo
 
 ### Info
 
-This is a Simple Fabric Engine L system. 
-
 See Fabric Engine forum thread: http://forums.fabricengine.com/discussion/260/simplsystem-l-system-collaborative-project
+
+The goal of this project is to to explore variations and applications of L-Systems, collaboratively with the Fabric Engine community. 
 
 ### Release Notes
 
