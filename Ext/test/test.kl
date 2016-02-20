@@ -19,7 +19,7 @@ inline Microtimer.report!() {
 inline Microtimer.report!(String msg) {
   this.reported = true;
   Scalar time  = getSecondsBetweenTicks(this.start, getCurrentTicks());
-  Integer microseconds = Integer(time * 10000000);
+  Integer microseconds = Integer(time * 1000000);
   report(this.prefix+": "+microseconds+" us. " + msg);
   this.start = getCurrentTicks();
 }
