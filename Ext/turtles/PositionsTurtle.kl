@@ -1,0 +1,62 @@
+
+
+object PositionsTurtle : SimpLTurtle {
+  private Mat44 lastMat44;
+  private Vec3 positions[];
+  private Xfo leaves[];
+  private Size nbPoints;
+  private Box3 bounds;
+  private Boolean normalizeScale;
+};
+
+
+function PositionsTurtle(Boolean normalizeScale) {
+  this.normalizeScale = normalizeScale;
+}
+
+function PositionsTurtle.walk!(io SimpLInterpreter interpreter) {
+  SimpLTurtle pturtle = this;
+  interpreter.turtleWalker(pturtle);
+}
+
+/// \dfgPresetDefault normalizeScale true;
+function Vec3[] PositionsTurtle.getResult(out Xfo leaves[]) {
+  leaves = this.leaves;
+  return this.positions;
+}
+/// \internal
+function PositionsTurtle.setup!(Ref<SimpLInterpreter> interpreter, Size length) {
+  this.positions.resize(length);
+  this.bounds = Box3();
+  this.bounds.setEmpty();
+}
+/// \internal
+function Boolean PositionsTurtle.step!(Mat44 mat44, Integer branch, Integer leaf, Size index) {
+  if (leaf != 0)
+    this.leaves.push(Xfo(mat44));
+  if (mat44 == this.lastMat44 && index != 0) // no change and not first.  
+    return true;
+  Vec3 pos =  mat44.multiplyVector3(Vec3());
+  this.positions[this.nbPoints] = pos;
+  this.bounds.merge(pos);
+  this.nbPoints++;
+  this.lastMat44 = mat44;
+  return true;
+}
+/// \internal
+function PositionsTurtle.finish!() {
+  if (this.normalizeScale) {
+    Vec3 scale(Math_max(this.bounds.min.x, this.bounds.max.x),
+               Math_max(this.bounds.min.y, this.bounds.max.y),
+               Math_max(this.bounds.min.z, this.bounds.max.z));
+    Scalar factor = Math_max( Math_max(scale.x, scale.y), scale.z);
+    Scalar divisor = Math_badDivisor(factor) ? 1.0 : 1.0 / factor;
+    for (Size i; i<this.positions.size(); i++)
+      this.positions[i] *= divisor;
+    for (Size i; i<this.leaves.size(); i++) {
+      this.leaves[i].tr *= divisor;
+      this.leaves[i].sc *= divisor; 
+    }
+  }
+  this.positions.resize(this.nbPoints);
+}

@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: LinesTurtle\n  interpreter: SimpLInterpreter\n"
+    },
+  "title" : "Walk",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "LinesTurtle"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "interpreter",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLInterpreter"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "5724CE0B2B3592342C57CC507194C468",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.walk(interpreter);
+}
+"
+  }

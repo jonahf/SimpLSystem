@@ -1,7 +1,11 @@
 {
   "version": "0.0.1",
   "code": [
-    "SimpLSystem.kl"
+    "SimpLSystem.kl",
+    "SimpLInterpreter.kl",
+    "turtles/SimpLTurtle.kl",
+    "turtles/PositionsTurtle.kl",
+    "turtles/LinesTurtle.kl"
   ],
   "dfgPresets": {
     "dir": "DFG",

@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  result: PositionsTurtle\n"
+    },
+  "title" : "PositionsTurtle",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "normalizeScale",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "PositionsTurtle"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "BED01FD2B5CFBA8D1CBD50AD264D7AA5",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = PositionsTurtle(normalizeScale);
+}
+"
+  }

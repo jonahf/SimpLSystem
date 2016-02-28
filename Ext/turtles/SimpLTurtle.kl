@@ -1,0 +1,33 @@
+
+interface SimpLTurtle {
+  /// \dfgPresetOmit
+  setup!(Ref<SimpLInterpreter> interpreter, Size length);
+  /// \dfgPresetOmit
+  Boolean step!(Mat44 mat44, Integer branch, Integer leaf, Size index);
+  /// \dfgPresetOmit
+  finish!();
+};
+
+
+
+/// \internal
+function SimpLInterpreter.turtleWalker!(io SimpLTurtle turtle) {
+  String lstring = this.lSystem.getString();
+  SimpLxform rules[String] = this.getCleanRules();
+
+  turtle.setup(this, lstring.length());
+  Vec3 points[]; points.resize(lstring.length());
+  for (Size i=0; i<lstring.length(); i++) {
+    SimpLxform rule = rules[lstring[i]];
+
+    if (rule.branch == 1)
+      this.stack.push(this.transform);
+    else if (rule.branch == -1)
+      this.transform = this.stack.pop();
+    this.transform =  this.transform * rule.transform;
+
+    turtle.step(this.transform, rule.branch, rule.leaf, i);
+  }
+  turtle.finish();
+}
+

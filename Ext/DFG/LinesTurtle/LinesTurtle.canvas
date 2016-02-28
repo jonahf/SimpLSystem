@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  result: LinesTurtle\n"
+    },
+  "title" : "LinesTurtle",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "normalizeScale",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "LinesTurtle"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "34DB74B4AD48CCA97D80AC04B16A094B",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = LinesTurtle(normalizeScale);
+}
+"
+  }

@@ -1,16 +1,16 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.8781304359436035,\n    \"y\" : 0.3725849092006683,\n    \"z\" : 0.3027279675006867,\n    \"t\" : 16.21753883361816\n    },\n  \"row1\" : {\n    \"x\" : 2.356541472181561e-06,\n    \"y\" : 0.63015216588974,\n    \"z\" : -0.7772156596183777,\n    \"t\" : -5.232431888580322\n    },\n  \"row2\" : {\n    \"x\" : -0.4803344309329987,\n    \"y\" : -0.6811434626579285,\n    \"z\" : -0.5534403920173645,\n    \"t\" : -5.464702606201172\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8647140860557556,\n    \"y\" : -0.1541396528482437,\n    \"z\" : 0.4800305962562561,\n    \"t\" : 14.47993469238281\n    },\n  \"row1\" : {\n    \"x\" : 1.372229917251389e-06,\n    \"y\" : 0.9519572257995606,\n    \"z\" : 0.3063543140888214,\n    \"t\" : 20.76283645629883\n    },\n  \"row2\" : {\n    \"x\" : -0.504183292388916,\n    \"y\" : -0.2643590569496155,\n    \"z\" : 0.8232911825180054,\n    \"t\" : 35.73079299926758\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.9449254870414734\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7984080314636231\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "8.293212890625",
+    "camera_focalDistance" : "45.8570671081543",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -492.691650390625,\n  \"y\" : -191.6790161132813\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -265.8003540039063,\n  \"y\" : 75.18486022949219\n  }"
     },
   "title" : "",
   "ports" : [
@@ -27,7 +27,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1578.78076171875,\"y\":398.6536865234375}"
+        "uiGraphPos" : "{\"x\":1975.869384765625,\"y\":405.1007080078125}"
         },
       "name" : "DrawPoints_1",
       "ports" : [
@@ -80,11 +80,6 @@
       "ports" : [
         {
           "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          },
-        {
-          "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "this"
           },
@@ -113,6 +108,11 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "zDegreesOnWalk"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -125,12 +125,6 @@
           },
         "title" : "graph",
         "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out"
-            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -182,6 +176,14 @@
             "name" : "zDegreesOnWalk",
             "execPortType" : "In",
             "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -210,33 +212,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":2234.0,\"y\":329.0}"
-              },
-            "name" : "WalkTheTurtle_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "leaves"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "result"
-                }
-              ],
-            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
-            "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
-              "uiGraphPos" : "{\"x\":1800.728759765625,\"y\":256.4040222167969}",
+              "uiGraphPos" : "{\"x\":1810.305908203125,\"y\":256.4040222167969}",
               "uiCollapsedState" : "0"
               },
             "name" : "AddStandardSymbols_3",
@@ -521,11 +497,8 @@
           "SimpLInterpreter_1.result" : [
             "AddStandardSymbols_3.this"
             ],
-          "WalkTheTurtle_1.result" : [
-            "result"
-            ],
           "AddStandardSymbols_3.this" : [
-            "WalkTheTurtle_1.this"
+            "simpLInterpreter"
             ],
           "Xfo_1.result" : [
             "AddStandardSymbols_3.forwardXfo"
@@ -681,7 +654,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":850.261474609375,\"y\":76.30964660644531}"
+        "uiGraphPos" : "{\"x\":810.2561645507813,\"y\":72.43818664550781}"
         },
       "name" : "PythagorasTree",
       "ports" : [
@@ -873,7 +846,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1050.080322265625,\"y\":65.33447265625}"
+        "uiGraphPos" : "{\"x\":1010.075317382813,\"y\":61.4630126953125}"
         },
       "name" : "Evolve_2",
       "ports" : [
@@ -902,20 +875,10 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1242.001953125,\"y\":20.46999359130859}"
+        "uiGraphPos" : "{\"x\":1201.997192382813,\"y\":16.59852027893066}"
         },
       "name" : "WalkPythagorasTree",
       "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "leaves"
-          },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
@@ -960,6 +923,11 @@
             "Scalar" : 1.340000033378601
             },
           "name" : "scaleOnBranch"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -968,23 +936,10 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 0.9733426570892334\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -968.6513671875,\n  \"y\" : -355.3403930664063\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -1060.6513671875,\n  \"y\" : -207.3403930664063\n  }"
           },
         "title" : "graph",
         "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "leaves",
-            "execPortType" : "Out",
-            "typeSpec" : "Xfo[]"
-            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -1040,6 +995,14 @@
             "name" : "scaleOnBranch",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -1185,32 +1148,6 @@
               ],
             "executable" : "Fabric.Exts.Math.Xfo.Xfo",
             "presetGUID" : "A0F6CD63A2069530481F214C62A069AA"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
-              "uiGraphPos" : "{\"x\":2281.582763671875,\"y\":374.9828186035156}"
-              },
-            "name" : "WalkTheTurtle_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "leaves"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "result"
-                }
-              ],
-            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
-            "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
             "objectType" : "Inst",
@@ -1684,17 +1621,11 @@
           "Xfo_4.result" : [
             "AddBranchSymbol_1.pushTransform"
             ],
-          "WalkTheTurtle_1.leaves" : [
-            "leaves"
-            ],
-          "WalkTheTurtle_1.result" : [
-            "result"
-            ],
           "AddSymbol_4.this" : [
             "AddBranchSymbol_1.this"
             ],
           "AddBranchSymbol_1.this" : [
-            "WalkTheTurtle_1.this"
+            "simpLInterpreter"
             ],
           "SetFromEuler_1.result" : [
             "Xfo_4.ori",
@@ -1739,7 +1670,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":935.8758544921875,\"y\":250.2389373779297}"
+        "uiGraphPos" : "{\"x\":889.4181518554688,\"y\":250.2389373779297}"
         },
       "name" : "Sirpinski",
       "ports" : [
@@ -1931,20 +1862,10 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1259.804931640625,\"y\":246.7236022949219}"
+        "uiGraphPos" : "{\"x\":1210.1728515625,\"y\":246.7236022949219}"
         },
       "name" : "WalkSirpinksi",
       "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "leaves"
-          },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
@@ -1965,6 +1886,11 @@
             "Float32" : 53
             },
           "name" : "turnDegrees"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -1977,19 +1903,6 @@
           },
         "title" : "graph",
         "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "leaves",
-            "execPortType" : "Out",
-            "typeSpec" : "Xfo[]"
-            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -2018,6 +1931,14 @@
             "name" : "turnDegrees",
             "execPortType" : "In",
             "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -2042,32 +1963,6 @@
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
-              "uiGraphPos" : "{\"x\":2220.14697265625,\"y\":197.1512756347656}"
-              },
-            "name" : "WalkTheTurtle_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "leaves"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "result"
-                }
-              ],
-            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
-            "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
             "objectType" : "Inst",
@@ -2344,14 +2239,8 @@
           "SimpLInterpreter_1.result" : [
             "AddSymbol_1.this"
             ],
-          "WalkTheTurtle_1.leaves" : [
-            "leaves"
-            ],
-          "WalkTheTurtle_1.result" : [
-            "result"
-            ],
           "AddStandardSymbols_1.this" : [
-            "WalkTheTurtle_1.this"
+            "simpLInterpreter"
             ],
           "AddSymbol_1.this" : [
             "AddSymbol_2.this"
@@ -2372,7 +2261,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1083.704711914063,\"y\":260.1082153320313}"
+        "uiGraphPos" : "{\"x\":1037.247314453125,\"y\":260.1082153320313}"
         },
       "name" : "Evolve_3",
       "ports" : [
@@ -2401,7 +2290,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":894.2492065429688,\"y\":408.3499145507813}"
+        "uiGraphPos" : "{\"x\":840.91943359375,\"y\":437.9552917480469}"
         },
       "name" : "DragonCurve",
       "ports" : [
@@ -2593,20 +2482,10 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1230.881103515625,\"y\":396.8650817871094}"
+        "uiGraphPos" : "{\"x\":1164.646850585938,\"y\":405.8225708007813}"
         },
       "name" : "WalkDragonCurve",
       "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "leaves"
-          },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
@@ -2643,6 +2522,11 @@
             "Scalar" : 9.999999747378752e-05
             },
           "name" : "scaleDifference"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -2655,19 +2539,6 @@
           },
         "title" : "graph",
         "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "leaves",
-            "execPortType" : "Out",
-            "typeSpec" : "Xfo[]"
-            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -2712,7 +2583,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Scalar" : 9.999999747378752e-05
@@ -2720,6 +2590,14 @@
             "name" : "scaleDifference",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -2744,32 +2622,6 @@
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
-              "uiGraphPos" : "{\"x\":2014.52294921875,\"y\":-49.89359283447266}"
-              },
-            "name" : "WalkTheTurtle_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "leaves"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "result"
-                }
-              ],
-            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
-            "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
             "objectType" : "Inst",
@@ -3236,14 +3088,8 @@
           "SimpLInterpreter_1.result" : [
             "AddStandardSymbols_1.this"
             ],
-          "WalkTheTurtle_1.leaves" : [
-            "leaves"
-            ],
-          "WalkTheTurtle_1.result" : [
-            "result"
-            ],
           "AddStandardSymbols_1.this" : [
-            "WalkTheTurtle_1.this"
+            "simpLInterpreter"
             ],
           "Xfo_1.result" : [
             "AddStandardSymbols_1.forwardXfo"
@@ -3284,7 +3130,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1051.390380859375,\"y\":393.7928161621094}"
+        "uiGraphPos" : "{\"x\":998.0609130859375,\"y\":423.398193359375}"
         },
       "name" : "Evolve_4",
       "ports" : [
@@ -3313,7 +3159,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":920.733642578125,\"y\":554.5413818359375}"
+        "uiGraphPos" : "{\"x\":822.0147705078125,\"y\":540.9262084960938}"
         },
       "name" : "Plant",
       "ports" : [
@@ -3505,20 +3351,10 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1291.869506835938,\"y\":628.521484375}"
+        "uiGraphPos" : "{\"x\":1224.354858398438,\"y\":583.0324096679688}"
         },
       "name" : "WalkPlant",
       "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "leaves"
-          },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
@@ -3555,6 +3391,11 @@
             "Scalar" : 1.009999990463257
             },
           "name" : "scaleOnTurn"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -3563,23 +3404,10 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 0.6883881688117981\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -596.0780639648438,\n  \"y\" : 112.0330810546875\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -727.0780639648438,\n  \"y\" : 84.0330810546875\n  }"
           },
         "title" : "graph",
         "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "result",
-            "execPortType" : "Out"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "leaves",
-            "execPortType" : "Out",
-            "typeSpec" : "Xfo[]"
-            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -3631,6 +3459,14 @@
             "name" : "scaleOnTurn",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -3655,32 +3491,6 @@
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
             "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
-            },
-          {
-            "objectType" : "Inst",
-            "metadata" : {
-              "uiGraphPos" : "{\"x\":2595.426513671875,\"y\":-35.04268264770508}"
-              },
-            "name" : "WalkTheTurtle_1",
-            "ports" : [
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "this"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "IO",
-                "name" : "leaves"
-                },
-              {
-                "objectType" : "InstPort",
-                "nodePortType" : "Out",
-                "name" : "result"
-                }
-              ],
-            "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle",
-            "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50"
             },
           {
             "objectType" : "Inst",
@@ -3783,7 +3593,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":2247.262451171875,\"y\":7.963575839996338}"
+              "uiGraphPos" : "{\"x\":2274.862548828125,\"y\":55.90164566040039}"
               },
             "name" : "AddStandardSymbols_2",
             "ports" : [
@@ -4103,12 +3913,6 @@
           "SimpLInterpreter_1.result" : [
             "AddStandardSymbols_2.this"
             ],
-          "WalkTheTurtle_1.leaves" : [
-            "leaves"
-            ],
-          "WalkTheTurtle_1.result" : [
-            "result"
-            ],
           "Cache_1.value" : [
             "SimpLInterpreter_1.lSystem"
             ],
@@ -4120,7 +3924,7 @@
             "Xfo_3.sc"
             ],
           "AddStandardSymbols_2.this" : [
-            "WalkTheTurtle_1.this"
+            "simpLInterpreter"
             ],
           "Euler_1.result" : [
             "SetFromEuler_1.e"
@@ -4172,7 +3976,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1054.419067382813,\"y\":551.3084106445313}"
+        "uiGraphPos" : "{\"x\":955.7002563476563,\"y\":537.6932373046875}"
         },
       "name" : "PartialEvolve_3",
       "ports" : [
@@ -4197,6 +4001,123 @@
         ],
       "executable" : "ThirdParty.SimpLSystem.SimpLSystem.PartialEvolve",
       "presetGUID" : "7459A954CE009BD3F2135D614230179C"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1620.354370117188,\"y\":311.0631103515625}"
+        },
+      "name" : "WalkPositionsTurtle",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "simpLInterpreter"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphZoom" : "{\n  \"value\" : 4.505681991577148\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -2109.3828125,\n  \"y\" : -798.3660583496094\n  }"
+          },
+        "title" : "WalkPositionsTurtle",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "name" : "simpLInterpreter",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1390.740112304688,\"y\":456.127197265625}"
+              },
+            "name" : "PositionsTurtle_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.PositionsTurtle.PositionsTurtle",
+            "presetGUID" : "2895A6F0330D2E9A4CA82C279DB95229"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1578.599853515625,\"y\":528.3533325195313}"
+              },
+            "name" : "Walk_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "interpreter"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.PositionsTurtle.Walk",
+            "presetGUID" : "945EB3DB584C387BBDB166047A7EE11B"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1730.642700195313,\"y\":526.7388916015625}"
+              },
+            "name" : "GetResult_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.PositionsTurtle.GetResult",
+            "presetGUID" : "F215A5230F1F700DF2933927476ABB8D"
+            }
+          ],
+        "connections" : {
+          "simpLInterpreter" : [
+            "Walk_1.interpreter"
+            ],
+          "PositionsTurtle_1.result" : [
+            "Walk_1.this"
+            ],
+          "Walk_1.this" : [
+            "GetResult_1.this"
+            ],
+          "GetResult_1.result" : [
+            "result"
+            ]
+          }
+        }
       }
     ],
   "connections" : {
@@ -4211,6 +4132,9 @@
       ],
     "Evolve_2.this" : [
       "WalkPythagorasTree.this"
+      ],
+    "WalkPythagorasTree.simpLInterpreter" : [
+      "WalkPositionsTurtle.simpLInterpreter"
       ],
     "Sirpinski.result" : [
       "Evolve_3.this"
@@ -4227,14 +4151,14 @@
     "Plant.result" : [
       "PartialEvolve_3.this"
       ],
-    "WalkPlant.result" : [
-      "DrawPoints_1.pos"
-      ],
     "PartialEvolve_1.this" : [
       "WalkKochCurve.this"
       ],
     "PartialEvolve_3.this" : [
       "WalkPlant.this"
+      ],
+    "WalkPositionsTurtle.result" : [
+      "DrawPoints_1.pos"
       ]
     },
   "requiredPresets" : {
@@ -4793,52 +4717,6 @@ dfgEntry {
 
 dfgEntry {
   result = SimpLInterpreter(lSystem);
-}
-"
-      },
-    "ThirdParty.SimpLSystem.SimpLInterpreter.WalkTheTurtle" : {
-      "objectType" : "Func",
-      "metadata" : {
-        "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  leaves: Xfo[]\n  result: Vec3[]\n"
-        },
-      "title" : "WalkTheTurtle",
-      "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "IO",
-          "name" : "this",
-          "execPortType" : "IO",
-          "typeSpec" : "SimpLInterpreter"
-          },
-        {
-          "objectType" : "Port",
-          "metadata" : {
-            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
-            },
-          "nodePortType" : "IO",
-          "name" : "leaves",
-          "execPortType" : "IO",
-          "typeSpec" : "Xfo[]"
-          },
-        {
-          "objectType" : "Port",
-          "metadata" : {
-            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
-            },
-          "nodePortType" : "In",
-          "name" : "result",
-          "execPortType" : "Out",
-          "typeSpec" : "Vec3[]"
-          }
-        ],
-      "extDeps" : {
-        "SimpLSystem" : "*"
-        },
-      "presetGUID" : "0687345FE1C254D4EB4808B0C616AE50",
-      "code" : "require SimpLSystem;
-
-dfgEntry {
-  result = this.walkTheTurtle(leaves);
 }
 "
       },
@@ -7458,56 +7336,6 @@ dfgEntry {
 }
 "
       },
-    "ThirdParty.SimpLSystem.SimpLInterpreter.AddSymbol" : {
-      "objectType" : "Func",
-      "metadata" : {
-        "uiTooltip" : "Supported types:\n  this: SimpLInterpreter\n  symbol: String\n  transform: Xfo\n  leaf: Integer\n"
-        },
-      "title" : "AddSymbol",
-      "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "IO",
-          "name" : "this",
-          "execPortType" : "IO",
-          "typeSpec" : "SimpLInterpreter"
-          },
-        {
-          "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "symbol",
-          "execPortType" : "In",
-          "typeSpec" : "String"
-          },
-        {
-          "objectType" : "Port",
-          "metadata" : {
-            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
-            },
-          "nodePortType" : "Out",
-          "name" : "transform",
-          "execPortType" : "In",
-          "typeSpec" : "Xfo"
-          },
-        {
-          "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "leaf",
-          "execPortType" : "In",
-          "typeSpec" : "Integer"
-          }
-        ],
-      "extDeps" : {
-        "SimpLSystem" : "*"
-        },
-      "presetGUID" : "37AC1E3DF1D469F6B4A67A48499F7196",
-      "code" : "require SimpLSystem;
-
-dfgEntry {
-  this.addSymbol(symbol, transform, leaf);
-}
-"
-      },
     "Fabric.Exts.Math.Quat.SetFromAxisAndAngle" : {
       "objectType" : "Func",
       "metadata" : {
@@ -7754,6 +7582,101 @@ dfgEntry {
 
 dfgEntry {
   result = this.partialEvolve(iterations);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.PositionsTurtle.PositionsTurtle" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  result: PositionsTurtle\n"
+        },
+      "title" : "PositionsTurtle",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PositionsTurtle"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "2895A6F0330D2E9A4CA82C279DB95229",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = PositionsTurtle();
+}
+"
+      },
+    "ThirdParty.SimpLSystem.PositionsTurtle.Walk" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: PositionsTurtle\n  interpreter: SimpLInterpreter\n"
+        },
+      "title" : "Walk",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "PositionsTurtle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "interpreter",
+          "execPortType" : "IO",
+          "typeSpec" : "SimpLInterpreter"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "945EB3DB584C387BBDB166047A7EE11B",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.walk(interpreter);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.PositionsTurtle.GetResult" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: PositionsTurtle\n  result: Vec3[]\n"
+        },
+      "title" : "GetResult",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "this",
+          "execPortType" : "In",
+          "typeSpec" : "PositionsTurtle"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3[]"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "F215A5230F1F700DF2933927476ABB8D",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.getResult();
 }
 "
       }
