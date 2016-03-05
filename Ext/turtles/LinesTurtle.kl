@@ -1,19 +1,32 @@
 require Geometry;
 
 object LinesTurtle : SimpLTurtle {
-  private Mat44 lastMat44;
-  private Vec3 positions[];
   private Lines lines;
+  private Mat44 lastMat44;
+  private String attrNameBranchDepth;
+  private String attrNameStackDepth;
+  private String attrNameStringRatio;
+  private Ref<ScalarAttribute> branchDepthAttr;
+  private Ref<ScalarAttribute> stackDepthAttr;
+  private Ref<ScalarAttribute> stringRatioAttr;
   private Xfo leaves[];
-  private Size nbPoints;
+  private Size indexIt;
+  private Size lastIndex;
+  private Size indexStack[];
   private Box3 bounds;
   private Boolean normalizeScale;
 };
 
-
-function LinesTurtle(Boolean normalizeScale) {
+/// \dfgPresetDefault normalizeScale true
+/// \dfgPresetDefault attrNameBranchDepth "branchDepth"
+/// \dfgPresetDefault attrNameStackDepth "stackDepth"
+/// \dfgPresetDefault attrNameStringRatio "stringRatio"
+function LinesTurtle(Boolean normalizeScale, String attrNameBranchDepth, 
+                     String attrNameStackDepth, String attrNameStringRatio) {
   this.normalizeScale = normalizeScale;
-  this.lines = Lines();
+  this.attrNameBranchDepth = attrNameBranchDepth;
+  this.attrNameStackDepth = attrNameStackDepth;
+  this.attrNameStringRatio = attrNameStringRatio;
 }
 
 function LinesTurtle.walk!(io SimpLInterpreter interpreter) {
@@ -24,31 +37,51 @@ function LinesTurtle.walk!(io SimpLInterpreter interpreter) {
 /// \dfgPresetDefault normalizeScale true;
 function Lines LinesTurtle.getResult(out Xfo leaves[]) {
   leaves = this.leaves;
-  return this.lines.clone();
+  return this.lines;
 }
 /// \internal
 function LinesTurtle.setup!(Ref<SimpLInterpreter> interpreter, Size length) {
-  // this.positions.resize(length);
+  this.lines = Lines();
+  this.lines.addPoints(length + 1);
 
-  this.lines.clear();
-  this.lines.addPoints(length);
+  if (this.attrNameBranchDepth)
+    this.branchDepthAttr = this.lines.attributes.getOrCreateScalarAttribute(this.attrNameBranchDepth);
+  if (this.attrNameStackDepth)
+    this.stackDepthAttr = this.lines.attributes.getOrCreateScalarAttribute(this.attrNameStackDepth);
+  if (this.attrNameStringRatio)
+    this.stringRatioAttr = this.lines.attributes.getOrCreateScalarAttribute(this.attrNameStringRatio);
 
+  this.indexStack.push(0);
   this.bounds = Box3();
   this.bounds.setEmpty();
+  this.indexIt = 0;
 }
 /// \internal
-function Boolean LinesTurtle.step!(Mat44 mat44, Integer branch, Integer leaf, Size index) {
+function Boolean LinesTurtle.step!(Mat44 mat44, Integer branch, Integer branchLevel, Integer leaf, Size index) {
   if (leaf != 0)
     this.leaves.push(Xfo(mat44));
-  if (mat44 == this.lastMat44 && index != 0) // no change and not first.  
-    return true;
   Vec3 pos =  mat44.multiplyVector3(Vec3());
-  // this.positions[this.nbPoints] = pos;
-  this.lines.setPosition(this.nbPoints, pos);
-  if (branch >= 0 && this.nbPoints > 0)
-    this.lines.addLine(this.nbPoints - 1, this.nbPoints);
   this.bounds.merge(pos);
-  this.nbPoints++;
+  if (branch == 0 || branch == 1) {
+    this.indexIt++;
+    this.lines.setPosition(this.indexIt, pos);
+    if (this.branchDepthAttr)
+      this.branchDepthAttr.values[this.indexIt] = Scalar(branchLevel);
+    if (this.stackDepthAttr)
+      this.stackDepthAttr.values[this.indexIt] = Scalar(this.indexStack.size());
+    if (this.stringRatioAttr)
+      this.stringRatioAttr.values[this.indexIt] = Scalar(index) / this.stringRatioAttr.size();
+    this.lines.addSegment(this.lastIndex, this.indexIt);
+    this.lastIndex = this.indexIt;
+  } 
+
+  if (branch == 1) {
+    this.indexStack.push(this.indexIt);
+
+  } else if (branch == -1) {
+    this.lastIndex = this.indexStack.pop();
+  }
+
   this.lastMat44 = mat44;
   return true;
 }
@@ -68,5 +101,4 @@ function LinesTurtle.finish!() {
       this.leaves[i].sc *= divisor; 
     }
   }
-  // this.positions.resize(this.nbPoints);
 }

@@ -3,7 +3,7 @@ interface SimpLTurtle {
   /// \dfgPresetOmit
   setup!(Ref<SimpLInterpreter> interpreter, Size length);
   /// \dfgPresetOmit
-  Boolean step!(Mat44 mat44, Integer branch, Integer leaf, Size index);
+  Boolean step!(Mat44 mat44, Integer branch, Integer branchLevel, Integer leaf, Size index);
   /// \dfgPresetOmit
   finish!();
 };
@@ -15,18 +15,32 @@ function SimpLInterpreter.turtleWalker!(io SimpLTurtle turtle) {
   String lstring = this.lSystem.getString();
   SimpLxform rules[String] = this.getCleanRules();
 
+  Integer branchStack[];
+  Integer branchLevel;
+  branchStack.push(0);
   turtle.setup(this, lstring.length());
   Vec3 points[]; points.resize(lstring.length());
   for (Size i=0; i<lstring.length(); i++) {
     SimpLxform rule = rules[lstring[i]];
 
-    if (rule.branch == 1)
+    if (rule.branch == 1) {
+      branchStack.push(0);
+      branchStack[branchStack.size() - 1]++;
       this.stack.push(this.transform);
-    else if (rule.branch == -1)
+    }
+    else if (rule.branch == -1) {
+      branchStack.pop();
+      branchStack[branchStack.size() - 1]++;
       this.transform = this.stack.pop();
+    }
+    if (rule.branch != 0) {
+      branchLevel = 0;
+      for (Size bsi = 0; bsi < branchStack.size(); bsi++)
+        branchLevel += branchStack[bsi];
+    }
     this.transform =  this.transform * rule.transform;
 
-    turtle.step(this.transform, rule.branch, rule.leaf, i);
+    turtle.step(this.transform, rule.branch, branchLevel, rule.leaf, i);
   }
   turtle.finish();
 }

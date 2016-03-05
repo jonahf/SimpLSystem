@@ -9,6 +9,9 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Boolean" : true
+        },
       "name" : "normalizeScale",
       "execPortType" : "In",
       "typeSpec" : "Boolean"

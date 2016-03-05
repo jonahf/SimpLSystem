@@ -9,7 +9,7 @@ object PositionsTurtle : SimpLTurtle {
   private Boolean normalizeScale;
 };
 
-
+/// \dfgPresetDefault normalizeScale true
 function PositionsTurtle(Boolean normalizeScale) {
   this.normalizeScale = normalizeScale;
 }
@@ -31,7 +31,7 @@ function PositionsTurtle.setup!(Ref<SimpLInterpreter> interpreter, Size length) 
   this.bounds.setEmpty();
 }
 /// \internal
-function Boolean PositionsTurtle.step!(Mat44 mat44, Integer branch, Integer leaf, Size index) {
+function Boolean PositionsTurtle.step!(Mat44 mat44, Integer branch, Integer branchLevel, Integer leaf, Size index) {
   if (leaf != 0)
     this.leaves.push(Xfo(mat44));
   if (mat44 == this.lastMat44 && index != 0) // no change and not first.  

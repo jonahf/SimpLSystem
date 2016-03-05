@@ -2,16 +2,49 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  result: LinesTurtle\n"
+    "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  attrNameBranchDepth: String\n  attrNameStackDepth: String\n  attrNameStringRatio: String\n  result: LinesTurtle\n"
     },
   "title" : "LinesTurtle",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Boolean" : true
+        },
       "name" : "normalizeScale",
       "execPortType" : "In",
       "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : "branchDepth"
+        },
+      "name" : "attrNameBranchDepth",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : "stackDepth"
+        },
+      "name" : "attrNameStackDepth",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : "stringRatio"
+        },
+      "name" : "attrNameStringRatio",
+      "execPortType" : "In",
+      "typeSpec" : "String"
       },
     {
       "objectType" : "Port",
@@ -24,11 +57,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "34DB74B4AD48CCA97D80AC04B16A094B",
+  "presetGUID" : "5F55A0E09FA778C2187D39B69C11FF3D",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = LinesTurtle(normalizeScale);
+  result = LinesTurtle(normalizeScale, attrNameBranchDepth, attrNameStackDepth, attrNameStringRatio);
 }
 "
   }
