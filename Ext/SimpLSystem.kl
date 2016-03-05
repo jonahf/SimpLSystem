@@ -30,7 +30,7 @@ inline SimpLSystem(String start, SimpLRule rules[], Size safety) {
   this.evolved = start;
   this.rules = rules;
   this.resetEvolution();
-  this.safety = 5000000;
+  this.safety = safety;
 }
 
 /// \dfgPresetDefault iterations 3

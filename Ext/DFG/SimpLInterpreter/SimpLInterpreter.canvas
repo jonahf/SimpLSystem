@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  result: SimpLInterpreter\n"
+    "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  startingTransform: Xfo\n  result: SimpLInterpreter\n"
     },
   "title" : "SimpLInterpreter",
   "ports" : [
@@ -15,6 +15,16 @@
       },
     {
       "objectType" : "Port",
+      "metadata" : {
+        "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+        },
+      "nodePortType" : "Out",
+      "name" : "startingTransform",
+      "execPortType" : "In",
+      "typeSpec" : "Xfo"
+      },
+    {
+      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
@@ -24,11 +34,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3",
+  "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLInterpreter(lSystem);
+  result = SimpLInterpreter(lSystem, startingTransform);
 }
 "
   }

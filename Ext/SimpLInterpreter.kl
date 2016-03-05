@@ -18,9 +18,9 @@ object SimpLInterpreter{
   Boolean warnings;
 };
 
-function SimpLInterpreter(SimpLSystem lSystem) {
+function SimpLInterpreter(SimpLSystem lSystem, Xfo startingTransform) {
   this.lSystem = lSystem;
-  this.transform.setIdentity();
+  this.transform = startingTransform.toMat44();
 }
 /// \dfgPresetDefault warnings true
 function SimpLInterpreter.reportWarnings!(Boolean warnings) {
