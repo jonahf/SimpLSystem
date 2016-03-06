@@ -62,22 +62,23 @@ function Boolean LinesTurtle.step!(Mat44 mat44, Integer branch, Integer branchLe
     this.leaves.push(Xfo(mat44));
   Vec3 pos =  mat44.multiplyVector3(Vec3());
   this.bounds.merge(pos);
-  if (branch == 0 || branch == 1) {
-    this.indexIt++;
-    this.lines.setPosition(this.indexIt, pos);
-    if (this.branchDepthAttr)
-      this.branchDepthAttr.values[this.indexIt] = Scalar(branchLevel);
-    if (this.stackDepthAttr)
-      this.stackDepthAttr.values[this.indexIt] = Scalar(this.indexStack.size());
-    if (this.stringRatioAttr)
-      this.stringRatioAttr.values[this.indexIt] = Scalar(index) / this.stringRatioAttr.size();
-    this.lines.addSegment(this.lastIndex, this.indexIt);
-    this.lastIndex = this.indexIt;
+  if (branch == 0 || branch == 1 || index == 0) {
+    if (mat44 != this.lastMat44) {
+      this.indexIt++;
+      this.lines.setPosition(this.indexIt, pos);
+      if (this.branchDepthAttr)
+        this.branchDepthAttr.values[this.indexIt] = Scalar(branchLevel);
+      if (this.stackDepthAttr)
+        this.stackDepthAttr.values[this.indexIt] = Scalar(this.indexStack.size());
+      if (this.stringRatioAttr)
+        this.stringRatioAttr.values[this.indexIt] = Scalar(index) / this.stringRatioAttr.size();
+      this.lines.addSegment(this.lastIndex, this.indexIt);
+      this.lastIndex = this.indexIt;
+    }
   } 
 
   if (branch == 1) {
     this.indexStack.push(this.indexIt);
-
   } else if (branch == -1) {
     this.lastIndex = this.indexStack.pop();
   }
@@ -87,6 +88,8 @@ function Boolean LinesTurtle.step!(Mat44 mat44, Integer branch, Integer branchLe
 }
 /// \internal
 function LinesTurtle.finish!() {
+  if (this.indexIt + 1 < this.lines.attributes.size())
+    this.lines.attributes.resize(this.indexIt + 1);
   if (this.normalizeScale) {
     Vec3 positions[] = Vec3Attribute(this.lines.attributes.positionsAttribute).values;
     Vec3 scale(Math_max(this.bounds.min.x, this.bounds.max.x),
