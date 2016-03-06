@@ -11,6 +11,7 @@ function SimpLxform() {
 }
 
 object SimpLInterpreter{
+  Mat44 startingTransform;
   Mat44 transform;
   SimpLxform rules[String];
   Mat44 stack[];
@@ -20,8 +21,10 @@ object SimpLInterpreter{
 
 function SimpLInterpreter(SimpLSystem lSystem, Xfo startingTransform) {
   this.lSystem = lSystem;
-  this.transform = startingTransform.toMat44();
+  this.startingTransform = startingTransform.toMat44();
+  this.transform = this.startingTransform;
 }
+
 /// \dfgPresetDefault warnings true
 function SimpLInterpreter.reportWarnings!(Boolean warnings) {
   this.warnings = warnings;
@@ -75,23 +78,8 @@ function SimpLxform[String] SimpLInterpreter.getCleanRules!() {
   return(newRules);
 }
 
-function Vec3[] SimpLInterpreter.walkTheTurtle!(io Xfo leaves[]) {
-  SimpLxform rules[String] = this.getCleanRules();
-  leaves.resize(0);
-  String lstring = this.lSystem.getString();
-  Vec3 points[]; points.resize(lstring.length());
-  for (Size i=0; i<lstring.length(); i++) {
-    SimpLxform rule = rules[lstring[i]];
-    if (rule.branch == 1)
-      this.stack.push(this.transform);
-    else if (rule.branch == -1)
-      this.transform = this.stack.pop();
-    this.transform =  this.transform * rule.transform;
-    points[i] = this.transform.multiplyVector3(Vec3());
-    if (rule.leaf != 0)
-      leaves.push(Xfo(this.transform));
-  }
-  return points;
+/// \internal
+function SimpLInterpreter.reset!() {
+  this.transform = this.startingTransform;
+  this.stack.resize(0);
 }
-
-
