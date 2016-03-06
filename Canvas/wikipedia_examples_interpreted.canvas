@@ -1,16 +1,17 @@
 {
   "objectType" : "Graph",
   "metadata" : {
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.8647140860557556,\n    \"y\" : -0.1541396528482437,\n    \"z\" : 0.4800305962562561,\n    \"t\" : 14.47993469238281\n    },\n  \"row1\" : {\n    \"x\" : 1.372229917251389e-06,\n    \"y\" : 0.9519572257995606,\n    \"z\" : 0.3063543140888214,\n    \"t\" : 20.76283645629883\n    },\n  \"row2\" : {\n    \"x\" : -0.504183292388916,\n    \"y\" : -0.2643590569496155,\n    \"z\" : 0.8232911825180054,\n    \"t\" : 35.73079299926758\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "timeline_timerFps" : "1000",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9820319414138794,\n    \"y\" : 0.0632081925868988,\n    \"z\" : -0.1844114661216736,\n    \"t\" : 0.385697603225708\n    },\n  \"row1\" : {\n    \"x\" : -4.274288585293107e-06,\n    \"y\" : 0.9457398056983948,\n    \"z\" : 0.3250443935394287,\n    \"t\" : 0.2544379234313965\n    },\n  \"row2\" : {\n    \"x\" : 0.1949532926082611,\n    \"y\" : -0.3183758556842804,\n    \"z\" : 0.9289370179176331,\n    \"t\" : 0.7668583989143372\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.7984080314636231\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.6911474466323853\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "45.8570671081543",
+    "camera_focalDistance" : "1.177646279335022",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -265.8003540039063,\n  \"y\" : 75.18486022949219\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -349.4604797363281,\n  \"y\" : 18.47249984741211\n  }"
     },
   "title" : "",
   "ports" : [
@@ -20,6 +21,13 @@
       "name" : "debugHandle",
       "execPortType" : "Out",
       "typeSpec" : "InlineDebugShape"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "this",
+      "execPortType" : "Out",
+      "typeSpec" : "DrawingHandle"
       }
     ],
   "extDeps" : {},
@@ -27,7 +35,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1975.869384765625,\"y\":405.1007080078125}"
+        "uiGraphPos" : "{\"x\":1962.069946289063,\"y\":221.1594085693359}"
         },
       "name" : "DrawPoints_1",
       "ports" : [
@@ -179,7 +187,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "In",
             "name" : "simpLInterpreter",
             "execPortType" : "Out",
@@ -202,12 +209,17 @@
                 },
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startingTransform"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
-            "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
+            "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491"
             },
           {
             "objectType" : "Inst",
@@ -859,7 +871,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "UInt32" : 16
+            "UInt32" : 14
             },
           "name" : "iterations"
           },
@@ -920,7 +932,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1.340000033378601
+            "Scalar" : 1.600000023841858
             },
           "name" : "scaleOnBranch"
           },
@@ -998,7 +1010,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "In",
             "name" : "simpLInterpreter",
             "execPortType" : "Out",
@@ -1021,12 +1032,17 @@
                 },
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startingTransform"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
-            "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
+            "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491"
             },
           {
             "objectType" : "Inst",
@@ -1862,7 +1878,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1210.1728515625,\"y\":246.7236022949219}"
+        "uiGraphPos" : "{\"x\":1216.146362304688,\"y\":243.7365875244141}"
         },
       "name" : "WalkSirpinksi",
       "ports" : [
@@ -1934,7 +1950,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "In",
             "name" : "simpLInterpreter",
             "execPortType" : "Out",
@@ -1957,12 +1972,17 @@
                 },
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startingTransform"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
-            "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
+            "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491"
             },
           {
             "objectType" : "Inst",
@@ -2482,7 +2502,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1164.646850585938,\"y\":405.8225708007813}"
+        "uiGraphPos" : "{\"x\":1217.058837890625,\"y\":377.7444152832031}"
         },
       "name" : "WalkDragonCurve",
       "ports" : [
@@ -2593,7 +2613,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "In",
             "name" : "simpLInterpreter",
             "execPortType" : "Out",
@@ -2616,12 +2635,17 @@
                 },
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startingTransform"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
-            "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
+            "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491"
             },
           {
             "objectType" : "Inst",
@@ -3351,7 +3375,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1224.354858398438,\"y\":583.0324096679688}"
+        "uiGraphPos" : "{\"x\":1222.483032226563,\"y\":567.12158203125}"
         },
       "name" : "WalkPlant",
       "ports" : [
@@ -3372,7 +3396,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 1.200000047683716
+            "Float32" : 60
             },
           "name" : "twistOnWalk"
           },
@@ -3380,7 +3404,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 26.5
+            "Float32" : 27.5
             },
           "name" : "turnDegrees"
           },
@@ -3388,7 +3412,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1.009999990463257
+            "Scalar" : 1.049999952316284
             },
           "name" : "scaleOnTurn"
           },
@@ -3462,7 +3486,6 @@
             },
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "In",
             "name" : "simpLInterpreter",
             "execPortType" : "Out",
@@ -3485,17 +3508,22 @@
                 },
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startingTransform"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter",
-            "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3"
+            "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491"
             },
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1198.177612304688,\"y\":-43.93509674072266}"
+              "uiGraphPos" : "{\"x\":1176.387939453125,\"y\":-94.77849578857422}"
               },
             "name" : "Cache_1",
             "ports" : [
@@ -3976,7 +4004,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":955.7002563476563,\"y\":537.6932373046875}"
+        "uiGraphPos" : "{\"x\":991.2657470703125,\"y\":559.219482421875}"
         },
       "name" : "PartialEvolve_3",
       "ports" : [
@@ -3989,7 +4017,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : 8.819999694824219
+            "Float32" : 8
             },
           "name" : "iterations"
           },
@@ -4005,19 +4033,27 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1620.354370117188,\"y\":311.0631103515625}"
+        "uiGraphPos" : "{\"x\":1677.067260742188,\"y\":228.8056488037109}"
         },
       "name" : "WalkPositionsTurtle",
       "ports" : [
         {
           "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "simpLInterpreter"
+          "nodePortType" : "Out",
+          "name" : "result"
           },
         {
           "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "result"
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Boolean" : true
+            },
+          "name" : "normalizeScale"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -4030,16 +4066,25 @@
         "ports" : [
           {
             "objectType" : "Port",
-            "metadata" : {},
-            "nodePortType" : "Out",
-            "name" : "simpLInterpreter",
-            "execPortType" : "In"
-            },
-          {
-            "objectType" : "Port",
             "nodePortType" : "In",
             "name" : "result",
             "execPortType" : "Out"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Boolean" : false
+              },
+            "name" : "normalizeScale",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "simpLInterpreter",
+            "execPortType" : "In"
             }
           ],
         "extDeps" : {},
@@ -4053,12 +4098,17 @@
             "ports" : [
               {
                 "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "normalizeScale"
+                },
+              {
+                "objectType" : "InstPort",
                 "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.PositionsTurtle.PositionsTurtle",
-            "presetGUID" : "2895A6F0330D2E9A4CA82C279DB95229"
+            "presetGUID" : "BED01FD2B5CFBA8D1CBD50AD264D7AA5"
             },
           {
             "objectType" : "Inst",
@@ -4096,14 +4146,22 @@
               {
                 "objectType" : "InstPort",
                 "nodePortType" : "Out",
+                "name" : "leaves"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
                 "name" : "result"
                 }
               ],
             "executable" : "ThirdParty.SimpLSystem.PositionsTurtle.GetResult",
-            "presetGUID" : "F215A5230F1F700DF2933927476ABB8D"
+            "presetGUID" : "4B7710643BAB403D6CAD9A5EB716DDAF"
             }
           ],
         "connections" : {
+          "normalizeScale" : [
+            "PositionsTurtle_1.normalizeScale"
+            ],
           "simpLInterpreter" : [
             "Walk_1.interpreter"
             ],
@@ -4118,6 +4176,467 @@
             ]
           }
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":954.3864135742188,\"y\":694.310546875}"
+        },
+      "name" : "Evolve_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "UInt32" : 7
+            },
+          "name" : "iterations"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "ThirdParty.SimpLSystem.SimpLSystem.Evolve",
+      "presetGUID" : "84E67A7B050009607E2B0620E36D8F6A"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1922.320190429688,\"y\":473.6725769042969}"
+        },
+      "name" : "SimpLVertexColors",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "geometry"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.5843137502670288,
+              "g" : 0.07058823853731155,
+              "b" : 0.07843137532472611,
+              "a" : 1
+              }
+            },
+          "name" : "color"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.01568627543747425,
+              "g" : 0.05098039284348488,
+              "b" : 0.105882354080677,
+              "a" : 1
+              }
+            },
+          "name" : "color2"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : ""
+            },
+          "name" : "scalarAttributeName"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "SimpLVertexColors",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "IO",
+            "name" : "geometry",
+            "execPortType" : "IO",
+            "typeSpec" : "$TYPE"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "color",
+            "execPortType" : "In",
+            "typeSpec" : "Color"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "color2",
+            "execPortType" : "In",
+            "typeSpec" : "Color"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scalarAttributeName",
+            "execPortType" : "In",
+            "typeSpec" : "String"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "
+dfgEntry {
+  Ref<ColorAttribute> vertexColors = geometry.attributes.getOrCreateColorAttribute(\"vertexColors\");
+  if (scalarAttributeName == \"\")
+    return;
+  Ref<ScalarAttribute> attr = geometry.attributes.getAttribute(scalarAttributeName, ScalarAttribute);
+  if (attr == null)
+    return;
+  for (Size i =0; i<attr.size(); i++) {
+    vertexColors.values[i] = color2 * attr.values[i] + color;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1668.829711914063,\"y\":431.9574279785156}"
+        },
+      "name" : "LinesTurtleWalk",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "normalizeScale"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "simpLInterpreter"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "lines"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "attrNameBranchDepth"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "attrNameStackDepth"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "attrNameStringRatio"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphZoom" : "{\n  \"value\" : 1.0\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -948.2439575195313,\n  \"y\" : -127.6710968017578\n  }"
+          },
+        "title" : "LinesTurtleWalk",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Boolean" : true
+              },
+            "name" : "normalizeScale",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "simpLInterpreter",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "lines",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "defaultValues" : {
+              "String" : "branchDepth"
+              },
+            "name" : "attrNameBranchDepth",
+            "execPortType" : "Out",
+            "typeSpec" : "String"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "defaultValues" : {
+              "String" : "stackDepth"
+              },
+            "name" : "attrNameStackDepth",
+            "execPortType" : "Out",
+            "typeSpec" : "String"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "defaultValues" : {
+              "String" : "stringRatio"
+              },
+            "name" : "attrNameStringRatio",
+            "execPortType" : "Out",
+            "typeSpec" : "String"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1726.902221679688,\"y\":503.6609497070313}"
+              },
+            "name" : "Walk_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "interpreter"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.LinesTurtle.Walk",
+            "presetGUID" : "5724CE0B2B3592342C57CC507194C468"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1478.752685546875,\"y\":392.1680603027344}"
+              },
+            "name" : "LinesTurtle_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Boolean" : true
+                  },
+                "name" : "normalizeScale"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "attrNameBranchDepth"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "attrNameStackDepth"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "attrNameStringRatio"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.LinesTurtle.LinesTurtle",
+            "presetGUID" : "5F55A0E09FA778C2187D39B69C11FF3D"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1883.735229492188,\"y\":490.1741333007813}"
+              },
+            "name" : "GetResult_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "leaves"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.LinesTurtle.GetResult",
+            "presetGUID" : "703ABA57059095AF8E19A6551E191101"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":2099.243896484375,\"y\":292.6710815429688}"
+              },
+            "name" : "Cache_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Data.Cache",
+            "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":2106.243896484375,\"y\":342.6710815429688}"
+              },
+            "name" : "Cache_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Data.Cache",
+            "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":2104.243957519531,\"y\":406.6710968017578}"
+              },
+            "name" : "Cache_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Data.Cache",
+            "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+            }
+          ],
+        "connections" : {
+          "normalizeScale" : [
+            "LinesTurtle_3.normalizeScale"
+            ],
+          "simpLInterpreter" : [
+            "Walk_2.interpreter"
+            ],
+          "Walk_2.this" : [
+            "GetResult_2.this"
+            ],
+          "LinesTurtle_3.attrNameBranchDepth" : [
+            "Cache_1.value"
+            ],
+          "LinesTurtle_3.attrNameStackDepth" : [
+            "Cache_2.value"
+            ],
+          "LinesTurtle_3.attrNameStringRatio" : [
+            "Cache_3.value"
+            ],
+          "LinesTurtle_3.result" : [
+            "Walk_2.this"
+            ],
+          "GetResult_2.result" : [
+            "lines"
+            ],
+          "Cache_1.value" : [
+            "attrNameBranchDepth"
+            ],
+          "Cache_2.value" : [
+            "attrNameStackDepth"
+            ],
+          "Cache_3.value" : [
+            "attrNameStringRatio"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2173.605224609375,\"y\":396.2532348632813}"
+        },
+      "name" : "DrawColoredLines_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "exec"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "name"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "transform"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "lines"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "dummyResult"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "instance"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.DrawColoredLines",
+      "presetGUID" : "A788963F833356D06CB02B5D47148843"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1937.020751953125,\"y\":390.0543518066406}"
+        },
+      "name" : "EmptyDrawingHandle_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "handle"
+          }
+        ],
+      "executable" : "Fabric.Exts.InlineDrawing.DrawingHandle.EmptyDrawingHandle",
+      "presetGUID" : "2440020BA6A1CAB1CEB690A198F99C70"
       }
     ],
   "connections" : {
@@ -4133,9 +4652,6 @@
     "Evolve_2.this" : [
       "WalkPythagorasTree.this"
       ],
-    "WalkPythagorasTree.simpLInterpreter" : [
-      "WalkPositionsTurtle.simpLInterpreter"
-      ],
     "Sirpinski.result" : [
       "Evolve_3.this"
       ],
@@ -4149,7 +4665,12 @@
       "WalkDragonCurve.this"
       ],
     "Plant.result" : [
-      "PartialEvolve_3.this"
+      "PartialEvolve_3.this",
+      "Evolve_5.this"
+      ],
+    "WalkPlant.simpLInterpreter" : [
+      "WalkPositionsTurtle.simpLInterpreter",
+      "LinesTurtleWalk.simpLInterpreter"
       ],
     "PartialEvolve_1.this" : [
       "WalkKochCurve.this"
@@ -4157,8 +4678,20 @@
     "PartialEvolve_3.this" : [
       "WalkPlant.this"
       ],
-    "WalkPositionsTurtle.result" : [
-      "DrawPoints_1.pos"
+    "SimpLVertexColors.geometry" : [
+      "DrawColoredLines_1.lines"
+      ],
+    "LinesTurtleWalk.lines" : [
+      "SimpLVertexColors.geometry"
+      ],
+    "LinesTurtleWalk.attrNameStackDepth" : [
+      "SimpLVertexColors.scalarAttributeName"
+      ],
+    "DrawColoredLines_1.this" : [
+      "this"
+      ],
+    "EmptyDrawingHandle_1.handle" : [
+      "DrawColoredLines_1.this"
       ]
     },
   "requiredPresets" : {
@@ -4379,7 +4912,7 @@
     "Fabric.Exts.InlineDrawing.DrawingHandle.GetEmptyDebugShape" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
         "uiTooltip" : "helper function to clear a debug drawing shape\n\n Supported by DrawingHandle"
         },
       "title" : "GetEmptyDebugShape",
@@ -4431,7 +4964,7 @@ dfgEntry {
     "Fabric.Exts.InlineDrawing.InlineDebugShape.DrawPoints" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
         "uiTooltip" : "draws a bunch of points\n\n Supported by InlineDebugShape"
         },
       "title" : "DrawPoints",
@@ -4529,7 +5062,7 @@ dfgEntry {
     "Fabric.Exts.InlineDrawing.InlineDebugShape.SetPointSize" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/InlineDrawing/InlineDebugShape.html",
         "uiTooltip" : "sets the current point size used\n\n Supported by InlineDebugShape"
         },
       "title" : "SetPointSize",
@@ -4663,7 +5196,7 @@ dfgEntry {
     "Fabric.Exts.InlineDrawing.DrawingHandle.Clear" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/InlineDrawing/DrawingHandle.html",
         "uiTooltip" : "removes all contents from the DrawingHandle\n\n Supported by DrawingHandle"
         },
       "title" : "Clear",
@@ -4690,7 +5223,7 @@ dfgEntry {
     "ThirdParty.SimpLSystem.SimpLInterpreter.SimpLInterpreter" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  result: SimpLInterpreter\n"
+        "uiTooltip" : "Supported types:\n  lSystem: SimpLSystem\n  startingTransform: Xfo\n  result: SimpLInterpreter\n"
         },
       "title" : "SimpLInterpreter",
       "ports" : [
@@ -4703,6 +5236,16 @@ dfgEntry {
           },
         {
           "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "startingTransform",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
           "nodePortType" : "In",
           "name" : "result",
           "execPortType" : "Out",
@@ -4712,11 +5255,11 @@ dfgEntry {
       "extDeps" : {
         "SimpLSystem" : "*"
         },
-      "presetGUID" : "1AB1E76B6683E5380E1849EED9F931F3",
+      "presetGUID" : "CC2B9E5F540E0057EE4D136FCBF70491",
       "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLInterpreter(lSystem);
+  result = SimpLInterpreter(lSystem, startingTransform);
 }
 "
       },
@@ -6639,7 +7182,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Xfo.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Xfo.html",
         "uiTooltip" : "Constructor from the orientation, translation and scaling\n\n Supported by Xfo"
         },
       "title" : "Xfo",
@@ -6707,7 +7250,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Euler.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Euler.html",
         "uiTooltip" : "Constructor using three Scalars as angles in radians and a RotationOrder\n\n Supported by Euler"
         },
       "title" : "Euler",
@@ -6769,7 +7312,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Quat.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Quat.html",
         "uiTooltip" : "Set this quat from a euler rotation\n\n Supported by Quat"
         },
       "title" : "SetFromEuler",
@@ -6810,7 +7353,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Vec3.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Vec3.html",
         "uiTooltip" : "Constructor from scalar components\n\n Supported by Vec3"
         },
       "title" : "Vec3",
@@ -6896,7 +7439,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Vec2.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Vec2.html",
         "uiTooltip" : "Returns the inversed version of this vector\n\n Supported by Vec2,Vec2_d,Vec2_i,Vec3,Vec3_d,Vec3_i,Vec4,Vec4_d,Vec4_i,Mat22,Mat22_d,Mat22_i,Mat33,Mat33_d,Mat33_i,Mat44,Mat44_d,Mat44_i,Quat,Quat_d,Quat_i,Xfo"
         },
       "title" : "Inverse",
@@ -7340,7 +7883,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/Quat.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Quat.html",
         "uiTooltip" : "Set this quat to a rotation defined by an axis and an angle (in radians)\n\n Supported by Quat"
         },
       "title" : "SetFromAxisAndAngle",
@@ -7388,7 +7931,7 @@ dfgEntry {
       "objectType" : "Func",
       "metadata" : {
         "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
-        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.0.1/HTML/KLExtensionsGuide/Math/RGB.html",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/RGB.html",
         "uiTooltip" : "Returns the product of this RGB color and a scalar\n\n Supported by RGB,RGBA,ARGB,Color,Vec2,Vec3,Vec4,Mat22,Mat33,Mat44,Quat"
         },
       "title" : "MultiplyScalar",
@@ -7588,10 +8131,20 @@ dfgEntry {
     "ThirdParty.SimpLSystem.PositionsTurtle.PositionsTurtle" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiTooltip" : "Supported types:\n  result: PositionsTurtle\n"
+        "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  result: PositionsTurtle\n"
         },
       "title" : "PositionsTurtle",
       "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Boolean" : true
+            },
+          "name" : "normalizeScale",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
         {
           "objectType" : "Port",
           "nodePortType" : "In",
@@ -7603,11 +8156,11 @@ dfgEntry {
       "extDeps" : {
         "SimpLSystem" : "*"
         },
-      "presetGUID" : "2895A6F0330D2E9A4CA82C279DB95229",
+      "presetGUID" : "BED01FD2B5CFBA8D1CBD50AD264D7AA5",
       "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = PositionsTurtle();
+  result = PositionsTurtle(normalizeScale);
 }
 "
       },
@@ -7647,7 +8200,7 @@ dfgEntry {
     "ThirdParty.SimpLSystem.PositionsTurtle.GetResult" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiTooltip" : "Supported types:\n  this: PositionsTurtle\n  result: Vec3[]\n"
+        "uiTooltip" : "Supported types:\n  this: PositionsTurtle\n  leaves: Xfo[]\n  result: Vec3[]\n"
         },
       "title" : "GetResult",
       "ports" : [
@@ -7657,6 +8210,16 @@ dfgEntry {
           "name" : "this",
           "execPortType" : "In",
           "typeSpec" : "PositionsTurtle"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "leaves",
+          "execPortType" : "Out",
+          "typeSpec" : "Xfo[]"
           },
         {
           "objectType" : "Port",
@@ -7672,11 +8235,234 @@ dfgEntry {
       "extDeps" : {
         "SimpLSystem" : "*"
         },
-      "presetGUID" : "F215A5230F1F700DF2933927476ABB8D",
+      "presetGUID" : "4B7710643BAB403D6CAD9A5EB716DDAF",
       "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = this.getResult();
+  result = this.getResult(leaves);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.LinesTurtle.Walk" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: LinesTurtle\n  interpreter: SimpLInterpreter\n"
+        },
+      "title" : "Walk",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "LinesTurtle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "interpreter",
+          "execPortType" : "IO",
+          "typeSpec" : "SimpLInterpreter"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "5724CE0B2B3592342C57CC507194C468",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.walk(interpreter);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.LinesTurtle.LinesTurtle" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  normalizeScale: Boolean\n  attrNameBranchDepth: String\n  attrNameStackDepth: String\n  attrNameStringRatio: String\n  result: LinesTurtle\n"
+        },
+      "title" : "LinesTurtle",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Boolean" : true
+            },
+          "name" : "normalizeScale",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "branchDepth"
+            },
+          "name" : "attrNameBranchDepth",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "stackDepth"
+            },
+          "name" : "attrNameStackDepth",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : "stringRatio"
+            },
+          "name" : "attrNameStringRatio",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "LinesTurtle"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "5F55A0E09FA778C2187D39B69C11FF3D",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = LinesTurtle(normalizeScale, attrNameBranchDepth, attrNameStackDepth, attrNameStringRatio);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.LinesTurtle.GetResult" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: LinesTurtle\n  leaves: Xfo[]\n  result: Lines\n"
+        },
+      "title" : "GetResult",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "this",
+          "execPortType" : "In",
+          "typeSpec" : "LinesTurtle"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "leaves",
+          "execPortType" : "Out",
+          "typeSpec" : "Xfo[]"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Lines"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "703ABA57059095AF8E19A6551E191101",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.getResult(leaves);
+}
+"
+      },
+    "Fabric.Exts.InlineDrawing.DrawingHandle.DrawColoredLines" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "helper function to draw a lines object given a single transform\n\nSupported types:\n  this: DrawingHandle\n  name: String\n  transform: Xfo\n  lines: Lines\n  dummyResult: Vec3\n  instance: InlineInstance\n"
+        },
+      "title" : "DrawColoredLines",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "exec",
+          "execPortType" : "IO",
+          "typeSpec" : "Execute"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "DrawingHandle"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "name",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "transform",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "Out",
+          "name" : "lines",
+          "execPortType" : "In",
+          "typeSpec" : "Lines"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "dummyResult",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "instance",
+          "execPortType" : "Out",
+          "typeSpec" : "InlineInstance"
+          }
+        ],
+      "extDeps" : {
+        "InlineDrawing" : "*",
+        "FabricInterfaces" : "*"
+        },
+      "presetGUID" : "A788963F833356D06CB02B5D47148843",
+      "code" : "require InlineDrawing;
+
+dfgEntry {
+  this.drawColoredLines(name, transform, lines, dummyResult, instance);
 }
 "
       }
@@ -7684,6 +8470,11 @@ dfgEntry {
   "args" : [
     {
       "type" : "InlineDebugShape",
+      "value" : null,
+      "ext" : "InlineDrawing"
+      },
+    {
+      "type" : "DrawingHandle",
       "value" : null,
       "ext" : "InlineDrawing"
       }
