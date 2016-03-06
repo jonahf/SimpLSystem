@@ -3,9 +3,9 @@
   "code": [
     "SimpLSystem.kl",
     "SimpLInterpreter.kl",
-    "turtles/SimpLTurtle.kl",
-    "turtles/PositionsTurtle.kl",
-    "turtles/LinesTurtle.kl"
+    "Turtle/SimpLTurtle.kl",
+    "Turtle/PositionsTurtle.kl",
+    "Turtle/LinesTurtle.kl"
   ],
   "dfgPresets": {
     "dir": "DFG",
