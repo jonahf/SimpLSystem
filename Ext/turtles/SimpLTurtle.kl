@@ -8,10 +8,9 @@ interface SimpLTurtle {
   finish!();
 };
 
-
-
 /// \internal
 function SimpLInterpreter.turtleWalker!(io SimpLTurtle turtle) {
+  this.reset();
   String lstring = this.lSystem.getString();
   SimpLxform rules[String] = this.getCleanRules();
 

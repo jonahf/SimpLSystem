@@ -30,8 +30,8 @@ function LinesTurtle(Boolean normalizeScale, String attrNameBranchDepth,
 }
 
 function LinesTurtle.walk!(io SimpLInterpreter interpreter) {
-  SimpLTurtle pturtle = this;
-  interpreter.turtleWalker(pturtle);
+  SimpLTurtle turtle = this;
+  interpreter.turtleWalker(turtle);
 }
 
 /// \dfgPresetDefault normalizeScale true;
