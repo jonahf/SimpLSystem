@@ -2,16 +2,16 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.9400091171264648,\n    \"y\" : 0.3173113167285919,\n    \"z\" : -0.1580697894096375,\n    \"t\" : -0.4490327835083008\n    },\n  \"row1\" : {\n    \"x\" : 3.295161263849877e-07,\n    \"y\" : 0.4441116154193878,\n    \"z\" : 0.9004319906234741,\n    \"t\" : 1.536067485809326\n    },\n  \"row2\" : {\n    \"x\" : 0.3559834957122803,\n    \"y\" : 0.8378908634185791,\n    \"z\" : -0.4173996448516846,\n    \"t\" : -1.427965521812439\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.9400089979171753,\n    \"y\" : 0.3173112273216248,\n    \"z\" : -0.1580696851015091,\n    \"t\" : -0.4490327835083008\n    },\n  \"row1\" : {\n    \"x\" : 3.444942819896824e-07,\n    \"y\" : 0.4441116750240326,\n    \"z\" : 0.9004320502281189,\n    \"t\" : 1.536067485809326\n    },\n  \"row2\" : {\n    \"x\" : 0.3559834361076355,\n    \"y\" : 0.8378909230232239,\n    \"z\" : -0.4173992872238159,\n    \"t\" : -1.427965521812439\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 1.0\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 1.413973927497864\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
     "camera_focalDistance" : "2.49708366394043",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -1209.245483398438,\n  \"y\" : 279.6046142578125\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -2127.373686124349,\n  \"y\" : 274.7253022164452\n  }"
     },
   "title" : "",
   "ports" : [
@@ -1029,9 +1029,9 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2140.077392578125,\"y\":44.75022888183594}"
+        "uiGraphPos" : "{\"x\":2162.171630859375,\"y\":7.365549087524414}"
         },
-      "name" : "SimpLVertexColors_2",
+      "name" : "SimpLVertexColors_1",
       "ports" : [
         {
           "objectType" : "InstPort",
@@ -1043,84 +1043,35 @@
           "nodePortType" : "In",
           "defaultValues" : {
             "Color" : {
-              "r" : 0.4705882370471954,
-              "g" : 0.05098039284348488,
-              "b" : 0.05882352963089943,
+              "r" : 0.5176470875740051,
+              "g" : 0.03529411926865578,
+              "b" : 0.03529411926865578,
               "a" : 1
               }
             },
-          "name" : "color"
+          "name" : "baseColor"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
             "Color" : {
-              "r" : 0.1803921610116959,
-              "g" : 0.2431372553110123,
-              "b" : 0.1019607856869698,
+              "r" : 0.1372549086809158,
+              "g" : 0.2627451121807098,
+              "b" : 0.1176470592617989,
               "a" : 1
               }
             },
-          "name" : "color2"
+          "name" : "attributeColor"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
-          "defaultValues" : {
-            "String" : ""
-            },
           "name" : "scalarAttributeName"
           }
         ],
-      "definition" : {
-        "objectType" : "Func",
-        "title" : "SimpLVertexColors",
-        "ports" : [
-          {
-            "objectType" : "Port",
-            "nodePortType" : "IO",
-            "name" : "geometry",
-            "execPortType" : "IO",
-            "typeSpec" : "$TYPE$"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "color",
-            "execPortType" : "In",
-            "typeSpec" : "Color"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "color2",
-            "execPortType" : "In",
-            "typeSpec" : "Color"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "Out",
-            "name" : "scalarAttributeName",
-            "execPortType" : "In",
-            "typeSpec" : "String"
-            }
-          ],
-        "extDeps" : {},
-        "code" : "
-dfgEntry {
-  Ref<ColorAttribute> vertexColors = geometry.attributes.getOrCreateColorAttribute(\"vertexColors\");
-  if (scalarAttributeName == \"\")
-    return;
-  Ref<ScalarAttribute> attr = geometry.attributes.getAttribute(scalarAttributeName, ScalarAttribute);
-  if (attr == null)
-    return;
-  for (Size i =0; i<attr.size(); i++) {
-    vertexColors.values[i] = color2 * attr.values[i] + color;
-  }
-}
-"
-        }
+      "executable" : "ThirdParty.SimpLSystem.Compounds.SimpLVertexColors",
+      "presetGUID" : "17BDA8B65609130F68F19AF1EFD65302"
       }
     ],
   "connections" : {
@@ -1140,15 +1091,15 @@ dfgEntry {
       "this"
       ],
     "LinesTurtle_2.lines" : [
-      "SimpLVertexColors_2.geometry"
+      "SimpLVertexColors_1.geometry"
       ],
     "LinesTurtle_2.attrNameStackDepth" : [
-      "SimpLVertexColors_2.scalarAttributeName"
+      "SimpLVertexColors_1.scalarAttributeName"
       ],
     "Cache_1.value" : [
       "DrawColoredLines_1.lines"
       ],
-    "SimpLVertexColors_2.geometry" : [
+    "SimpLVertexColors_1.geometry" : [
       "Cache_1.value"
       ]
     },
@@ -4180,6 +4131,77 @@ dfgEntry {
       "extDeps" : {},
       "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
       "code" : "dfgEntry {
+}
+"
+      },
+    "ThirdParty.SimpLSystem.Compounds.SimpLVertexColors" : {
+      "objectType" : "Func",
+      "title" : "SimpLVertexColors",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "defaultValues" : {
+            "Lines" : null
+            },
+          "name" : "geometry",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.6784313917160034,
+              "g" : 0,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "baseColor",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.062745101749897,
+              "g" : 0.07058823853731155,
+              "b" : 0.1490196138620377,
+              "a" : 1
+              }
+            },
+          "name" : "attributeColor",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : ""
+            },
+          "name" : "scalarAttributeName",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "17BDA8B65609130F68F19AF1EFD65302",
+      "code" : "
+dfgEntry {
+  Ref<ColorAttribute> vertexColors = geometry.attributes.getOrCreateColorAttribute(\"vertexColors\");
+  if (scalarAttributeName == \"\")
+    return;
+  Ref<ScalarAttribute> attr = geometry.attributes.getAttribute(scalarAttributeName, ScalarAttribute);
+  if (attr == null)
+    return;
+  for (Size i =0; i<attr.size(); i++) {
+    vertexColors.values[i] = attributeColor * attr.values[i] + baseColor;
+  }
 }
 "
       }

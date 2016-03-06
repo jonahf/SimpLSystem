@@ -1,0 +1,144 @@
+{
+  "objectType" : "Func",
+  "title" : "SimpLVertexColors",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "defaultValues" : {
+        "Lines" : null
+        },
+      "name" : "geometry",
+      "execPortType" : "IO",
+      "typeSpec" : "$TYPE"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Color" : {
+          "r" : 0.6784313917160034,
+          "g" : 0,
+          "b" : 0,
+          "a" : 1
+          }
+        },
+      "name" : "baseColor",
+      "execPortType" : "In",
+      "typeSpec" : "Color"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Color" : {
+          "r" : 0.062745101749897,
+          "g" : 0.07058823853731155,
+          "b" : 0.1490196138620377,
+          "a" : 1
+          }
+        },
+      "name" : "attributeColor",
+      "execPortType" : "In",
+      "typeSpec" : "Color"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : ""
+        },
+      "name" : "scalarAttributeName",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      }
+    ],
+  "extDeps" : {},
+  "presetGUID" : "17BDA8B65609130F68F19AF1EFD65302",
+  "code" : "
+dfgEntry {
+  Ref<ColorAttribute> vertexColors = geometry.attributes.getOrCreateColorAttribute(\"vertexColors\");
+  if (scalarAttributeName == \"\")
+    return;
+  Ref<ScalarAttribute> attr = geometry.attributes.getAttribute(scalarAttributeName, ScalarAttribute);
+  if (attr == null)
+    return;
+  for (Size i =0; i<attr.size(); i++) {
+    vertexColors.values[i] = attributeColor * attr.values[i] + baseColor;
+  }
+}
+",
+  "requiredPresets" : {
+    "ThirdParty.SimpLSystem.Compounds.SimpLVertexColors" : {
+      "objectType" : "Func",
+      "title" : "SimpLVertexColors",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "defaultValues" : {
+            "Lines" : null
+            },
+          "name" : "geometry",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.6784313917160034,
+              "g" : 0,
+              "b" : 0,
+              "a" : 1
+              }
+            },
+          "name" : "baseColor",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.062745101749897,
+              "g" : 0.07058823853731155,
+              "b" : 0.1490196138620377,
+              "a" : 1
+              }
+            },
+          "name" : "attributeColor",
+          "execPortType" : "In",
+          "typeSpec" : "Color"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "String" : ""
+            },
+          "name" : "scalarAttributeName",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "17BDA8B65609130F68F19AF1EFD65302",
+      "code" : "
+dfgEntry {
+  Ref<ColorAttribute> vertexColors = geometry.attributes.getOrCreateColorAttribute(\"vertexColors\");
+  if (scalarAttributeName == \"\")
+    return;
+  Ref<ScalarAttribute> attr = geometry.attributes.getAttribute(scalarAttributeName, ScalarAttribute);
+  if (attr == null)
+    return;
+  for (Size i =0; i<attr.size(); i++) {
+    vertexColors.values[i] = attributeColor * attr.values[i] + baseColor;
+  }
+}
+"
+      }
+    }
+  }
