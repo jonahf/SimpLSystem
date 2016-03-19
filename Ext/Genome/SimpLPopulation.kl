@@ -1,0 +1,151 @@
+
+struct SimpLSpecimen {
+  Lines lines;
+  Xfo leaves[];
+  String evolved;
+};
+
+function SimpLSpecimen(Lines lines, Xfo leaves[], String evolved) {
+  this.lines = lines;
+  this.leaves = leaves;
+  this.evolved = evolved;
+}
+
+
+
+require DFGWrapper;
+
+// alias UInt8 DFGPortType;
+// const DFGPortType DFGPortType_In = 0;
+// const DFGPortType DFGPortType_IO = 1;
+// const DFGPortType DFGPortType_Out = 2;
+// const DFGPortType DFGPortType_Invalid = 3;
+
+// alias UInt8 DFGNodeType;
+// const DFGNodeType DFGNodeType_Function = 0;
+// const DFGNodeType DFGNodeType_Graph = 1;
+// const DFGNodeType DFGNodeType_Inst = 2;
+// const DFGNodeType DFGNodeType_Invalid = 3;
+
+
+object SimpLGenome {
+  private DFGBindingManager bindingManager;
+  private DFGBindingWrapper binding;
+
+  String origStringPortValues[String];
+  Scalar origScalarPortValues[String];
+  Integer origIntegerPortValues[String];
+
+  String stringPortValues[String];
+  Scalar scalarPortValues[String];
+  Integer integerPortValues[String];
+};
+
+// const 
+
+function SimpLGenome(FilePath dfgPath) {
+  DFGBindingManager manager = DFGBindingManager();
+  manager.registerFile("SimpLSeedBinding", dfgPath.string());
+  this.binding = manager.getBinding("SimpLSeedBinding");
+
+  DFGPortType reservedPorts[String];
+  reservedPorts["iterations"] = DFGPortType_In;
+  reservedPorts["createGeo"] = DFGPortType_In;
+  reservedPorts["lines"] = DFGPortType_Out;
+  reservedPorts["leaves"] = DFGPortType_Out;
+  reservedPorts["evolved"] = DFGPortType_Out;
+
+  for (Size i=0; i<this.binding.getArgCount(); i++) {
+    String name = this.binding.getArgName(i);
+
+    DFGPortType portType = this.binding.getArgPortType(name);
+    if (reservedPorts.has(name)) {
+      // reserved ports do not get added to the port values. 
+      if (portType != reservedPorts[name])
+        setError("Reserved port "+name+" is wrong type (in, out, etc).");
+      reservedPorts.delete(name);
+      continue;
+    }
+
+    if (portType == DFGPortType_In) {
+      String dataType = this.binding.getArgDataType(name);
+      RTVal rtval = this.binding.getArgValue(name);
+      if (dataType == "String")
+        this.stringPortValues[name] = String(rtval);
+      if (dataType == "Scalar")
+        this.scalarPortValues[name] = Scalar(rtval);
+      if (dataType == "SInt32")
+        this.integerPortValues[name] = SInt32(rtval);
+    }
+  }
+
+  if (reservedPorts) {
+    report("Graph is missing some ports: "+reservedPorts);
+    setError("Graph is missing some ports: "+reservedPorts);
+  }
+
+
+  this.origStringPortValues =  this.stringPortValues.clone();
+  this.origScalarPortValues =  this.scalarPortValues.clone();
+  this.origIntegerPortValues = this.integerPortValues.clone();
+}
+
+function SimpLGenome.mutate!(Size seed) {
+
+}
+
+function SimpLGenome.crossover!(Size seed) {
+
+}
+
+/// \dfgPresetDefault maxIterations 50;
+/// \dfgPresetDefault desiredStringLength 100000;
+function SimpLSpecimen SimpLGenome.createSpecimen!(Size maxIterations, Size desiredStringLength) {
+  /*
+    Increase iterations until the string is as long as we want it
+    Then enable "create geo", and get a specimen.  
+  */
+  String errors;
+  for (Size i=0; i<maxIterations; i++ ) {
+    this.binding.setArgValue("createGeo", RTVal(false));
+    this.binding.setArgValue("iterations", RTVal(Scalar(i)));
+    this.binding.execute(errors);
+    if (errors) {
+      report("Errors executing bindings:");
+      report(errors);
+      setError("Errors executing bindings.");
+    }
+    String evolvedString = String(this.binding.getArgValue("evolved"));
+    report(evolvedString.length());
+    if (evolvedString.length() >= desiredStringLength)
+      break;
+  }
+  this.binding.setArgValue("createGeo", RTVal(true));
+
+  for (key, value in this.stringPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+  for (key, value in this.scalarPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+  for (key, value in this.integerPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+
+  this.binding.execute(errors);
+  if (errors) {
+    report("Errors executing bindings:");
+    report(errors);
+    setError("Errors executing bindings.");
+  }
+
+  RTVal linesRT = this.binding.getArgValue("lines");
+  Xfo leaves[](this.binding.getArgValue("leaves"));
+  String evolved(this.binding.getArgValue("evolved"));
+
+  Lines lines = null;
+  if (linesRT.type() == Lines)
+    lines = Lines(linesRT);
+  else
+    lines = Lines();
+
+  return SimpLSpecimen(lines, leaves, evolved);;
+}
+

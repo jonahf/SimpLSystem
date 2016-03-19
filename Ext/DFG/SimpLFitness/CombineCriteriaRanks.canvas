@@ -1,0 +1,27 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLFitness\n"
+    },
+  "title" : "CombineCriteriaRanks",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLFitness"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "3E2E45410E9E3504A997FBBBCDD107C9",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.combineCriteriaRanks();
+}
+"
+  }

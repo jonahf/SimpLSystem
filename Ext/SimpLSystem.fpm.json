@@ -7,6 +7,7 @@
     "Turtle/PositionsTurtle.kl",
     "Turtle/LinesTurtle.kl",
     "Genome/Sort.kl",
+    "Genome/SimpLPopulation.kl",
     "Genome/SimpLFitness.kl"
   ],
   "dfgPresets": {

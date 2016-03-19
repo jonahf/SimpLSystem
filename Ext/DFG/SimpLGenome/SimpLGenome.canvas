@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  dfgPath: FilePath\n  result: SimpLGenome\n"
+    },
+  "title" : "SimpLGenome",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "dfgPath",
+      "execPortType" : "In",
+      "typeSpec" : "FilePath"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLGenome"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "ECACDEFE41E83BDB9172A8D26D5245E8",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLGenome(dfgPath);
+}
+"
+  }

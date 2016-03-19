@@ -39,17 +39,6 @@ Story time!
 
 */
 
-
-
-
-struct SimpLSpecimen {
-  Lines lines;
-  Xfo leaves[];
-  Vec3 branchEnds[];
-  String evolved;
-};
-
-
 interface SimpLFitnessCriterion {
   Scalar getImportance(); // how important is this criterion? 
   String getName(); // What is this criterion called? Will help with legibility. 
@@ -75,10 +64,9 @@ function SimpLFitness(SimpLFitnessCriterion criteria[], SimpLSpecimen specimens[
   Size numSpecimens = this.specimens.size();
   Size numCriteria = this.criteria.size();
 
-  this.specimenCritScores.resize(0);
-  this.specimenCritRanks.resize(0);
   this.specimenCritScores.resize(numSpecimens);
   this.specimenCritRanks.resize(numSpecimens);
+  this.specimenRankScore.resize(numSpecimens);
   for (Size si; si<numSpecimens; si++) {
     this.specimenCritScores[si].resize(numCriteria);
     this.specimenCritRanks[si].resize(numCriteria);
@@ -117,7 +105,7 @@ function SimpLFitness.rankScoresInCriteria!() {
   }
 }
 
-function SimpLFitness.combineCriteriaRanks() {
+function SimpLFitness.combineCriteriaRanks!() {
   Size numSpecimens = this.specimens.size();
   Size numCriteria = this.criteria.size();
 
@@ -134,4 +122,8 @@ function SimpLFitness.combineCriteriaRanks() {
       totalRank += this.specimenCritRanks[si][ci];
     this.specimenRankScore[si] = totalRank / totalCritImportance;
   }
+}
+
+function SimpLFitness.computeProbabilities() {
+
 }

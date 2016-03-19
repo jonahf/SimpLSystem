@@ -2,16 +2,16 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.0731191486120224,\n    \"y\" : -0.0404624454677105,\n    \"z\" : 1.00145411491394,\n    \"t\" : 1.254654884338379\n    },\n  \"row1\" : {\n    \"x\" : -4.755275142542814e-07,\n    \"y\" : 0.9991592168807983,\n    \"z\" : 0.04077111557126045,\n    \"t\" : 0.5411860346794128\n    },\n  \"row2\" : {\n    \"x\" : -1.002442717552185,\n    \"y\" : 0.002950900001451373,\n    \"z\" : -0.07304708659648895,\n    \"t\" : 0.07382466644048691\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.9870737791061401,\n    \"y\" : -0.0194254033267498,\n    \"z\" : 0.1929975599050522,\n    \"t\" : 0.3712956011295319\n    },\n  \"row1\" : {\n    \"x\" : 4.356468252808554e-07,\n    \"y\" : 0.9948045015335083,\n    \"z\" : 0.1013064384460449,\n    \"t\" : 0.6338677406311035\n    },\n  \"row2\" : {\n    \"x\" : -0.1940217167139053,\n    \"y\" : -0.09882333129644394,\n    \"z\" : 0.9818637371063232,\n    \"t\" : 1.306169271469116\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
     "uiGraphZoom" : "{\n  \"value\" : 1.230700612068176\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "1.537812352180481",
+    "camera_focalDistance" : "1.482561588287354",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -1561.094748721339,\n  \"y\" : -194.7135976185591\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -1551.0947265625,\n  \"y\" : -179.7135925292969\n  }"
     },
   "title" : "",
   "ports" : [
@@ -44,7 +44,7 @@
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
           "uiGraphZoom" : "{\n  \"value\" : 1.035240769386292\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -237.2622825161161,\n  \"y\" : -77.24828520408596\n  }"
+          "uiGraphPan" : "{\n  \"x\" : -255.2622833251953,\n  \"y\" : -90.24828338623047\n  }"
           },
         "title" : "kochCurveLSYstem",
         "ports" : [
@@ -68,7 +68,7 @@
                 "objectType" : "InstPort",
                 "nodePortType" : "In",
                 "defaultValues" : {
-                  "String" : "0"
+                  "String" : "1[0]0"
                   },
                 "name" : "start"
                 },
@@ -226,6 +226,11 @@
       "ports" : [
         {
           "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "simpLInterpreter"
+          },
+        {
+          "objectType" : "InstPort",
           "nodePortType" : "In",
           "name" : "this"
           },
@@ -241,9 +246,17 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Float32" : -68.69999694824219
+            "Float32" : 29.70000076293945
             },
           "name" : "branchDegrees"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 30
+            },
+          "name" : "twistXDegrees"
           },
         {
           "objectType" : "InstPort",
@@ -265,14 +278,9 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1.5
+            "Scalar" : 1.600000023841858
             },
           "name" : "scaleOnBranch"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "simpLInterpreter"
           }
         ],
       "definition" : {
@@ -280,11 +288,18 @@
         "metadata" : {
           "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
           "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
-          "uiGraphZoom" : "{\n  \"value\" : 0.9733426570892334\n  }",
-          "uiGraphPan" : "{\n  \"x\" : -455.6513671875,\n  \"y\" : -7.34039306640625\n  }"
+          "uiGraphZoom" : "{\n  \"value\" : 1.013707637786865\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -374.5459751222321,\n  \"y\" : -211.7612904969502\n  }"
           },
         "title" : "graph",
         "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "simpLInterpreter",
+            "execPortType" : "Out",
+            "typeSpec" : "SimpLInterpreter"
+            },
           {
             "objectType" : "Port",
             "nodePortType" : "Out",
@@ -308,6 +323,17 @@
               "Float32" : 0
               },
             "name" : "branchDegrees",
+            "execPortType" : "In",
+            "typeSpec" : "Float32"
+            },
+          {
+            "objectType" : "Port",
+            "metadata" : {},
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Float32" : 0
+              },
+            "name" : "twistXDegrees",
             "execPortType" : "In",
             "typeSpec" : "Float32"
             },
@@ -340,13 +366,6 @@
             "name" : "scaleOnBranch",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
-            },
-          {
-            "objectType" : "Port",
-            "nodePortType" : "In",
-            "name" : "simpLInterpreter",
-            "execPortType" : "Out",
-            "typeSpec" : "SimpLInterpreter"
             }
           ],
         "extDeps" : {},
@@ -380,7 +399,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1544.126831054688,\"y\":286.9382019042969}"
+              "uiGraphPos" : "{\"x\":1552.022338867188,\"y\":271.1474914550781}"
               },
             "name" : "AddSymbol_1",
             "ports" : [
@@ -417,7 +436,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":1381.832153320313,\"y\":343.5057067871094}",
+              "uiGraphPos" : "{\"x\":1379.200317382813,\"y\":310.6083068847656}",
               "uiCollapsedState" : "0"
               },
             "name" : "Xfo_2",
@@ -796,7 +815,7 @@
           {
             "objectType" : "Inst",
             "metadata" : {
-              "uiGraphPos" : "{\"x\":601.1665649414063,\"y\":409.0968627929688}"
+              "uiGraphPos" : "{\"x\":602.1530151367188,\"y\":421.9211120605469}"
               },
             "name" : "DegreesToRadians_4",
             "ports" : [
@@ -1066,6 +1085,27 @@
                   ]
                 }
               }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":635.8302001953125,\"y\":312.4779663085938}"
+              },
+            "name" : "DegreesToRadians_5",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "radians"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "degrees"
+                }
+              ],
+            "executable" : "ThirdParty.SimpLSystem.Compounds.DegreesToRadians",
+            "presetGUID" : "E218CC1D764410EDBD995B2A43E56A91"
             }
           ],
         "connections" : {
@@ -1077,6 +1117,9 @@
             ],
           "branchDegrees" : [
             "DegreesToRadians_1.degrees"
+            ],
+          "twistXDegrees" : [
+            "DegreesToRadians_5.degrees"
             ],
           "twistYDegrees" : [
             "DegreesToRadians_4.degrees"
@@ -1145,6 +1188,9 @@
             ],
           "OnY.result" : [
             "SimpLInterpreter_1.startingTransform"
+            ],
+          "DegreesToRadians_5.radians" : [
+            "Euler_2.x"
             ]
           }
         }
@@ -1214,7 +1260,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1494.575927734375,\"y\":274.4434814453125}",
+        "uiGraphPos" : "{\"x\":1495.388427734375,\"y\":274.4434814453125}",
         "uiCollapsedState" : "0"
         },
       "name" : "PartialEvolve_2",
@@ -1228,7 +1274,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 11
+            "Scalar" : 15
             },
           "name" : "iterations"
           },
@@ -1339,7 +1385,6 @@
         "ports" : [
           {
             "objectType" : "Port",
-            "metadata" : {},
             "nodePortType" : "Out",
             "defaultValues" : {
               "Boolean" : true

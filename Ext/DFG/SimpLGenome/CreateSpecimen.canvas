@@ -1,0 +1,54 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  maxIterations: Size\n  desiredStringLength: Size\n  result: SimpLSpecimen\n"
+    },
+  "title" : "CreateSpecimen",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLGenome"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Size" : 50
+        },
+      "name" : "maxIterations",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Size" : 100000
+        },
+      "name" : "desiredStringLength",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLSpecimen"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "950720DDE5E6C17BEB10B86C464591A8",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.createSpecimen(maxIterations, desiredStringLength);
+}
+"
+  }

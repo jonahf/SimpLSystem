@@ -1,0 +1,41 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  criteria: SimpLFitnessCriterion[]\n  specimens: SimpLSpecimen[]\n  result: SimpLFitness\n"
+    },
+  "title" : "SimpLFitness",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "criteria",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLFitnessCriterion[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "specimens",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLSpecimen[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLFitness"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "9ED9779FC36949DA036498097C20326C",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLFitness(criteria, specimens);
+}
+"
+  }
