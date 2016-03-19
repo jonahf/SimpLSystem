@@ -2,16 +2,16 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.9953392148017883,\n    \"y\" : -0.03492536395788193,\n    \"z\" : -0.137845441699028,\n    \"t\" : -0.1958565562963486\n    },\n  \"row1\" : {\n    \"x\" : 2.603201778583753e-07,\n    \"y\" : 0.9689851403236389,\n    \"z\" : -0.2481482475996018,\n    \"t\" : 0.1234875917434692\n    },\n  \"row2\" : {\n    \"x\" : 0.1422711759805679,\n    \"y\" : -0.2443421185016632,\n    \"z\" : -0.9643761515617371,\n    \"t\" : -1.398082733154297\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.7786844372749329,\n    \"y\" : -0.05019015446305275,\n    \"z\" : -0.6341956257820129,\n    \"t\" : -0.9499672651290894\n    },\n  \"row1\" : {\n    \"x\" : 5.563070430980588e-07,\n    \"y\" : 0.9967619776725769,\n    \"z\" : -0.07975684851408005,\n    \"t\" : 0.3372228443622589\n    },\n  \"row2\" : {\n    \"x\" : 0.6363133192062378,\n    \"y\" : -0.06142076849937439,\n    \"z\" : -0.7760928869247437,\n    \"t\" : -1.07655131816864\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 1.03044319152832\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.7517662644386292\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "1.690324902534485",
+    "camera_focalDistance" : "1.588777422904968",
     "timeline_current" : "1",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -1236.87646484375,\n  \"y\" : 367.2651062011719\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -973.8181818329608,\n  \"y\" : 474.2322775173215\n  }"
     },
   "title" : "",
   "ports" : [
@@ -35,7 +35,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2603.530517578125,\"y\":-227.6585235595703}"
+        "uiGraphPos" : "{\"x\":2920.93115234375,\"y\":-389.2089538574219}"
         },
       "name" : "EmptyDrawingHandle_1",
       "ports" : [
@@ -51,7 +51,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2795.6875,\"y\":-235.1374816894531}"
+        "uiGraphPos" : "{\"x\":3130.1923828125,\"y\":-340.6204223632813}"
         },
       "name" : "DrawColoredLines_1",
       "ports" : [
@@ -97,7 +97,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2624.029052734375,\"y\":-152.5537719726563}"
+        "uiGraphPos" : "{\"x\":2958.533935546875,\"y\":-258.0366516113281}"
         },
       "name" : "Cache_1",
       "ports" : [
@@ -113,7 +113,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2369.468505859375,\"y\":-164.2736053466797}"
+        "uiGraphPos" : "{\"x\":2747.68603515625,\"y\":-294.4642028808594}"
         },
       "name" : "SimpLVertexColors_1",
       "ports" : [
@@ -226,7 +226,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1980.205932617188,\"y\":-17.09086608886719}"
+        "uiGraphPos" : "{\"x\":1953.275024414063,\"y\":-32.7913818359375}"
         },
       "name" : "plant",
       "ports" : [
@@ -254,7 +254,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Boolean" : false
+            "Boolean" : true
             },
           "name" : "createGeo"
           },
@@ -269,6 +269,9 @@ dfgEntry {
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 55
+            },
           "name" : "twistOnWalk"
           },
         {
@@ -282,11 +285,17 @@ dfgEntry {
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Float32" : 0
+            },
           "name" : "degrees"
           },
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 1.100000023841858
+            },
           "name" : "scaleOnTurn"
           }
         ],
@@ -1842,7 +1851,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1400.593627929688,\"y\":-337.2879638671875}"
+        "uiGraphPos" : "{\"x\":1555.341186523438,\"y\":-488.5729675292969}"
         },
       "name" : "SimpLGenome_1",
       "ports" : [
@@ -1882,7 +1891,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2148.05029296875,\"y\":-220.3653106689453}"
+        "uiGraphPos" : "{\"x\":2246.997802734375,\"y\":-366.3146667480469}"
         },
       "name" : "DecomposeSimpLSpecimen_1",
       "ports" : [
@@ -1913,44 +1922,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1571.412963867188,\"y\":-220.0181121826172}"
-        },
-      "name" : "Cache_2",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "value"
-          }
-        ],
-      "executable" : "Fabric.Core.Data.Cache",
-      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":1686.887573242188,\"y\":-233.7106323242188}"
-        },
-      "name" : "Clone_1",
-      "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "name" : "value"
-          },
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "Out",
-          "name" : "clonedValue"
-          }
-        ],
-      "executable" : "Fabric.Core.Data.Clone",
-      "presetGUID" : "30401D7851DEFCFA5C46EB3926DD8BAD"
-      },
-    {
-      "objectType" : "Inst",
-      "metadata" : {
-        "uiGraphPos" : "{\"x\":1879.611328125,\"y\":-305.0678100585938}"
+        "uiGraphPos" : "{\"x\":2018.706176757813,\"y\":-441.9508056640625}"
         },
       "name" : "CreateSpecimen_1",
       "ports" : [
@@ -1963,7 +1935,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Size" : 60
+            "Size" : 10
             },
           "name" : "maxIterations"
           },
@@ -1983,6 +1955,47 @@ dfgEntry {
         ],
       "executable" : "ThirdParty.SimpLSystem.SimpLGenome.CreateSpecimen",
       "presetGUID" : "950720DDE5E6C17BEB10B86C464591A8"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1761.785888671875,\"y\":46.90010833740234}"
+        },
+      "name" : "SimpLFitness_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "criteria"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "specimens"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "ThirdParty.SimpLSystem.SimpLFitness.SimpLFitness",
+      "presetGUID" : "9ED9779FC36949DA036498097C20326C"
+      },
+    {
+      "objectType" : "Var",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1792.14306640625,\"y\":-455.2685241699219}"
+        },
+      "name" : "genome",
+      "ports" : [
+        {
+          "objectType" : "VarPort",
+          "nodePortType" : "IO",
+          "name" : "value"
+          }
+        ],
+      "dataType" : "SimpLGenome"
       }
     ],
   "connections" : {
@@ -2005,17 +2018,16 @@ dfgEntry {
       "Report_1.value"
       ],
     "SimpLGenome_1.result" : [
-      "Cache_2.value",
-      "CreateSpecimen_1.this"
+      "genome.value"
       ],
     "DecomposeSimpLSpecimen_1.lines" : [
       "SimpLVertexColors_1.geometry"
       ],
-    "Cache_2.value" : [
-      "Clone_1.value"
-      ],
     "CreateSpecimen_1.result" : [
       "DecomposeSimpLSpecimen_1.value"
+      ],
+    "genome.value" : [
+      "CreateSpecimen_1.this"
       ]
     },
   "requiredPresets" : {
@@ -5377,36 +5389,6 @@ dfgEntry {
 }
 "
       },
-    "Fabric.Core.Data.Clone" : {
-      "objectType" : "Func",
-      "metadata" : {
-        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
-        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
-        },
-      "title" : "Clone",
-      "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "value",
-          "execPortType" : "In",
-          "typeSpec" : "$TYPE$"
-          },
-        {
-          "objectType" : "Port",
-          "nodePortType" : "In",
-          "name" : "clonedValue",
-          "execPortType" : "Out",
-          "typeSpec" : "$TYPE$"
-          }
-        ],
-      "extDeps" : {},
-      "presetGUID" : "30401D7851DEFCFA5C46EB3926DD8BAD",
-      "code" : "dfgEntry {
-  clonedValue = value.clone();
-}
-"
-      },
     "ThirdParty.SimpLSystem.SimpLGenome.CreateSpecimen" : {
       "objectType" : "Func",
       "metadata" : {
@@ -5457,6 +5439,46 @@ dfgEntry {
 
 dfgEntry {
   result = this.createSpecimen(maxIterations, desiredStringLength);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.SimpLFitness.SimpLFitness" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  criteria: SimpLFitnessCriterion[]\n  specimens: SimpLSpecimen[]\n  result: SimpLFitness\n"
+        },
+      "title" : "SimpLFitness",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "criteria",
+          "execPortType" : "In",
+          "typeSpec" : "SimpLFitnessCriterion[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "specimens",
+          "execPortType" : "In",
+          "typeSpec" : "SimpLSpecimen[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "SimpLFitness"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "9ED9779FC36949DA036498097C20326C",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLFitness(criteria, specimens);
 }
 "
       }

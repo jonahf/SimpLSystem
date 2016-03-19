@@ -116,7 +116,6 @@ function SimpLSpecimen SimpLGenome.createSpecimen!(Size maxIterations, Size desi
       setError("Errors executing bindings.");
     }
     String evolvedString = String(this.binding.getArgValue("evolved"));
-    report(evolvedString.length());
     if (evolvedString.length() >= desiredStringLength)
       break;
   }
