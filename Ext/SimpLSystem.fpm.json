@@ -5,7 +5,9 @@
     "SimpLInterpreter.kl",
     "Turtle/SimpLTurtle.kl",
     "Turtle/PositionsTurtle.kl",
-    "Turtle/LinesTurtle.kl"
+    "Turtle/LinesTurtle.kl",
+    "Genome/Sort.kl",
+    "Genome/SimpLFitness.kl"
   ],
   "dfgPresets": {
     "dir": "DFG",

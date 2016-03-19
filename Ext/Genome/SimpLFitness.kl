@@ -1,0 +1,137 @@
+
+
+
+
+/*
+
+Story time!
+
+  The user specifies what they care about, and the fitness function turns that into a fitness score. 
+
+  Score em, rank em, combine ranks
+
+  Generate scores in each criteria
+  Rank scores in each criteria
+  Combine ranks to generate overall score
+  
+  Rank overall scores
+
+
+  Possible criteria:
+    Leaf nodes:
+      Most spread per volume
+      Most spread per length of segments
+      Most spread of literal leaves (not just segment ends)
+    String
+      Economical use of the string
+      Economical use of segments
+    Segment length (less or more)
+
+
+
+
+  In order to score this, we need:
+    SimpLFitness{};
+    SimpLFitnessCriterion{};
+
+
+
+
+*/
+
+
+
+
+struct SimpLSpecimen {
+  Lines lines;
+  Xfo leaves[];
+  Vec3 branchEnds[];
+  String evolved;
+};
+
+
+interface SimpLFitnessCriterion {
+  Scalar getImportance(); // how important is this criterion? 
+  String getName(); // What is this criterion called? Will help with legibility. 
+  Boolean setup(); // Do non-thread safe setup, such as calling functions on the owner of many criterion
+  Scalar evaluate(SimpLSpecimen specimen); // Evaluate fitness. Will be done on all criteria. 
+};
+
+object SimpLFitness{
+  SimpLFitnessCriterion criteria[];
+  SimpLSpecimen specimens[];
+  // indexed per specimen, per criteria
+  Scalar specimenCritScores[][]; 
+  Size specimenCritRanks[][]; 
+
+  // indexed per specimen
+  Scalar specimenRankScore[]; // the weighted average rank
+};
+
+function SimpLFitness(SimpLFitnessCriterion criteria[], SimpLSpecimen specimens[]) {
+  this.criteria = criteria;
+  this.specimens = specimens;
+
+  Size numSpecimens = this.specimens.size();
+  Size numCriteria = this.criteria.size();
+
+  this.specimenCritScores.resize(0);
+  this.specimenCritRanks.resize(0);
+  this.specimenCritScores.resize(numSpecimens);
+  this.specimenCritRanks.resize(numSpecimens);
+  for (Size si; si<numSpecimens; si++) {
+    this.specimenCritScores[si].resize(numCriteria);
+    this.specimenCritRanks[si].resize(numCriteria);
+  }
+}
+
+function SimpLFitness.generateScoresInCriteria!() {
+  Size numSpecimens = this.specimens.size();
+  Size numCriteria = this.criteria.size();
+
+  for (Size ci; ci<numCriteria; ci++)
+    this.criteria[ci].setup();
+
+  for (Size si; si<numSpecimens; si++)
+    for (Size ci; ci<numCriteria; ci++)
+      this.specimenCritScores[si][ci] = this.criteria[ci].evaluate(this.specimens[si]);
+}
+
+function SimpLFitness.rankScoresInCriteria!() {
+  Size numSpecimens = this.specimens.size();
+  Size numCriteria = this.criteria.size();
+
+  Scalar scores[];
+  Size sortedIndices[];
+  scores.resize(numSpecimens);
+  sortedIndices.resize(numSpecimens);
+  for (Size ci; ci<numCriteria; ci++) {
+    for (Size si; si<numSpecimens; si++)
+      scores[si] = this.specimenCritScores[si][ci];
+    Scalar sortedScores[] = stupidSortIndices(scores, sortedIndices);
+    for (Size rankIndex; rankIndex<sortedIndices.size(); rankIndex++) {
+      // to do: resolve ties
+      Size si = sortedIndices[rankIndex];
+      this.specimenCritRanks[si][ci] = rankIndex;
+    }
+  }
+}
+
+function SimpLFitness.combineCriteriaRanks() {
+  Size numSpecimens = this.specimens.size();
+  Size numCriteria = this.criteria.size();
+
+  Scalar critImportance[], totalCritImportance;
+  for (Size ci; ci<numCriteria; ci++) {
+    Scalar importance = this.criteria[ci].getImportance();
+    totalCritImportance += importance;
+    critImportance.push(importance);
+  }
+
+  for (Size si; si<numSpecimens; si++) {
+    Scalar totalRank;
+    for (Size ci; ci<numCriteria; ci++)
+      totalRank += this.specimenCritRanks[si][ci];
+    this.specimenRankScore[si] = totalRank / totalCritImportance;
+  }
+}
