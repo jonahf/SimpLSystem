@@ -1,0 +1,55 @@
+// Created by kl2dfg (processComposeFunction)
+{
+  "objectType" : "Func",
+  "title" : "-> SimpLGenotype",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "usedSymbols",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "stringPortValues",
+      "execPortType" : "In",
+      "typeSpec" : "String[String]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "scalarPortValues",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar[String]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "integerPortValues",
+      "execPortType" : "In",
+      "typeSpec" : "Integer[String]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLGenotype"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "448EEB552D7F47331F36277063268754",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result.usedSymbols = usedSymbols;
+  result.stringPortValues = stringPortValues;
+  result.scalarPortValues = scalarPortValues;
+  result.integerPortValues = integerPortValues;
+}
+"
+  }

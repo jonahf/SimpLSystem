@@ -2,16 +2,16 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  seed: Size\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLGenotype\n  seed: Size\n  randID: Size\n"
     },
-  "title" : "Mutate",
+  "title" : "Crossover",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "SimpLGenome"
+      "typeSpec" : "SimpLGenotype"
       },
     {
       "objectType" : "Port",
@@ -19,16 +19,23 @@
       "name" : "seed",
       "execPortType" : "In",
       "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "randID",
+      "execPortType" : "IO",
+      "typeSpec" : "Size"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "C547378C5D72BD22094AC652F21F7767",
+  "presetGUID" : "66F5EC65451812AB4C4BD3A80012AB15",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.mutate(seed);
+  this.crossover(seed, randID);
 }
 "
   }

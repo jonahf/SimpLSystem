@@ -1,0 +1,48 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLGenotype\n  other: SimpLGenotype\n  seed: Size\n  randID: Size\n  result: SimpLGenotype\n"
+    },
+  "title" : "Mix",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "other",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLGenotype"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "seed",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "randID",
+      "execPortType" : "IO",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLGenotype"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "38FD496F9DB9E557E0E1F3C6547A0515",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result.mix(other, seed, randID);
+}
+"
+  }

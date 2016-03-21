@@ -133,6 +133,32 @@
       "name" : "scaleOnTurn",
       "execPortType" : "In",
       "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : "F-[[X]+X]+F[+FX]-X"
+        },
+      "name" : "xEvoString",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : "FF"
+        },
+      "name" : "fEvoString",
+      "execPortType" : "In",
+      "typeSpec" : "String"
       }
     ],
   "extDeps" : {},
@@ -1509,6 +1535,12 @@
       ],
     "scaleOnTurn" : [
       "WalkPlant.scaleOnTurn"
+      ],
+    "xEvoString" : [
+      "Plant.xEvoString"
+      ],
+    "fEvoString" : [
+      "Plant.fEvoString"
       ],
     "Plant.result" : [
       "PartialEvolve_3.this"
@@ -4579,6 +4611,14 @@ dfgEntry {
     {
       "type" : "Scalar",
       "value" : 1.100000023841858
+      },
+    {
+      "type" : "String",
+      "value" : "F-[[X]+X]+F[+FX]-X"
+      },
+    {
+      "type" : "String",
+      "value" : "FF"
       }
     ]
   }

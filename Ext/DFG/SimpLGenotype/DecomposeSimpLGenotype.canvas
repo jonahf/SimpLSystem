@@ -1,0 +1,55 @@
+// Created by kl2dfg (processDecomposeFunction)
+{
+  "objectType" : "Func",
+  "title" : "SimpLGenotype ->",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "value",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLGenotype"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "usedSymbols",
+      "execPortType" : "Out",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "stringPortValues",
+      "execPortType" : "Out",
+      "typeSpec" : "String[String]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "scalarPortValues",
+      "execPortType" : "Out",
+      "typeSpec" : "Scalar[String]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "integerPortValues",
+      "execPortType" : "Out",
+      "typeSpec" : "Integer[String]"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "F9FE6CC9AFFE53F728151D3080F133F4",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  usedSymbols = value.usedSymbols;
+  stringPortValues = value.stringPortValues;
+  scalarPortValues = value.scalarPortValues;
+  integerPortValues = value.integerPortValues;
+}
+"
+  }

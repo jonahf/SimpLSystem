@@ -2,9 +2,9 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  seed: Size\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  populationSize: Size\n"
     },
-  "title" : "Crossover",
+  "title" : "CreateGeneration",
   "ports" : [
     {
       "objectType" : "Port",
@@ -16,7 +16,7 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "seed",
+      "name" : "populationSize",
       "execPortType" : "In",
       "typeSpec" : "Size"
       }
@@ -24,11 +24,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "AA985E36A2417550B8A220360981FE06",
+  "presetGUID" : "93216F956A3A98514F158F3974C7E9E7",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.crossover(seed);
+  this.createGeneration(populationSize);
 }
 "
   }

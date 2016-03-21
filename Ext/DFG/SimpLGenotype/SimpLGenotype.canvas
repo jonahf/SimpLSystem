@@ -1,0 +1,34 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  binding: DFGBindingWrapper\n  result: SimpLGenotype\n"
+    },
+  "title" : "SimpLGenotype",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "binding",
+      "execPortType" : "In",
+      "typeSpec" : "DFGBindingWrapper"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLGenotype"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "FC5B89CB32FF68C25AB8F9AE2ABC351A",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = SimpLGenotype(binding);
+}
+"
+  }

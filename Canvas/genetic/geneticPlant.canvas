@@ -2,16 +2,16 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : -0.7786844372749329,\n    \"y\" : -0.05019015446305275,\n    \"z\" : -0.6341956257820129,\n    \"t\" : -0.9499672651290894\n    },\n  \"row1\" : {\n    \"x\" : 5.563070430980588e-07,\n    \"y\" : 0.9967619776725769,\n    \"z\" : -0.07975684851408005,\n    \"t\" : 0.3372228443622589\n    },\n  \"row2\" : {\n    \"x\" : 0.6363133192062378,\n    \"y\" : -0.06142076849937439,\n    \"z\" : -0.7760928869247437,\n    \"t\" : -1.07655131816864\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.3489493131637573,\n    \"y\" : 0.08484330773353577,\n    \"z\" : -0.9392932057380676,\n    \"t\" : -1.885788559913635\n    },\n  \"row1\" : {\n    \"x\" : 6.519620114886493e-07,\n    \"y\" : 0.9958049654960632,\n    \"z\" : 0.09097936749458313,\n    \"t\" : 0.6509553194046021\n    },\n  \"row2\" : {\n    \"x\" : 0.9433313608169556,\n    \"y\" : -0.03138522058725357,\n    \"z\" : 0.3474554717540741,\n    \"t\" : 0.8667562603950501\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.7517662644386292\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 1.164032101631165\n  }",
     "timeline_loopMode" : "1",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "1.588777422904968",
-    "timeline_current" : "1",
+    "camera_focalDistance" : "2.074810028076172",
+    "timeline_current" : "31",
     "timeline_timerInterval" : "1",
     "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : -973.8181818329608,\n  \"y\" : 474.2322775173215\n  }"
+    "uiGraphPan" : "{\n  \"x\" : -1876.377807617188,\n  \"y\" : 765.2200927734375\n  }"
     },
   "title" : "",
   "ports" : [
@@ -113,7 +113,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2747.68603515625,\"y\":-294.4642028808594}"
+        "uiGraphPos" : "{\"x\":2690.911376953125,\"y\":-355.4131774902344}"
         },
       "name" : "SimpLVertexColors_1",
       "ports" : [
@@ -127,9 +127,9 @@
           "nodePortType" : "In",
           "defaultValues" : {
             "Color" : {
-              "r" : 0,
-              "g" : 0,
-              "b" : 0,
+              "r" : 0.5764706134796143,
+              "g" : 0.1450980454683304,
+              "b" : 0.2823529541492462,
               "a" : 1
               }
             },
@@ -138,6 +138,14 @@
         {
           "objectType" : "InstPort",
           "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.062745101749897,
+              "g" : 0.07058823853731155,
+              "b" : 0.1490196138620377,
+              "a" : 1
+              }
+            },
           "name" : "attributeColor"
           },
         {
@@ -226,7 +234,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1953.275024414063,\"y\":-32.7913818359375}"
+        "uiGraphPos" : "{\"x\":2187.4814453125,\"y\":-85.19730377197266}"
         },
       "name" : "plant",
       "ports" : [
@@ -254,7 +262,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Boolean" : true
+            "Boolean" : false
             },
           "name" : "createGeo"
           },
@@ -297,6 +305,16 @@ dfgEntry {
             "Scalar" : 1.100000023841858
             },
           "name" : "scaleOnTurn"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xEvoString"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "fEvoString"
           }
         ],
       "definition" : {
@@ -395,6 +413,26 @@ dfgEntry {
             "name" : "scaleOnTurn",
             "execPortType" : "In",
             "typeSpec" : "Scalar"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "String" : "F-[[X]+X]+F[+FX]-X"
+              },
+            "name" : "xEvoString",
+            "execPortType" : "In",
+            "typeSpec" : "String"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "String" : "FF"
+              },
+            "name" : "fEvoString",
+            "execPortType" : "In",
+            "typeSpec" : "String"
             }
           ],
         "extDeps" : {},
@@ -1772,6 +1810,12 @@ dfgEntry {
           "scaleOnTurn" : [
             "WalkPlant.scaleOnTurn"
             ],
+          "xEvoString" : [
+            "Plant.xEvoString"
+            ],
+          "fEvoString" : [
+            "Plant.fEvoString"
+            ],
           "Plant.result" : [
             "PartialEvolve_3.this"
             ],
@@ -1814,7 +1858,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2314.143310546875,\"y\":54.72859954833984}"
+        "uiGraphPos" : "{\"x\":2423.93310546875,\"y\":24.10649108886719}"
         },
       "name" : "Length_1",
       "ports" : [
@@ -1835,7 +1879,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2764.03369140625,\"y\":15.93936920166016}"
+        "uiGraphPos" : "{\"x\":2550.580322265625,\"y\":33.20447540283203}"
         },
       "name" : "Report_1",
       "ports" : [
@@ -1851,18 +1895,10 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1555.341186523438,\"y\":-488.5729675292969}"
+        "uiGraphPos" : "{\"x\":1648.377807617188,\"y\":-540.4368896484375}"
         },
       "name" : "SimpLGenome_1",
       "ports" : [
-        {
-          "objectType" : "InstPort",
-          "nodePortType" : "In",
-          "defaultValues" : {
-            "FilePath" : "C:/Users/Jonah/development/fabric/extension_repos/SimpLSystem/Canvas/genetic/dfGenomes/plant.canvas"
-            },
-          "name" : "dfgPath"
-          },
         {
           "objectType" : "InstPort",
           "nodePortType" : "Out",
@@ -1870,12 +1906,12 @@ dfgEntry {
           }
         ],
       "executable" : "ThirdParty.SimpLSystem.SimpLGenome.SimpLGenome",
-      "presetGUID" : "ECACDEFE41E83BDB9172A8D26D5245E8"
+      "presetGUID" : "19D1A62F0DA1CBE9CF72534250A9DAE6"
       },
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2651.072265625,\"y\":179.2546997070313}"
+        "uiGraphPos" : "{\"x\":2555.54736328125,\"y\":87.20191955566406}"
         },
       "name" : "SimpLSpecimen_1",
       "ports" : [
@@ -1891,7 +1927,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2246.997802734375,\"y\":-366.3146667480469}"
+        "uiGraphPos" : "{\"x\":2423.0673828125,\"y\":-434.8912048339844}"
         },
       "name" : "DecomposeSimpLSpecimen_1",
       "ports" : [
@@ -1922,7 +1958,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":2018.706176757813,\"y\":-441.9508056640625}"
+        "uiGraphPos" : "{\"x\":2221.022705078125,\"y\":-500.5284118652344}"
         },
       "name" : "CreateSpecimen_1",
       "ports" : [
@@ -1935,7 +1971,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Size" : 10
+            "Size" : 7
             },
           "name" : "maxIterations"
           },
@@ -1943,7 +1979,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Size" : 200000
+            "Size" : 199998
             },
           "name" : "desiredStringLength"
           },
@@ -1959,7 +1995,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1761.785888671875,\"y\":46.90010833740234}"
+        "uiGraphPos" : "{\"x\":2010.49560546875,\"y\":-3.92247486114502}"
         },
       "name" : "SimpLFitness_1",
       "ports" : [
@@ -1985,7 +2021,7 @@ dfgEntry {
     {
       "objectType" : "Var",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1792.14306640625,\"y\":-455.2685241699219}"
+        "uiGraphPos" : "{\"x\":1883.994750976563,\"y\":-548.7965698242188}"
         },
       "name" : "genome",
       "ports" : [
@@ -1996,6 +2032,48 @@ dfgEntry {
           }
         ],
       "dataType" : "SimpLGenome"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":2015.733154296875,\"y\":-552.57958984375}"
+        },
+      "name" : "Setup_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "IO",
+          "name" : "this"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "FilePath" : "C:/Users/Jonah/development/fabric/extension_repos/SimpLSystem/Canvas/genetic/dfGenomes/plant.canvas"
+            },
+          "name" : "dfgPath"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.8999999761581421
+            },
+          "name" : "mutationRate"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "mutationAmount"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "crossoverRate"
+          }
+        ],
+      "executable" : "ThirdParty.SimpLSystem.SimpLGenome.Setup",
+      "presetGUID" : "611AE956325027B7CE5B7C958A21111E"
       }
     ],
   "connections" : {
@@ -2027,6 +2105,9 @@ dfgEntry {
       "DecomposeSimpLSpecimen_1.value"
       ],
     "genome.value" : [
+      "Setup_1.this"
+      ],
+    "Setup_1.this" : [
       "CreateSpecimen_1.this"
       ]
     },
@@ -5284,17 +5365,10 @@ dfgEntry {
     "ThirdParty.SimpLSystem.SimpLGenome.SimpLGenome" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiTooltip" : "Supported types:\n  dfgPath: FilePath\n  result: SimpLGenome\n"
+        "uiTooltip" : "Supported types:\n  result: SimpLGenome\n"
         },
       "title" : "SimpLGenome",
       "ports" : [
-        {
-          "objectType" : "Port",
-          "nodePortType" : "Out",
-          "name" : "dfgPath",
-          "execPortType" : "In",
-          "typeSpec" : "FilePath"
-          },
         {
           "objectType" : "Port",
           "nodePortType" : "In",
@@ -5306,11 +5380,11 @@ dfgEntry {
       "extDeps" : {
         "SimpLSystem" : "*"
         },
-      "presetGUID" : "ECACDEFE41E83BDB9172A8D26D5245E8",
+      "presetGUID" : "19D1A62F0DA1CBE9CF72534250A9DAE6",
       "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLGenome(dfgPath);
+  result = SimpLGenome();
 }
 "
       },
@@ -5479,6 +5553,60 @@ dfgEntry {
 
 dfgEntry {
   result = SimpLFitness(criteria, specimens);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.SimpLGenome.Setup" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  dfgPath: FilePath\n  mutationRate: Scalar\n  mutationAmount: Scalar\n  crossoverRate: Scalar\n"
+        },
+      "title" : "Setup",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "SimpLGenome"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "dfgPath",
+          "execPortType" : "In",
+          "typeSpec" : "FilePath"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "mutationRate",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "mutationAmount",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "crossoverRate",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "611AE956325027B7CE5B7C958A21111E",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.setup(dfgPath, mutationRate, mutationAmount, crossoverRate);
 }
 "
       }

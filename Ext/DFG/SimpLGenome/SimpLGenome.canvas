@@ -2,17 +2,10 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  dfgPath: FilePath\n  result: SimpLGenome\n"
+    "uiTooltip" : "Supported types:\n  result: SimpLGenome\n"
     },
   "title" : "SimpLGenome",
   "ports" : [
-    {
-      "objectType" : "Port",
-      "nodePortType" : "Out",
-      "name" : "dfgPath",
-      "execPortType" : "In",
-      "typeSpec" : "FilePath"
-      },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
@@ -24,11 +17,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "ECACDEFE41E83BDB9172A8D26D5245E8",
+  "presetGUID" : "19D1A62F0DA1CBE9CF72534250A9DAE6",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLGenome(dfgPath);
+  result = SimpLGenome();
 }
 "
   }

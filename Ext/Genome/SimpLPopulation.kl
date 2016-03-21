@@ -1,4 +1,19 @@
 
+
+/*
+
+  No storing the binding with teh genome allowed.
+
+  Genome has the binding.   
+  Genome creates an archetypal genotype. 
+    Genotype is just some dictionaries, with perhaps the orig values. (perhaps not)
+    Genotype is initialized from a binding. 
+  Genome creates a specimen from a Genotype
+
+*/
+
+
+
 struct SimpLSpecimen {
   Lines lines;
   Xfo leaves[];
@@ -28,75 +43,66 @@ require DFGWrapper;
 // const DFGNodeType DFGNodeType_Invalid = 3;
 
 
-object SimpLGenome {
-  private DFGBindingManager bindingManager;
-  private DFGBindingWrapper binding;
-
-  String origStringPortValues[String];
-  Scalar origScalarPortValues[String];
-  Integer origIntegerPortValues[String];
-
+struct SimpLGenotype {
+  String usedSymbols;
   String stringPortValues[String];
   Scalar scalarPortValues[String];
   Integer integerPortValues[String];
 };
 
-// const 
 
-function SimpLGenome(FilePath dfgPath) {
-  DFGBindingManager manager = DFGBindingManager();
-  manager.registerFile("SimpLSeedBinding", dfgPath.string());
-  this.binding = manager.getBinding("SimpLSeedBinding");
+object SimpLGenome {
+  String path;
+  DFGBindingManager bindingManager;
+  DFGBindingWrapper binding;
 
-  DFGPortType reservedPorts[String];
-  reservedPorts["iterations"] = DFGPortType_In;
-  reservedPorts["createGeo"] = DFGPortType_In;
-  reservedPorts["lines"] = DFGPortType_Out;
-  reservedPorts["leaves"] = DFGPortType_Out;
-  reservedPorts["evolved"] = DFGPortType_Out;
+  SimpLGenotype archetype;
+  SimpLGenotype genepool[];
 
-  for (Size i=0; i<this.binding.getArgCount(); i++) {
-    String name = this.binding.getArgName(i);
+  Scalar mutationRate;
+  Scalar mutationAmount;
+  Scalar crossoverRate;
+};
 
-    DFGPortType portType = this.binding.getArgPortType(name);
-    if (reservedPorts.has(name)) {
-      // reserved ports do not get added to the port values. 
-      if (portType != reservedPorts[name])
-        setError("Reserved port "+name+" is wrong type (in, out, etc).");
-      reservedPorts.delete(name);
-      continue;
-    }
 
-    if (portType == DFGPortType_In) {
-      String dataType = this.binding.getArgDataType(name);
-      RTVal rtval = this.binding.getArgValue(name);
-      if (dataType == "String")
-        this.stringPortValues[name] = String(rtval);
-      if (dataType == "Scalar")
-        this.scalarPortValues[name] = Scalar(rtval);
-      if (dataType == "SInt32")
-        this.integerPortValues[name] = SInt32(rtval);
-    }
+function SimpLGenome(){
+  this.bindingManager = DFGBindingManager();
+}
+
+function SimpLGenome.setup!(FilePath dfgPath, Scalar mutationRate, Scalar mutationAmount, Scalar crossoverRate) {
+  if (this.path != dfgPath.string()) {
+    this.path = dfgPath.string();
+    this.bindingManager.registerFile("SimpLSeedBinding", this.path);
+    this.binding = this.bindingManager.getBinding("SimpLSeedBinding");
+    this.archetype = SimpLGenotype(this.binding);
   }
 
-  if (reservedPorts) {
-    report("Graph is missing some ports: "+reservedPorts);
-    setError("Graph is missing some ports: "+reservedPorts);
+  this.mutationRate = mutationRate;
+  this.mutationAmount = mutationAmount;
+  this.crossoverRate = crossoverRate;
+}
+
+function SimpLGenome.createGeneration!(Size populationSize) {
+  SimpLGenotype lastGen[];
+  if (this.genepool)
+    lastGen = this.genepool.clone();
+  else
+    lastGen.push(this.archetype);
+  this.genepool.resize(populationSize);
+
+  Size randIt, seed = 12345;
+  for (Size i=0; i<populationSize; i++) {
+    this.genepool[i] = lastGen[0].mix(lastGen[0], seed, randIt);
+    this.genepool[i].mutate(this.mutationRate, this.mutationAmount, seed, randIt);
+    this.genepool[i].crossover(seed, randIt);
   }
-
-
-  this.origStringPortValues =  this.stringPortValues.clone();
-  this.origScalarPortValues =  this.scalarPortValues.clone();
-  this.origIntegerPortValues = this.integerPortValues.clone();
 }
 
-function SimpLGenome.mutate!(Size seed) {
 
-}
 
-function SimpLGenome.crossover!(Size seed) {
 
-}
+
+
 
 /// \dfgPresetDefault maxIterations 50;
 /// \dfgPresetDefault desiredStringLength 100000;
@@ -105,6 +111,7 @@ function SimpLSpecimen SimpLGenome.createSpecimen!(Size maxIterations, Size desi
     Increase iterations until the string is as long as we want it
     Then enable "create geo", and get a specimen.  
   */
+  SimpLGenotype genotype = this.archetype.clone();
   String errors;
   for (Size i=0; i<maxIterations; i++ ) {
     this.binding.setArgValue("createGeo", RTVal(false));
@@ -121,11 +128,11 @@ function SimpLSpecimen SimpLGenome.createSpecimen!(Size maxIterations, Size desi
   }
   this.binding.setArgValue("createGeo", RTVal(true));
 
-  for (key, value in this.stringPortValues)
+  for (key, value in genotype.stringPortValues)
     this.binding.setArgValue(key, RTVal(value));
-  for (key, value in this.scalarPortValues)
+  for (key, value in genotype.scalarPortValues)
     this.binding.setArgValue(key, RTVal(value));
-  for (key, value in this.integerPortValues)
+  for (key, value in genotype.integerPortValues)
     this.binding.setArgValue(key, RTVal(value));
 
   this.binding.execute(errors);
@@ -146,5 +153,114 @@ function SimpLSpecimen SimpLGenome.createSpecimen!(Size maxIterations, Size desi
     lines = Lines();
 
   return SimpLSpecimen(lines, leaves, evolved);;
+}
+
+
+
+function SimpLGenotype(DFGBindingWrapper binding) {
+  DFGPortType reservedPorts[String];
+  reservedPorts["iterations"] = DFGPortType_In;
+  reservedPorts["createGeo"] = DFGPortType_In;
+  reservedPorts["lines"] = DFGPortType_Out;
+  reservedPorts["leaves"] = DFGPortType_Out;
+  reservedPorts["evolved"] = DFGPortType_Out;
+
+  for (Size i=0; i<binding.getArgCount(); i++) {
+    String name = binding.getArgName(i);
+
+    DFGPortType portType = binding.getArgPortType(name);
+    if (reservedPorts.has(name)) {
+      // reserved ports do not get added to the port values. 
+      if (portType != reservedPorts[name])
+        setError("Reserved port "+name+" is wrong type (in, out, etc).");
+      reservedPorts.delete(name);
+      continue;
+    }
+
+    if (portType == DFGPortType_In) {
+      String dataType = binding.getArgDataType(name);
+      RTVal rtval = binding.getArgValue(name);
+      if (dataType == "String")
+        this.stringPortValues[name] = String(rtval);
+      if (dataType == "Scalar")
+        this.scalarPortValues[name] = Scalar(rtval);
+      if (dataType == "SInt32")
+        this.integerPortValues[name] = SInt32(rtval);
+    }
+  }
+
+  if (reservedPorts) {
+    report("Graph is missing some ports: "+reservedPorts);
+    setError("Graph is missing some ports: "+reservedPorts);
+  }
+
+  Boolean usedLetters[String];
+  for (key, value in this.stringPortValues) {
+    for (Size i=0; i<value.length(); i++)
+      usedLetters[value[i]] = true;
+    for (key in usedLetters)
+      this.usedSymbols += key;
+  }
+}
+
+
+function SimpLGenotype SimpLGenotype.mix!(SimpLGenotype other, Size seed, io Size randID) {
+  // mix up self with another to make a whole new thing
+  SimpLGenotype offspring = this.clone();
+  for (key, value in offspring.scalarPortValues) {
+    Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    offspring.scalarPortValues[key] = rand > 0.0 ? this.scalarPortValues[key] : other.scalarPortValues[key];
+  }
+  for (key, value in offspring.integerPortValues) {
+    Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    offspring.integerPortValues[key] = rand > 0.0 ? this.integerPortValues[key] : other.integerPortValues[key];
+  }
+  for (key, value in offspring.stringPortValues) {
+    Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    offspring.stringPortValues[key] = rand > 0.0 ? this.stringPortValues[key] : other.stringPortValues[key];
+  }
+  return offspring;
+}
+
+function SimpLGenotype.mutate!(Scalar mutationRate, Scalar mutationAmount, Size seed, io Size randID) {
+
+  for (key, value in this.scalarPortValues) {
+    Scalar rand = mathRandomScalar(seed, randID++, 0.0, 1.0);
+    Scalar mutRand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    if (rand > mutationAmount)
+      continue;
+    Scalar mutation = 1.0 + mathRandomScalar(seed, randID++) * mutationAmount;
+    if (value == 0.0)
+      this.scalarPortValues[key] = mutRand * 1.0;
+    else
+      this.scalarPortValues[key] *= mutation;
+  }
+
+  for (key, value in this.integerPortValues) {
+    Scalar rand = mathRandomScalar(seed, randID++, 0.0, 1.0);
+    Scalar mutRand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    if (rand > mutationAmount)
+      continue;
+    if (mutRand > 0.0)
+      this.integerPortValues[key] += 1;
+    else
+      this.integerPortValues[key] += 1;
+  }
+
+  for (key, value in this.stringPortValues) {
+    // insert or remove a character
+    Scalar rand = mathRandomScalar(seed, randID++, 0.0, 1.0);
+    Scalar mutRand = mathRandomScalar(seed, randID++, 0.0, 1.0);
+    if (rand > mutationAmount)
+      continue;
+    // if (mutRand > 0.0)
+    //   this.scalarPortValues[key] += 1;
+    // else
+    //   this.scalarPortValues[key] += 1;
+  }
+}
+
+function SimpLGenotype.crossover!(Size seed, io Size randID) {
+
 }
 
