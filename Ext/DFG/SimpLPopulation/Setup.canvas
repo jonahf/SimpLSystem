@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  dfgPath: FilePath\n  mutationRate: Scalar\n  mutationAmount: Scalar\n  crossoverRate: Scalar\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  dfgPath: FilePath\n  fitness: SimpLFitness\n  breederRate: Scalar\n  mutationRate: Scalar\n  mutationAmount: Scalar\n  crossoverRate: Scalar\n"
     },
   "title" : "Setup",
   "ports" : [
@@ -11,7 +11,7 @@
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "SimpLGenome"
+      "typeSpec" : "SimpLPopulation"
       },
     {
       "objectType" : "Port",
@@ -19,6 +19,20 @@
       "name" : "dfgPath",
       "execPortType" : "In",
       "typeSpec" : "FilePath"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "fitness",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLFitness"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "breederRate",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
       },
     {
       "objectType" : "Port",
@@ -45,11 +59,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "611AE956325027B7CE5B7C958A21111E",
+  "presetGUID" : "CC637B4B36CAE7B0B718BC1E4A105B8A",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.setup(dfgPath, mutationRate, mutationAmount, crossoverRate);
+  this.setup(dfgPath, fitness, breederRate, mutationRate, mutationAmount, crossoverRate);
 }
 "
   }

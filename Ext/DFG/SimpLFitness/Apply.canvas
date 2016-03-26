@@ -1,0 +1,41 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLFitness\n  specimens: SimpLSpecimen[]\n  result: Scalar[]\n"
+    },
+  "title" : "Apply",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLFitness"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "specimens",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLSpecimen[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "Scalar[]"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "4AFE9E2DA9092498E1A4C04CDC047764",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = this.apply(specimens);
+}
+"
+  }

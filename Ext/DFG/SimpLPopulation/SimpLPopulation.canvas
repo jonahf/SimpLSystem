@@ -2,26 +2,26 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  result: SimpLGenome\n"
+    "uiTooltip" : "Supported types:\n  result: SimpLPopulation\n"
     },
-  "title" : "SimpLGenome",
+  "title" : "SimpLPopulation",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "SimpLGenome"
+      "typeSpec" : "SimpLPopulation"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "19D1A62F0DA1CBE9CF72534250A9DAE6",
+  "presetGUID" : "D443419458D8009C80EFA110C04AC71A",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLGenome();
+  result = SimpLPopulation();
 }
 "
   }

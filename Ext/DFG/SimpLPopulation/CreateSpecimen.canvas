@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLGenome\n  maxIterations: Size\n  desiredStringLength: Size\n  result: SimpLSpecimen\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  maxIterations: Size\n  desiredStringLength: Size\n  result: SimpLSpecimen\n"
     },
   "title" : "CreateSpecimen",
   "ports" : [
@@ -11,7 +11,7 @@
       "nodePortType" : "IO",
       "name" : "this",
       "execPortType" : "IO",
-      "typeSpec" : "SimpLGenome"
+      "typeSpec" : "SimpLPopulation"
       },
     {
       "objectType" : "Port",
@@ -44,7 +44,7 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "950720DDE5E6C17BEB10B86C464591A8",
+  "presetGUID" : "340E605C40B1CA904946100B31CAC30F",
   "code" : "require SimpLSystem;
 
 dfgEntry {

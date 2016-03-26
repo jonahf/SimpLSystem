@@ -39,6 +39,24 @@ Story time!
 
 */
 
+
+
+struct SimpLSpecimen {
+  Lines lines;
+  Xfo leaves[];
+  String evolved;
+};
+
+function SimpLSpecimen(Lines lines, Xfo leaves[], String evolved) {
+  this.lines = lines;
+  this.leaves = leaves;
+  this.evolved = evolved;
+}
+
+
+
+
+
 interface SimpLFitnessCriterion {
   Scalar getImportance(); // how important is this criterion? 
   String getName(); // What is this criterion called? Will help with legibility. 
@@ -57,8 +75,11 @@ object SimpLFitness{
   Scalar specimenRankScore[]; // the weighted average rank
 };
 
-function SimpLFitness(SimpLFitnessCriterion criteria[], SimpLSpecimen specimens[]) {
+function SimpLFitness(SimpLFitnessCriterion criteria[]) {
   this.criteria = criteria;
+}
+
+function Scalar[] SimpLFitness.apply!(SimpLSpecimen specimens[]) {
   this.specimens = specimens;
 
   Size numSpecimens = this.specimens.size();
@@ -71,9 +92,14 @@ function SimpLFitness(SimpLFitnessCriterion criteria[], SimpLSpecimen specimens[
     this.specimenCritScores[si].resize(numCriteria);
     this.specimenCritRanks[si].resize(numCriteria);
   }
+
+  this.generateScoresInCriteria();
+  this.rankScoresInCriteria();
+  this.combineCriteriaRanks();
+  return this.computeProbabilities();
 }
 
-function SimpLFitness.generateScoresInCriteria!() {
+private function SimpLFitness.generateScoresInCriteria!() {
   Size numSpecimens = this.specimens.size();
   Size numCriteria = this.criteria.size();
 
@@ -85,7 +111,7 @@ function SimpLFitness.generateScoresInCriteria!() {
       this.specimenCritScores[si][ci] = this.criteria[ci].evaluate(this.specimens[si]);
 }
 
-function SimpLFitness.rankScoresInCriteria!() {
+private function SimpLFitness.rankScoresInCriteria!() {
   Size numSpecimens = this.specimens.size();
   Size numCriteria = this.criteria.size();
 
@@ -105,7 +131,7 @@ function SimpLFitness.rankScoresInCriteria!() {
   }
 }
 
-function SimpLFitness.combineCriteriaRanks!() {
+private function SimpLFitness.combineCriteriaRanks!() {
   Size numSpecimens = this.specimens.size();
   Size numCriteria = this.criteria.size();
 
@@ -124,6 +150,7 @@ function SimpLFitness.combineCriteriaRanks!() {
   }
 }
 
-function SimpLFitness.computeProbabilities() {
-
+private function Scalar[] SimpLFitness.computeProbabilities() {
+  Scalar result[];
+  return result;
 }

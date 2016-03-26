@@ -1,0 +1,62 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  reset: Boolean\n  populationSize: Size\n  maxIterations: Size\n  desiredStringLength: Size\n  population: SimpLSpecimen[]\n"
+    },
+  "title" : "Iterate",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "IO",
+      "name" : "this",
+      "execPortType" : "IO",
+      "typeSpec" : "SimpLPopulation"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "reset",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "populationSize",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "maxIterations",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "desiredStringLength",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "population",
+      "execPortType" : "Out",
+      "typeSpec" : "SimpLSpecimen[]"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "0F65428B680BD08A3FA33F8F0D503E9A",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  this.iterate(reset, populationSize, maxIterations, desiredStringLength, population);
+}
+"
+  }

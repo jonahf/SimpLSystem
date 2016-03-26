@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  criteria: SimpLFitnessCriterion[]\n  specimens: SimpLSpecimen[]\n  result: SimpLFitness\n"
+    "uiTooltip" : "Supported types:\n  criteria: SimpLFitnessCriterion[]\n  result: SimpLFitness\n"
     },
   "title" : "SimpLFitness",
   "ports" : [
@@ -15,13 +15,6 @@
       },
     {
       "objectType" : "Port",
-      "nodePortType" : "Out",
-      "name" : "specimens",
-      "execPortType" : "In",
-      "typeSpec" : "SimpLSpecimen[]"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
@@ -31,11 +24,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "9ED9779FC36949DA036498097C20326C",
+  "presetGUID" : "1F8DC8F4AC3CB61B41310F6A43FB935E",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = SimpLFitness(criteria, specimens);
+  result = SimpLFitness(criteria);
 }
 "
   }
