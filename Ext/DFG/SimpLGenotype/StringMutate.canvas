@@ -2,9 +2,9 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLGenotype\n  seed: Size\n  crossoverRate: Scalar\n  randID: Size\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLGenotype\n  insertionRate: Scalar\n  deletionRate: Scalar\n  seed: Size\n  randID: Size\n"
     },
-  "title" : "Crossover",
+  "title" : "StringMutate",
   "ports" : [
     {
       "objectType" : "Port",
@@ -16,16 +16,23 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "seed",
+      "name" : "insertionRate",
       "execPortType" : "In",
-      "typeSpec" : "Size"
+      "typeSpec" : "Scalar"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "crossoverRate",
+      "name" : "deletionRate",
       "execPortType" : "In",
       "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "seed",
+      "execPortType" : "In",
+      "typeSpec" : "Size"
       },
     {
       "objectType" : "Port",
@@ -38,11 +45,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "70EF2469B7C9922FE806821BB35AF18B",
+  "presetGUID" : "1798B9B01131781B6DD7116D38BC8F3C",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.crossover(seed, crossoverRate, randID);
+  this.stringMutate(insertionRate, deletionRate, seed, randID);
 }
 "
   }

@@ -45,6 +45,8 @@ object SimpLPopulation {
   Scalar breederRate;
   Scalar mutationRate;
   Scalar mutationAmount;
+  Scalar insertionRate;
+  Scalar deletionRate;
   Scalar crossoverRate;
 
   Size randIt;
@@ -55,8 +57,15 @@ function SimpLPopulation() {
   this.bindingManager = DFGBindingManager();
 }
 
+/// \dfgPresetDefault mutationRate 0.2
+/// \dfgPresetDefault mutationAmount 0.01;
+/// \dfgPresetDefault insertionRate 0.01;
+/// \dfgPresetDefault deletionRate 0.01;
+/// \dfgPresetDefault crossoverRate 0.01;
 function SimpLPopulation.setup!(FilePath dfgPath, SimpLFitness fitness, Scalar breederRate,
-                                Scalar mutationRate, Scalar mutationAmount, Scalar crossoverRate) {
+                                Scalar mutationRate, Scalar mutationAmount, 
+                                Scalar insertionRate, Scalar deletionRate, Scalar crossoverRate
+                                ) {
   if (this.path != dfgPath.string()) {
     this.path = dfgPath.string();
     this.bindingManager.registerFile("SimpLSeedBinding", this.path);
@@ -68,6 +77,8 @@ function SimpLPopulation.setup!(FilePath dfgPath, SimpLFitness fitness, Scalar b
 
   this.mutationRate = mutationRate;
   this.mutationAmount = mutationAmount;
+  this.insertionRate = insertionRate;
+  this.deletionRate = deletionRate;
   this.crossoverRate = crossoverRate;
 
 }
@@ -77,30 +88,41 @@ function SimpLPopulation.iterate!(Boolean reset, Size populationSize,
                                   out SimpLSpecimen population[]) {
   if (reset)
     this.genepool.resize(0);
-
   this.breedNextGeneration(populationSize);
   this.growPopulation(maxIterations, desiredStringLength);
   this.evaluatePopulation();
   population = this.population;
 }
 
+private inline Size SimpLPopulation.randSelect(Size start, Size end, Size seed, io Size randID) {
+  return Size(mathRandomScalar(seed, randID++, start, Scalar(end) - 0.001));
+}
 
 private function SimpLPopulation.breedNextGeneration!(Size populationSize) {
   SimpLGenotype lastGen[];
-  if (this.genepool) {
+  Boolean reset = !Boolean(this.genepool);
+  if (reset)
+    lastGen.push(this.archetype.clone());
+  else
     lastGen = this.genepool.clone();
-  }
-  else {
-    report("Resetting.");
-    lastGen.push(this.archetype);
-  }
+
   this.genepool.resize(populationSize);
+
   Size seed = 12345;
+
   for (Size i=0; i<populationSize; i++) {
-    this.genepool[i] = lastGen[0].mix(lastGen[0], seed, this.randIt);
+    Size mom = this.randSelect(0, lastGen.size(), seed, this.randIt);
+    Size dad = this.randSelect(0, lastGen.size(), seed, this.randIt);
+    this.genepool[i] = lastGen[mom].mix(lastGen[dad], seed, this.randIt);
+    if (reset)
+      continue;
+    if (mom == dad)
+      this.genepool[i].stringMutate(this.insertionRate, this.deletionRate, seed, this.randIt);
+    
+    this.genepool[i].mutate(this.mutationRate, this.mutationAmount, seed, this.randIt);
     this.genepool[i].mutate(this.mutationRate, this.mutationAmount, seed, this.randIt);
     this.genepool[i].stringMutate(this.insertionRate, this.deletionRate, seed, this.randIt);
-    this.genepool[i].crossover(seed, this.randIt);
+    this.genepool[i].crossover(seed, this.crossoverRate, this.randIt);
   }
 }
 

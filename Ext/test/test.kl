@@ -28,8 +28,14 @@ inline ~Microtimer() {
   if (!this.reported)
     this.report("~");
 }
-
+require Util;
 operator entry() {
+  String myTest = "this_is_my_test";
+
+  report(myTest.left(5));
+  report(myTest.leftStrip(5));
+
+
   {
     Microtimer timer("[Agae test]");
     Size evolutions = 7;

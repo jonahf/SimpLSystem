@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  dfgPath: FilePath\n  fitness: SimpLFitness\n  breederRate: Scalar\n  mutationRate: Scalar\n  mutationAmount: Scalar\n  crossoverRate: Scalar\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  dfgPath: FilePath\n  fitness: SimpLFitness\n  breederRate: Scalar\n  mutationRate: Scalar\n  mutationAmount: Scalar\n  insertionRate: Scalar\n  deletionRate: Scalar\n  crossoverRate: Scalar\n"
     },
   "title" : "Setup",
   "ports" : [
@@ -37,6 +37,9 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.2000000029802322
+        },
       "name" : "mutationRate",
       "execPortType" : "In",
       "typeSpec" : "Scalar"
@@ -44,6 +47,9 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.009999999776482582
+        },
       "name" : "mutationAmount",
       "execPortType" : "In",
       "typeSpec" : "Scalar"
@@ -51,6 +57,29 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.009999999776482582
+        },
+      "name" : "insertionRate",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.009999999776482582
+        },
+      "name" : "deletionRate",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.009999999776482582
+        },
       "name" : "crossoverRate",
       "execPortType" : "In",
       "typeSpec" : "Scalar"
@@ -59,11 +88,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "CC637B4B36CAE7B0B718BC1E4A105B8A",
+  "presetGUID" : "F0064C1AA188D9F6357C9C48325D6C27",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.setup(dfgPath, fitness, breederRate, mutationRate, mutationAmount, crossoverRate);
+  this.setup(dfgPath, fitness, breederRate, mutationRate, mutationAmount, insertionRate, deletionRate, crossoverRate);
 }
 "
   }

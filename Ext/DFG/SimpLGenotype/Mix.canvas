@@ -9,6 +9,13 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "name" : "this",
+      "execPortType" : "In",
+      "typeSpec" : "SimpLGenotype"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
       "name" : "other",
       "execPortType" : "In",
       "typeSpec" : "SimpLGenotype"
@@ -38,11 +45,11 @@
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "38FD496F9DB9E557E0E1F3C6547A0515",
+  "presetGUID" : "8F18D9BE2E703652D733E4296E14F1DA",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result.mix(other, seed, randID);
+  result = this.mix(other, seed, randID);
 }
 "
   }

@@ -62,7 +62,7 @@ function SimpLGenotype(DFGBindingWrapper binding) {
       String dataType = binding.getArgDataType(name);
       RTVal rtval = binding.getArgValue(name);
       if (dataType == "String")
-        this.stringPortValues[name] = String(rtval);
+        this.stringPortValues[name] = String(rtval).replace('"', '');
       if (dataType == "Float32")
         this.scalarPortValues[name] = Float32(rtval);
       if (dataType == "SInt32")
@@ -85,20 +85,21 @@ function SimpLGenotype(DFGBindingWrapper binding) {
 }
 
 
-function SimpLGenotype SimpLGenotype.mix!(SimpLGenotype other, Size seed, io Size randID) {
+function SimpLGenotype SimpLGenotype.mix(SimpLGenotype other, Size seed, io Size randID) {
   // mix up self with another to make a whole new thing
-  SimpLGenotype offspring = this.clone();
-  for (key, value in offspring.scalarPortValues) {
+  SimpLGenotype offspring();
+  offspring.usedSymbols = this.usedSymbols;
+  for (key, value in this.scalarPortValues) {
     Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
     offspring.scalarPortValues[key] = rand > 0.0 ? this.scalarPortValues[key] : other.scalarPortValues[key];
   }
-  for (key, value in offspring.integerPortValues) {
+  for (key, value in this.integerPortValues) {
     Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
     offspring.integerPortValues[key] = rand > 0.0 ? this.integerPortValues[key] : other.integerPortValues[key];
   }
-  for (key, value in offspring.stringPortValues) {
+  for (key, value in this.stringPortValues) {
     Scalar rand = mathRandomScalar(seed, randID++, -1.0, 1.0);
-    offspring.stringPortValues[key] = rand > 0.0 ? this.stringPortValues[key] : other.stringPortValues[key];
+    offspring.stringPortValues[key] = rand > 0.0 ? this.stringPortValues[key].clone() : other.stringPortValues[key].clone();
   }
   return offspring;
 }
@@ -106,12 +107,12 @@ function SimpLGenotype SimpLGenotype.mix!(SimpLGenotype other, Size seed, io Siz
 function SimpLGenotype.mutate!(Scalar mutationRate, Scalar mutationAmount, Size seed, io Size randID) {
   for (key, value in this.scalarPortValues) {
     Scalar rand = mathRandomScalar(seed, randID++, 0.0, 1.0);
-    Scalar mutRand = mathRandomScalar(seed, randID++, -1.0, 1.0);
     if (rand > mutationRate)
       continue;
-    Scalar mutation = 1.0 + mathRandomScalar(seed, randID++) * mutationAmount;
+    Scalar mutRand = mathRandomScalar(seed, randID++, -1.0, 1.0);
+    Scalar mutation = 1.0 + mutRand * mutationAmount;
     if (value == 0.0)
-      this.scalarPortValues[key] = mutRand * 1.0;
+      this.scalarPortValues[key] = mutRand * 0.01;
     else
       this.scalarPortValues[key] *= mutation;
   }
@@ -127,6 +128,9 @@ function SimpLGenotype.mutate!(Scalar mutationRate, Scalar mutationAmount, Size 
   }
 }
 
+private inline Size SimpLGenotype.randSelect(Size start, Size end, Size seed, io Size randID) {
+  return Size(mathRandomScalar(seed, randID++, start, Scalar(end) - 0.001));
+}
 
 function SimpLGenotype.stringMutate!(Scalar insertionRate, Scalar deletionRate, Size seed, io Size randID) {
   for (key, value in this.stringPortValues) {
@@ -136,23 +140,27 @@ function SimpLGenotype.stringMutate!(Scalar insertionRate, Scalar deletionRate, 
     if (insertRand < insertionRate) {
       // insertion:
       Size len = value.length();
-      Size insertIndex = Size(mathRandomScalar(seed, randID++, 0.0, len - 0.001));
-      String symbol = this.usedSymbols[Size(mathRandomScalar(seed, randID++, 0.0, this.usedSymbols.length() - 0.001))];
+      Size insertIndex = this.randSelect(0, len, seed, randID);
+      String symbol = this.usedSymbols[this.randSelect(0, this.usedSymbols.length(), seed, randID)];
       if (len == 0)
         insertIndex = 0;
-      String newString;
 
-      Size alsoInsertIndex;
       String alsoInsertSymbol;
-      if (symbol == "]") {
-        alsoInsertIndex = mathRandomScalar(seed, randID++, 0.0, Math_max(insertIndex - 0.001, 0));
-        alsoInsertSymbol = "[";
-      }
+      Size alsoInsertIndex;
       if (symbol == "[") {
-        alsoInsertIndex = mathRandomScalar(seed, randID++, insertIndex, len - 0.001);
         alsoInsertSymbol = "]";
+        alsoInsertIndex = this.randSelect(insertIndex, len, seed, randID);
+        if (alsoInsertIndex <= insertIndex || alsoInsertIndex >= len)
+          continue;
+      }
+      if (symbol == "]") {
+        alsoInsertSymbol = "[";
+        alsoInsertIndex = this.randSelect(0, insertIndex, seed, randID);
+        if (alsoInsertIndex >= insertIndex || alsoInsertIndex >= len)
+          continue;
       }
 
+      String newString;
       for (Size i = 0; i < len; i++) {
         if (i == insertIndex)
           newString += symbol;
@@ -160,37 +168,88 @@ function SimpLGenotype.stringMutate!(Scalar insertionRate, Scalar deletionRate, 
           newString += alsoInsertSymbol;
         newString += value[i];
       }
+      if (symbol == "]" || symbol == "[") {
+        report(" Symbol: " + symbol);
+        report(insertIndex);
+        report(alsoInsertIndex);
+        report(value);
+        report(newString);
+      }
       this.stringPortValues[key] = newString;
       value = newString;
     }
 
+    if (deleteRand < deletionRate) {
+      // insertion:
+      Size len = value.length();
+      if (len == 0)
+        continue;
+      Size deleteIndex = this.randSelect(0, len, seed, randID);
+      String deleteSymbol = value[deleteIndex];
 
-    // if (deleteRand < deletionRate) {
-    //   // insertion:
-    //   Size len = value.length();
-    //   Size deleteIndex = Size(mathRandomScalar(seed, randID++, 0.0, len - 0.001));
-    //   // Size symbolIndex = Size(mathRandomScalar(seed, randID++, 0.0, this.usedSymbols.length() - 0.001));
-    //   String deleteSymbol = value[deleteIndex];
-    //   if (deleteSymbol == "]") {
-    //     // also delete a dong
-    //   }
-    //   if (deleteSymbol == "[") {
-    //     // also delete a ding
-    //   }
+      Size alsoDelete = -1;
+      if (deleteSymbol == "[") {
+        Integer location = value.find("]", deleteIndex);
+        if (location == -1)
+          continue;
+        else
+          alsoDelete = location;
+      }
+      if (deleteSymbol == "]") {
+        Integer location = value.find("[");
+        if (location == -1 || location <= deleteIndex)
+          continue;
+        else
+          alsoDelete = location;
+      }
+      String newString();
+      for (Size i = 0; i < len; i++) {
+        if (i == deleteIndex)
+          continue;
+        if (i == alsoDelete)
+          continue;
+        newString += value[i];
+      }
 
-    //   for (Size i = 0; i < len; i++) {
-    //     if (i == deleteIndex)
-    //       continue;
-    //     newString += value[i];
-    //   }
-
-    //   this.stringPortValues[key] = newString;
-    //   value = newString;
-    // }
+      this.stringPortValues[key] = newString;
+      value = newString;
+    }
   }
 }
 
-function SimpLGenotype.crossover!(Size seed, io Size randID) {
+function SimpLGenotype.crossover!(Size seed, Scalar crossoverRate, io Size randID) {
+  if (this.stringPortValues.size() < 2)
+    return;
+  String values[];
+  for (key, value in this.stringPortValues)
+    values.push(value);
+  for (Size i =0; i<values.size(); i++) {
+    String string = values[i];
+
+    Scalar rand = mathRandomScalar(seed, randID++, 0.0, 1.0);
+    if (rand > crossoverRate)
+      continue;
+    Size otherIndex = this.randSelect(0, values.size(), seed, randID);
+    if (otherIndex == i) {
+      continue;
+    }
+    String otherString = values[otherIndex];
+
+    Size cut = this.randSelect(0, string.length(), seed, randID);
+    Size otherCut = this.randSelect(0, otherString.length(), seed, randID);
+
+    String newString = string.left(cut) + otherString.leftStrip(otherCut);
+    String newOther = otherString.left(otherCut) + string.leftStrip(cut);
+
+    if (newString.count("[") != newString.count("]"))
+      continue;
+
+    values[i] = newString;
+    values[otherIndex] = newOther;
+  }
+  Size i;
+  for (key, value in this.stringPortValues)
+    this.stringPortValues[key] = values[i++];
 
 }
 
