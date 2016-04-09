@@ -1,0 +1,22 @@
+
+
+
+
+
+object NullCriterion : SimpLFitnessCriterion{};
+
+function NullCriterion(Scalar importance) {
+  this.importance = importance;
+}
+/// \dfgPresetOmit
+function String NullCriterion.getName() {
+  return "NullCriterion";
+} 
+/// \dfgPresetOmit
+function Boolean NullCriterion.setup() {
+  return true;
+} 
+/// \dfgPresetOmit
+function Scalar NullCriterion.evaluate(SimpLSpecimen specimen) {
+  return 1.0f;
+}

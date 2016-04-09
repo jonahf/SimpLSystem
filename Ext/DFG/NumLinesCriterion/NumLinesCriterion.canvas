@@ -2,40 +2,40 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLFitnessCriterion\n  specimen: SimpLSpecimen\n  result: Scalar\n"
+    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: NumLinesCriterion\n"
     },
-  "title" : "Evaluate",
+  "title" : "NumLinesCriterion",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "this",
+      "name" : "importance",
       "execPortType" : "In",
-      "typeSpec" : "SimpLFitnessCriterion"
+      "typeSpec" : "Scalar"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "specimen",
+      "name" : "lessIsBetter",
       "execPortType" : "In",
-      "typeSpec" : "SimpLSpecimen"
+      "typeSpec" : "Boolean"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "Scalar"
+      "typeSpec" : "NumLinesCriterion"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "C7D15572208CB395CBE817C2192655EC",
+  "presetGUID" : "7CFC0CA9ECF61A1829F7E60A19692264",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = this.evaluate(specimen);
+  result = NumLinesCriterion(importance, lessIsBetter);
 }
 "
   }

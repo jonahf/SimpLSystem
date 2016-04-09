@@ -8,6 +8,8 @@
     "Turtle/LinesTurtle.kl",
     "Genome/Sort.kl",
     "Genome/SimpLFitness.kl",
+    "Genome/Criteria/NullCriterion.kl",
+    "Genome/Criteria/LengthCriteria.kl",
     "Genome/SimpLGenotype.kl",
     "Genome/SimpLPopulation.kl"
   ],

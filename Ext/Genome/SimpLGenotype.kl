@@ -168,13 +168,7 @@ function SimpLGenotype.stringMutate!(Scalar insertionRate, Scalar deletionRate, 
           newString += alsoInsertSymbol;
         newString += value[i];
       }
-      if (symbol == "]" || symbol == "[") {
-        report(" Symbol: " + symbol);
-        report(insertIndex);
-        report(alsoInsertIndex);
-        report(value);
-        report(newString);
-      }
+
       this.stringPortValues[key] = newString;
       value = newString;
     }

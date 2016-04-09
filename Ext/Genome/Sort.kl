@@ -51,3 +51,53 @@ function Scalar[] stupidSortIndices(Scalar array[], out Size indices[]) {
   return result;
 }
 
+/// \dfgPresetOmit
+function Scalar[] stupidSortIndicesReverse(Scalar array[], out Size indices[]) {
+  Scalar result[] = array.clone();
+  Boolean incomplete = result.size() > 1;
+  indices.resize(result.size());
+  for (Size i = 0; i<indices.size(); i++)
+    indices[i] = indices.size() - i - 1;
+
+  while (incomplete) {
+    incomplete = false;
+    for (Size i=1; i<result.size(); i++) {
+      if (result[i-1] >= result[i])
+        continue;
+      swapInArray(result, i, i-1);
+      swapInArray(indices, i, i-1);
+      incomplete = true;
+    }
+  }
+  return result;
+}
+
+
+
+struct Microtimer{
+  UInt64 start;
+  String prefix;
+  Boolean reported;
+};
+
+inline Microtimer(String prefix) {
+  this.prefix = prefix;
+  this.start = getCurrentTicks();
+}
+
+inline Microtimer.report!() {
+  this.report("");
+}
+
+inline Microtimer.report!(String msg) {
+  this.reported = true;
+  Scalar time  = getSecondsBetweenTicks(this.start, getCurrentTicks());
+  Integer microseconds = Integer(time * 1000000);
+  report(this.prefix+": "+microseconds+" us. " + msg);
+  this.start = getCurrentTicks();
+}
+
+inline ~Microtimer() {
+  if (!this.reported)
+    this.report("~");
+}

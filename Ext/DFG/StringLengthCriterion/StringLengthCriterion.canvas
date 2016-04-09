@@ -1,0 +1,41 @@
+// Created by kl2dfg (processFunction)
+{
+  "objectType" : "Func",
+  "metadata" : {
+    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: StringLengthCriterion\n"
+    },
+  "title" : "StringLengthCriterion",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "importance",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "Out",
+      "name" : "lessIsBetter",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "result",
+      "execPortType" : "Out",
+      "typeSpec" : "StringLengthCriterion"
+      }
+    ],
+  "extDeps" : {
+    "SimpLSystem" : "*"
+    },
+  "presetGUID" : "01A24080A9133171DCE53D16B6CCE04E",
+  "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = StringLengthCriterion(importance, lessIsBetter);
+}
+"
+  }

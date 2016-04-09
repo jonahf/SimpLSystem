@@ -55,14 +55,37 @@ function SimpLSpecimen(Lines lines, Xfo leaves[], String evolved) {
 
 
 
-
-
-interface SimpLFitnessCriterion {
+interface SimpLFitnessCriterionInterface {
   Scalar getImportance(); // how important is this criterion? 
   String getName(); // What is this criterion called? Will help with legibility. 
   Boolean setup(); // Do non-thread safe setup, such as calling functions on the owner of many criterion
   Scalar evaluate(SimpLSpecimen specimen); // Evaluate fitness. Will be done on all criteria. 
 };
+
+object SimpLFitnessCriterion : SimpLFitnessCriterionInterface {
+  Scalar importance;
+};
+/// \dfgPresetDefault importance 1.0;
+function SimpLFitnessCriterion(Scalar importance) {
+  this.importance = importance;
+}
+/// \dfgPresetOmit
+function Scalar SimpLFitnessCriterion.getImportance() {
+  return this.importance;
+}
+/// \dfgPresetOmit
+function String SimpLFitnessCriterion.getName() {
+  return "NullCriterion";
+} 
+/// \dfgPresetOmit
+function Boolean SimpLFitnessCriterion.setup() {
+  return true;
+} 
+/// \dfgPresetOmit
+function Scalar SimpLFitnessCriterion.evaluate(SimpLSpecimen specimen) {
+  return 1.0f;
+}
+
 
 object SimpLFitness{
   SimpLFitnessCriterion criteria[];
@@ -123,10 +146,18 @@ private function SimpLFitness.rankScoresInCriteria!() {
     for (Size si; si<numSpecimens; si++)
       scores[si] = this.specimenCritScores[si][ci];
     Scalar sortedScores[] = stupidSortIndices(scores, sortedIndices);
-    for (Size rankIndex; rankIndex<sortedIndices.size(); rankIndex++) {
-      // to do: resolve ties
-      Size si = sortedIndices[rankIndex];
-      this.specimenCritRanks[si][ci] = rankIndex;
+    Scalar lastScore;
+    Size lastRank;
+    for (Size rank; rank<sortedIndices.size(); rank++) {
+      Size si = sortedIndices[rank];
+      if (sortedScores[rank] == lastScore) {
+        // if it's a tie for first, everyone tied gets first. 
+        this.specimenCritRanks[si][ci] = lastRank + 1;
+      } else {
+        this.specimenCritRanks[si][ci] = rank + 1;
+        lastScore = sortedScores[rank];
+        lastRank = rank;
+      }
     }
   }
 }
@@ -141,7 +172,6 @@ private function SimpLFitness.combineCriteriaRanks!() {
     totalCritImportance += importance;
     critImportance.push(importance);
   }
-
   for (Size si; si<numSpecimens; si++) {
     Scalar totalRank;
     for (Size ci; ci<numCriteria; ci++)
@@ -151,6 +181,24 @@ private function SimpLFitness.combineCriteriaRanks!() {
 }
 
 private function Scalar[] SimpLFitness.computeProbabilities() {
-  Scalar result[];
-  return result;
+  Size sortedIndices[];
+  Scalar sortedScores[] = stupidSortIndices(this.specimenRankScore, sortedIndices);
+
+  Scalar probabilities[];
+  probabilities.resize(this.specimenRankScore.size());
+
+  Scalar lastScore;
+  Size lastRank;
+  for (Size rank; rank<sortedIndices.size(); rank++) {
+    Size si = sortedIndices[rank];
+    if (sortedScores[rank] == lastScore) {
+      // if it's a tie for first, everyone tied gets first. 
+      probabilities[si] = lastRank * lastRank;
+    } else {
+      lastRank = rank + 1;
+      lastScore = sortedScores[rank];
+      probabilities[si] = lastRank * lastRank;
+    }
+  }
+  return probabilities;
 }

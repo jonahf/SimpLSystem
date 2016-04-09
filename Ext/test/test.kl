@@ -1,40 +1,6 @@
 require SimpLSystem;
 
-
-struct Microtimer{
-  UInt64 start;
-  String prefix;
-  Boolean reported;
-};
-
-inline Microtimer(String prefix) {
-  this.prefix = prefix;
-  this.start = getCurrentTicks();
-}
-
-inline Microtimer.report!() {
-  this.report("");
-}
-
-inline Microtimer.report!(String msg) {
-  this.reported = true;
-  Scalar time  = getSecondsBetweenTicks(this.start, getCurrentTicks());
-  Integer microseconds = Integer(time * 1000000);
-  report(this.prefix+": "+microseconds+" us. " + msg);
-  this.start = getCurrentTicks();
-}
-
-inline ~Microtimer() {
-  if (!this.reported)
-    this.report("~");
-}
-require Util;
 operator entry() {
-  String myTest = "this_is_my_test";
-
-  report(myTest.left(5));
-  report(myTest.leftStrip(5));
-
 
   {
     Microtimer timer("[Agae test]");

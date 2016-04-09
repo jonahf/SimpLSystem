@@ -2,33 +2,33 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLFitnessCriterion\n  result: Scalar\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLFitnessCriterionInterface\n  result: Boolean\n"
     },
-  "title" : "GetImportance",
+  "title" : "Setup",
   "ports" : [
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
       "name" : "this",
       "execPortType" : "In",
-      "typeSpec" : "SimpLFitnessCriterion"
+      "typeSpec" : "SimpLFitnessCriterionInterface"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "Scalar"
+      "typeSpec" : "Boolean"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "80867A59D0F4DD49233143AD7D0D9C4B",
+  "presetGUID" : "DA680FD39DEC7F5D99F230021A3F8356",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = this.getImportance();
+  result = this.setup();
 }
 "
   }

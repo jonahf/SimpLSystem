@@ -1,0 +1,48 @@
+
+
+
+
+
+object StringLengthCriterion : SimpLFitnessCriterion{
+  Boolean inverse;
+};
+
+function StringLengthCriterion(Scalar importance, Boolean lessIsBetter) {
+  this.importance = importance;
+  this.inverse = lessIsBetter;
+}
+/// \dfgPresetOmit
+function String StringLengthCriterion.getName() {
+  return "StringLengthCriterion";
+} 
+/// \dfgPresetOmit
+function Scalar StringLengthCriterion.evaluate(SimpLSpecimen specimen) {
+  report("String length: " + specimen.evolved.length());
+  return this.inverse ? -specimen.evolved.length() : specimen.evolved.length();
+}
+
+
+
+
+object NumLinesCriterion : SimpLFitnessCriterion{
+  Boolean inverse;
+};
+
+function NumLinesCriterion(Scalar importance, Boolean lessIsBetter) {
+  this.importance = importance;
+  this.inverse = lessIsBetter;
+}
+/// \dfgPresetOmit
+function String NumLinesCriterion.getName() {
+  return "NumLinesCriterion";
+} 
+/// \dfgPresetOmit
+function Scalar NumLinesCriterion.evaluate(SimpLSpecimen specimen) {
+  report("Lines:" + specimen.lines.lineCount());
+  if (this.inverse) {
+    return -specimen.lines.lineCount();
+  } else {
+    return specimen.lines.lineCount();
+  }
+}
+
