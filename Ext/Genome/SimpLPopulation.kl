@@ -89,12 +89,12 @@ function SimpLPopulation.setup!(FilePath dfgPath, SimpLFitness fitness, Scalar b
 
 function SimpLPopulation.iterate!(Boolean reset, Size populationSize, 
                                   Size maxIterations, Size desiredStringLength, 
-                                  out SimpLSpecimen population[]) {
+                                  out SimpLSpecimen population[], out Scalar pScore[]) {
   if (reset)
     this.genepool.resize(0);
   this.breedNextGeneration(populationSize);
   this.growPopulation(maxIterations, desiredStringLength);
-  this.evaluatePopulation();
+  pScore = this.evaluatePopulation();
   population = this.population;
 }
 
@@ -112,8 +112,6 @@ private function SimpLPopulation.breedNextGeneration!(Size populationSize) {
 
   this.genepool.resize(populationSize);
 
-
-  Microtimer timer("breeding");
   for (Size i=0; i<populationSize; i++) {
     Size mom = this.randSelect(0, lastGen.size());
     Size dad = this.randSelect(0, lastGen.size());
@@ -126,7 +124,6 @@ private function SimpLPopulation.breedNextGeneration!(Size populationSize) {
     this.genepool[i].stringMutate(this.insertionRate, this.deletionRate, this.seed, this.randIt);
     this.genepool[i].crossover(this.seed, this.crossoverRate, this.randIt);
   }
-  timer.report();
 }
 
 private function SimpLPopulation.growPopulation!(Size maxIterations, Size desiredStringLength) {
@@ -136,16 +133,24 @@ private function SimpLPopulation.growPopulation!(Size maxIterations, Size desire
     this.population.push(specimen);
   }
 }
-private function SimpLPopulation.evaluatePopulation!() {
+private function Scalar[] SimpLPopulation.evaluatePopulation!() {
   SimpLSpecimen specimens[];
-  Scalar probability[] = this.fitness.apply(this.population);
-  if (probability.size() == 0)
-    return;
+  Scalar pScore[] = this.fitness.apply(this.population);
+  if (pScore.size() == 0)
+    return pScore;
+
+  Scalar maxScore;
+  for (Size i = 0; i<pScore.size(); i++)
+    maxScore = Math_max(maxScore, pScore[i]);
+  if (maxScore > 0) {    
+    for (Size i = 0; i<pScore.size(); i++)
+      pScore[i] /= maxScore;
+  }
 
   Scalar cumulative[];
-  cumulative.resize(probability.size());
-  for (Size i=0; i<probability.size(); i++)
-    cumulative[i] = ((i>0) ? cumulative[i-1] : 0) + probability[i];
+  cumulative.resize(pScore.size());
+  for (Size i=0; i<pScore.size(); i++)
+    cumulative[i] = ((i>0) ? cumulative[i-1] : 0) + pScore[i];
   Scalar total = cumulative[cumulative.size() - 1];
 
   Size numBreeders = Math_max(this.population.size() * this.breederRate, 1);
@@ -154,14 +159,13 @@ private function SimpLPopulation.evaluatePopulation!() {
     Scalar selector = mathRandomScalar(this.seed, this.randIt++, 0.0, total);
     for (Size i=0; i<cumulative.size(); i++) {
       if (cumulative[i] > selector) {
-        report("selecting "+i);
         selections.push(this.genepool[i].clone());
         break;
       }
     }
   }
-  report(cumulative);
   this.genepool = selections;
+  return pScore;
 }
 
 

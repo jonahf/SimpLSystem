@@ -17,7 +17,6 @@ function String StringLengthCriterion.getName() {
 } 
 /// \dfgPresetOmit
 function Scalar StringLengthCriterion.evaluate(SimpLSpecimen specimen) {
-  report("String length: " + specimen.evolved.length());
   return this.inverse ? -specimen.evolved.length() : specimen.evolved.length();
 }
 
@@ -38,7 +37,6 @@ function String NumLinesCriterion.getName() {
 } 
 /// \dfgPresetOmit
 function Scalar NumLinesCriterion.evaluate(SimpLSpecimen specimen) {
-  report("Lines:" + specimen.lines.lineCount());
   if (this.inverse) {
     return -specimen.lines.lineCount();
   } else {

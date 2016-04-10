@@ -92,13 +92,21 @@ function LinesTurtle.finish!() {
     this.lines.attributes.resize(this.indexIt + 1);
   if (this.normalizeScale) {
     Vec3 positions[] = Vec3Attribute(this.lines.attributes.positionsAttribute).values;
-    Vec3 scale(Math_max(this.bounds.min.x, this.bounds.max.x),
-               Math_max(this.bounds.min.y, this.bounds.max.y),
-               Math_max(this.bounds.min.z, this.bounds.max.z));
+    // Vec3 scale(Math_max(-this.bounds.min.x, this.bounds.max.x),
+    //            Math_max(-this.bounds.min.y, this.bounds.max.y),
+    //            Math_max(-this.bounds.min.z, this.bounds.max.z));
+    Vec3 scale(this.bounds.max.x-this.bounds.min.x,
+               this.bounds.max.y-this.bounds.min.y,
+               this.bounds.max.z-this.bounds.min.z);
+    Vec3 center(this.bounds.max.x+this.bounds.min.x,
+                this.bounds.max.y+this.bounds.min.y,
+                this.bounds.max.z+this.bounds.min.z);
+    center *= 0.5;
+
     Scalar factor = Math_max( Math_max(scale.x, scale.y), scale.z);
     Scalar divisor = Math_badDivisor(factor) ? 1.0 : 1.0 / factor;
     for (Size i; i<positions.size(); i++)
-      positions[i] *= divisor;
+      positions[i] = (positions[i] - center) * divisor;
     for (Size i; i<this.leaves.size(); i++) {
       this.leaves[i].tr *= divisor;
       this.leaves[i].sc *= divisor; 

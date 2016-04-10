@@ -2,7 +2,7 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  reset: Boolean\n  populationSize: Size\n  maxIterations: Size\n  desiredStringLength: Size\n  population: SimpLSpecimen[]\n"
+    "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  reset: Boolean\n  populationSize: Size\n  maxIterations: Size\n  desiredStringLength: Size\n  population: SimpLSpecimen[]\n  pScore: Scalar[]\n"
     },
   "title" : "Iterate",
   "ports" : [
@@ -47,16 +47,23 @@
       "name" : "population",
       "execPortType" : "Out",
       "typeSpec" : "SimpLSpecimen[]"
+      },
+    {
+      "objectType" : "Port",
+      "nodePortType" : "In",
+      "name" : "pScore",
+      "execPortType" : "Out",
+      "typeSpec" : "Scalar[]"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "0F65428B680BD08A3FA33F8F0D503E9A",
+  "presetGUID" : "2DAB555A1CF30B4A9D6422633B7897EB",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.iterate(reset, populationSize, maxIterations, desiredStringLength, population);
+  this.iterate(reset, populationSize, maxIterations, desiredStringLength, population, pScore);
 }
 "
   }

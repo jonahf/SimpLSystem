@@ -2,15 +2,15 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 1.0006103515625,\n    \"y\" : -0.007470309268683195,\n    \"z\" : -0.02820475399494171,\n    \"t\" : 2.366311311721802\n    },\n  \"row1\" : {\n    \"x\" : -5.724709808418993e-06,\n    \"y\" : 0.9663894772529602,\n    \"z\" : -0.2567363679409027,\n    \"t\" : 0.06920080631971359\n    },\n  \"row2\" : {\n    \"x\" : 0.02918162383139134,\n    \"y\" : 0.256339430809021,\n    \"z\" : 0.9670639634132385,\n    \"t\" : 2.862480163574219\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 1.000762462615967,\n    \"y\" : 0.0002231349644716829,\n    \"z\" : 0.02353682555258274,\n    \"t\" : 4.064348220825195\n    },\n  \"row1\" : {\n    \"x\" : -3.981462839419692e-07,\n    \"y\" : 0.9997987747192383,\n    \"z\" : -0.009483085945248604,\n    \"t\" : 0.3082311749458313\n    },\n  \"row2\" : {\n    \"x\" : -0.02353913709521294,\n    \"y\" : 0.009469635784626007,\n    \"z\" : 1.000664234161377,\n    \"t\" : 4.417459964752197\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "0",
     "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.9493171572685242\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 0.8755319118499756\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "3.625788927078247",
-    "timeline_current" : "0",
+    "camera_focalDistance" : "5.300199031829834",
+    "timeline_current" : "20",
     "timeline_end" : "200",
-    "uiGraphPan" : "{\n  \"x\" : 353.8034057617188,\n  \"y\" : 243.7474517822266\n  }"
+    "uiGraphPan" : "{\n  \"x\" : 303.8697509765625,\n  \"y\" : 325.0826721191406\n  }"
     },
   "title" : "",
   "ports" : [
@@ -143,7 +143,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":265.9685974121094,\"y\":-79.97726440429688}"
+        "uiGraphPos" : "{\"x\":304.8021240234375,\"y\":-110.8156890869141}"
         },
       "name" : "Iterate_1",
       "ports" : [
@@ -188,10 +188,15 @@
           "objectType" : "InstPort",
           "nodePortType" : "Out",
           "name" : "population"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "pScore"
           }
         ],
       "executable" : "ThirdParty.SimpLSystem.SimpLPopulation.Iterate",
-      "presetGUID" : "0F65428B680BD08A3FA33F8F0D503E9A"
+      "presetGUID" : "2DAB555A1CF30B4A9D6422633B7897EB"
       },
     {
       "objectType" : "Inst",
@@ -227,7 +232,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1566.181518554688,\"y\":82.8936767578125}"
+        "uiGraphPos" : "{\"x\":1310.2080078125,\"y\":153.4707641601563}"
         },
       "name" : "DrawColoredLines_2",
       "ports" : [
@@ -302,7 +307,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-191.4227752685547,\"y\":156.8138885498047}"
+        "uiGraphPos" : "{\"x\":-148.0205535888672,\"y\":105.41650390625}"
         },
       "name" : "SimpLFitness_1",
       "ports" : [
@@ -323,7 +328,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1226.732666015625,\"y\":179.1939849853516}"
+        "uiGraphPos" : "{\"x\":1085.89990234375,\"y\":350.3137817382813}"
         },
       "name" : "SimpLVertexColors_1",
       "ports" : [
@@ -545,7 +550,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":542.26953125,\"y\":43.14154815673828}"
+        "uiGraphPos" : "{\"x\":560.5440673828125,\"y\":-39.09416961669922}"
         },
       "name" : "Cache_2",
       "ports" : [
@@ -691,7 +696,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1183.669921875,\"y\":-142.0915679931641}"
+        "uiGraphPos" : "{\"x\":967.7252197265625,\"y\":-209.5085601806641}"
         },
       "name" : "DrawColoredLines_3",
       "ports" : [
@@ -718,7 +723,7 @@ dfgEntry {
           "nodePortType" : "In",
           "defaultValues" : {
             "Vec3" : {
-              "x" : 0.5,
+              "x" : 1,
               "y" : 0,
               "z" : 0
               }
@@ -773,6 +778,29 @@ dfgEntry {
             "String" : "stackDepth"
             },
           "name" : "scalarAttributeName"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scores"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Color" : {
+              "r" : 0.06666667014360428,
+              "g" : 0.5058823823928833,
+              "b" : 0.1019607856869698,
+              "a" : 1
+              }
+            },
+          "name" : "scoreColor"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "scoreAmp"
           }
         ],
       "definition" : {
@@ -860,6 +888,27 @@ dfgEntry {
             "name" : "scalarAttributeName",
             "execPortType" : "In",
             "typeSpec" : "String"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scores",
+            "execPortType" : "In",
+            "typeSpec" : "Scalar[]"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scoreColor",
+            "execPortType" : "In",
+            "typeSpec" : "Color"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "scoreAmp",
+            "execPortType" : "In",
+            "typeSpec" : "Scalar"
             }
           ],
         "extDeps" : {
@@ -870,8 +919,8 @@ dfgEntry {
         "code" : "require InlineDrawing;
 
 dfgEntry {
-  for (Size i=0; i<specimens.size(); i++) {
-    Lines lines = specimens[i].lines.clone();
+  for (Size si=0; si<specimens.size(); si++) {
+    Lines lines = specimens[si].lines.clone();
     Ref<ColorAttribute> vertexColors = lines.attributes.getOrCreateColorAttribute(\"vertexColors\");
     if (scalarAttributeName == \"\")
       return;
@@ -879,14 +928,29 @@ dfgEntry {
     if (attr == null)
       return;
     for (Size i =0; i<attr.size(); i++) {
-      vertexColors.values[i] = attributeColor * attr.values[i] + baseColor;
+      vertexColors.values[i] = attributeColor * attr.values[i] + baseColor + scoreColor * scores[si];
     }
-  
-    this.drawColoredLines(name+\"_\"+i, Xfo(offset*i), lines, dummyResult, instance);
+    this.drawColoredLines(name+\"_\"+si, Xfo(offset*si), lines, dummyResult, instance);
   }
 }
 "
         }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":564.3778076171875,\"y\":20.46450805664063}"
+        },
+      "name" : "Cache_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
       }
     ],
   "connections" : {
@@ -905,6 +969,9 @@ dfgEntry {
       ],
     "Iterate_1.population" : [
       "Cache_2.value"
+      ],
+    "Iterate_1.pScore" : [
+      "Cache_3.value"
       ],
     "DecomposeSimpLSpecimen_1.lines" : [
       "Clone_1.value"
@@ -943,6 +1010,9 @@ dfgEntry {
       ],
     "DrawColoredLines_3.this" : [
       "this"
+      ],
+    "Cache_3.value" : [
+      "DrawColoredLines_3.scores"
       ]
     },
   "requiredPresets" : {
@@ -1196,7 +1266,7 @@ dfgEntry {
     "ThirdParty.SimpLSystem.SimpLPopulation.Iterate" : {
       "objectType" : "Func",
       "metadata" : {
-        "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  reset: Boolean\n  populationSize: Size\n  maxIterations: Size\n  desiredStringLength: Size\n  population: SimpLSpecimen[]\n"
+        "uiTooltip" : "Supported types:\n  this: SimpLPopulation\n  reset: Boolean\n  populationSize: Size\n  maxIterations: Size\n  desiredStringLength: Size\n  population: SimpLSpecimen[]\n  pScore: Scalar[]\n"
         },
       "title" : "Iterate",
       "ports" : [
@@ -1241,16 +1311,23 @@ dfgEntry {
           "name" : "population",
           "execPortType" : "Out",
           "typeSpec" : "SimpLSpecimen[]"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "pScore",
+          "execPortType" : "Out",
+          "typeSpec" : "Scalar[]"
           }
         ],
       "extDeps" : {
         "SimpLSystem" : "*"
         },
-      "presetGUID" : "0F65428B680BD08A3FA33F8F0D503E9A",
+      "presetGUID" : "2DAB555A1CF30B4A9D6422633B7897EB",
       "code" : "require SimpLSystem;
 
 dfgEntry {
-  this.iterate(reset, populationSize, maxIterations, desiredStringLength, population);
+  this.iterate(reset, populationSize, maxIterations, desiredStringLength, population, pScore);
 }
 "
       },
