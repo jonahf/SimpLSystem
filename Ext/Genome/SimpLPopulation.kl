@@ -1,18 +1,5 @@
 
 
-/*
-
-  No storing the binding with teh genome allowed.
-
-  Genome has the binding.   
-  Genome creates an archetypal genotype. 
-    Genotype is just some dictionaries, with perhaps the orig values. (perhaps not)
-    Genotype is initialized from a binding. 
-  Genome creates a specimen from a Genotype
-
-*/
-
-
 
 require DFGWrapper;
 
@@ -115,9 +102,13 @@ private function SimpLPopulation.breedNextGeneration!(Size populationSize) {
   for (Size i=0; i<populationSize; i++) {
     Size mom = this.randSelect(0, lastGen.size());
     Size dad = this.randSelect(0, lastGen.size());
+
+    // if (reset) {
+    //   this.genepool[i] = lastGen[mom].clone();
+    //   continue;
+    // }
+
     this.genepool[i] = lastGen[mom].mix(lastGen[dad], this.seed, this.randIt);
-    if (reset)
-      continue;
  
     this.genepool[i].mutate(this.mutationRate, this.mutationAmount, this.seed, this.randIt);
     this.genepool[i].mutate(this.mutationRate, this.mutationAmount, this.seed, this.randIt);
@@ -185,8 +176,15 @@ private function SimpLSpecimen SimpLPopulation.createSpecimen!(SimpLGenotype gen
     Then enable "create geo", and get a specimen.  
   */
   String errors;
+  this.binding.setArgValue("createGeo", RTVal(false));
+  for (key, value in genotype.stringPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+  for (key, value in genotype.scalarPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+  for (key, value in genotype.integerPortValues)
+    this.binding.setArgValue(key, RTVal(value));
+
   for (Size i=0; i<maxIterations; i++ ) {
-    this.binding.setArgValue("createGeo", RTVal(false));
     this.binding.setArgValue("iterations", RTVal(Scalar(i)));
     this.binding.execute(errors);
     if (errors) {
@@ -199,13 +197,6 @@ private function SimpLSpecimen SimpLPopulation.createSpecimen!(SimpLGenotype gen
       break;
   }
   this.binding.setArgValue("createGeo", RTVal(true));
-
-  for (key, value in genotype.stringPortValues)
-    this.binding.setArgValue(key, RTVal(value));
-  for (key, value in genotype.scalarPortValues)
-    this.binding.setArgValue(key, RTVal(value));
-  for (key, value in genotype.integerPortValues)
-    this.binding.setArgValue(key, RTVal(value));
 
   this.binding.execute(errors);
   if (errors) {
