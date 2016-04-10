@@ -103,10 +103,10 @@ private function SimpLPopulation.breedNextGeneration!(Size populationSize) {
     Size mom = this.randSelect(0, lastGen.size());
     Size dad = this.randSelect(0, lastGen.size());
 
-    // if (reset) {
-    //   this.genepool[i] = lastGen[mom].clone();
-    //   continue;
-    // }
+    if (reset) {
+      this.genepool[i] = lastGen[mom].clone();
+      continue;
+    }
 
     this.genepool[i] = lastGen[mom].mix(lastGen[dad], this.seed, this.randIt);
  
