@@ -9,6 +9,9 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 1
+        },
       "name" : "importance",
       "execPortType" : "In",
       "typeSpec" : "Scalar"

@@ -2,9 +2,9 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: StringLengthCriterion\n"
+    "uiTooltip" : "Supported types:\n  importance: Scalar\n  intendedFraction: Scalar\n  result: PopulatedCellsCriterion\n"
     },
-  "title" : "StringLengthCriterion",
+  "title" : "PopulatedCellsCriterion",
   "ports" : [
     {
       "objectType" : "Port",
@@ -19,26 +19,29 @@
     {
       "objectType" : "Port",
       "nodePortType" : "Out",
-      "name" : "lessIsBetter",
+      "defaultValues" : {
+        "Scalar" : 0.6499999761581421
+        },
+      "name" : "intendedFraction",
       "execPortType" : "In",
-      "typeSpec" : "Boolean"
+      "typeSpec" : "Scalar"
       },
     {
       "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "StringLengthCriterion"
+      "typeSpec" : "PopulatedCellsCriterion"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "01A24080A9133171DCE53D16B6CCE04E",
+  "presetGUID" : "B9597B9230723419E2C54DA1864252C8",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = StringLengthCriterion(importance, lessIsBetter);
+  result = PopulatedCellsCriterion(importance, intendedFraction);
 }
 "
   }

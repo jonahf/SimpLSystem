@@ -6,7 +6,7 @@
 object StringLengthCriterion : SimpLFitnessCriterion{
   Boolean inverse;
 };
-
+/// \dfgPresetDefault importance 1.0
 function StringLengthCriterion(Scalar importance, Boolean lessIsBetter) {
   this.importance = importance;
   this.inverse = lessIsBetter;
@@ -26,7 +26,7 @@ function Scalar StringLengthCriterion.evaluate(SimpLSpecimen specimen) {
 object NumLinesCriterion : SimpLFitnessCriterion{
   Boolean inverse;
 };
-
+/// \dfgPresetDefault importance 1.0
 function NumLinesCriterion(Scalar importance, Boolean lessIsBetter) {
   this.importance = importance;
   this.inverse = lessIsBetter;
@@ -42,5 +42,160 @@ function Scalar NumLinesCriterion.evaluate(SimpLSpecimen specimen) {
   } else {
     return specimen.lines.lineCount();
   }
+}
+
+
+
+object EconomicalStringUsageCriterion : SimpLFitnessCriterion{
+};
+/// \dfgPresetDefault importance 1.0
+function EconomicalStringUsageCriterion(Scalar importance) {
+  this.importance = importance;
+}
+/// \dfgPresetOmit
+function String EconomicalStringUsageCriterion.getName() {
+  return "EconomicalStringUsageCriterion";
+} 
+/// \dfgPresetOmit
+function Scalar EconomicalStringUsageCriterion.evaluate(SimpLSpecimen specimen) {
+  Scalar usage = Scalar(specimen.lines.lineCount()) / Scalar(specimen.evolved.length());
+  return usage;
+}
+
+
+
+
+object PopulatedCellsCriterion : SimpLFitnessCriterion{
+  Boolean inverse;
+  Scalar intendedFraction;
+};
+/// \dfgPresetDefault importance 1.0
+/// \dfgPresetDefault intendedFraction 0.65
+function PopulatedCellsCriterion(Scalar importance, Scalar intendedFraction) {
+  this.importance = importance;
+  this.intendedFraction = intendedFraction;
+}
+/// \dfgPresetOmit
+function String PopulatedCellsCriterion.getName() {
+  return "PopulatedCellsCriterion";
+} 
+
+inline Size PopulatedCellsCriterion.coordinatesToIndex(Vec3 coord, Size samples) {
+  Size x = Math_min(coord.x * samples, samples-1);
+  Size y = Math_min(coord.y * samples, samples-1);
+  Size z = Math_min(coord.z * samples, samples-1);
+
+  Size index = x + y*samples + z*samples*samples;
+
+  return index;
+}
+
+/// \dfgPresetOmit
+function Scalar PopulatedCellsCriterion.evaluate(SimpLSpecimen specimen) {
+  Lines lines = specimen.lines.clone();
+  lines.prepareForSpatialQueries(lines.lineCount(), GenericValueContainer());
+
+  Vec3 offset(0.5, 0.5, 0.5);
+
+  Size samples = 6;
+  Size cells[];
+  cells.resize(samples*samples*samples);
+
+  for (Size i=0; i<lines.lineCount(); i++) {
+    Size start, end;
+    lines.getLineAttributeIndices(i, start, end);
+
+    Vec3 startPos = lines.getPosition(start) + offset;
+    Vec3 endPos = lines.getPosition(end) + offset;
+    Vec3 midPoint = (startPos + endPos) / 2.0;
+
+    Size starti = this.coordinatesToIndex(startPos, samples);
+    Size endPosi = this.coordinatesToIndex(endPos, samples);
+    Size midPointi = this.coordinatesToIndex(midPoint, samples);
+
+    cells[starti]++;
+    if (endPosi != starti)
+      cells[endPosi]++;
+    if (midPointi != endPosi && midPointi != starti)
+      cells[midPointi]++;
+  }
+
+  Size populatedCells, numElements;
+  for (Size i=0; i<cells.size(); i++) {
+    if (cells[i] > 0) {
+      populatedCells++;
+      numElements += cells[i];
+    }
+  }
+
+  Scalar populatedFraction = Scalar(populatedCells) / Scalar(cells.size());
+  Scalar delta = abs(populatedFraction - this.intendedFraction);
+  return -delta;
+
+
+  // Ref<SpatialQuery> query = lines.beginSpatialQuery();
+
+  // Size samples = 4;
+
+  // Size fieldsWithElements;
+  // Size numElements;
+
+  // for (Size i; i<samples; i++) {
+  //   for (Size j; j<samples; j++) {
+  //     for (Size k; k<samples; k++) {
+  //       Vec3 min(i, j, k);
+  //       Vec3 max(i+1, j+1, k+1);
+  //       min /= samples;
+  //       max /= samples;
+  //       min -= Vec3(0.5, 0.5, 0.5);
+  //       max -= Vec3(0.5, 0.5, 0.5);
+
+  //       Size elements = query.getElementsInBBox(min, max);
+  //       if (elements) {
+  //         fieldsWithElements += 1;
+  //         numElements += elements;
+  //       }
+  //     }
+  //   }
+  // }
+  // lines.endSpatialQuery(query);
+
+  // Scalar averageElementsInPopulatedField = Scalar(numElements) / fieldsWithElements;
+  // Scalar averageElementsInAnyField = Scalar(numElements) / (samples * samples * samples);
+
+  // return this.inverse ? -Scalar(fieldsWithElements) : Scalar(fieldsWithElements);
+}
+
+
+
+
+object SegLenCriteria : SimpLFitnessCriterion{
+  Boolean inverse;
+};
+/// \dfgPresetDefault importance 1.0
+function SegLenCriteria(Scalar importance, Boolean lessIsBetter) {
+  this.importance = importance;
+  this.inverse = lessIsBetter;
+}
+/// \dfgPresetOmit
+function String SegLenCriteria.getName() {
+  return "SegLenCriteria";
+} 
+/// \dfgPresetOmit
+function Scalar SegLenCriteria.evaluate(SimpLSpecimen specimen) {
+  Lines lines = specimen.lines;
+  Scalar length;
+  for (Size i=0; i<lines.lineCount(); i++) {
+    Size start, end;
+    lines.getLineAttributeIndices(i, start, end);
+
+    Vec3 startPos = lines.getPosition(start);
+    Vec3 endPos = lines.getPosition(end);
+
+    length += startPos.distanceTo(endPos);
+  }
+  length /= lines.lineCount();
+
+  return this.inverse ? -length : length;
 }
 

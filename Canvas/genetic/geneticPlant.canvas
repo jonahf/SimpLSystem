@@ -2,15 +2,15 @@
   "objectType" : "Graph",
   "metadata" : {
     "timeline_timerFps" : "1000",
-    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 1.000473737716675,\n    \"y\" : -0.002026858506724238,\n    \"z\" : 0.03347883000969887,\n    \"t\" : 2.859937191009522\n    },\n  \"row1\" : {\n    \"x\" : -4.712711927368218e-07,\n    \"y\" : 0.9980112910270691,\n    \"z\" : 0.06057213991880417,\n    \"t\" : 0.8644029498100281\n    },\n  \"row2\" : {\n    \"x\" : -0.03354227170348167,\n    \"y\" : -0.06046964973211289,\n    \"z\" : 0.9985806345939636,\n    \"t\" : 5.190744876861572\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
+    "camera_mat44" : "{\n  \"row0\" : {\n    \"x\" : 0.6927468776702881,\n    \"y\" : 0.1437924355268478,\n    \"z\" : -0.7080888152122498,\n    \"t\" : -3.014845848083496\n    },\n  \"row1\" : {\n    \"x\" : -9.62120452641102e-07,\n    \"y\" : 0.9797965884208679,\n    \"z\" : 0.1994203627109528,\n    \"t\" : 1.297581315040588\n    },\n  \"row2\" : {\n    \"x\" : 0.72261643409729,\n    \"y\" : -0.1378474235534668,\n    \"z\" : 0.678820013999939,\n    \"t\" : 4.943114280700684\n    },\n  \"row3\" : {\n    \"x\" : 0,\n    \"y\" : 0,\n    \"z\" : 0,\n    \"t\" : 1\n    }\n  }",
     "timeline_start" : "0",
-    "timeline_loopMode" : "1",
-    "uiGraphZoom" : "{\n  \"value\" : 0.8901203274726868\n  }",
+    "timeline_loopMode" : "0",
+    "uiGraphZoom" : "{\n  \"value\" : 0.8869158625602722\n  }",
     "timeline_simMode" : "0",
-    "camera_focalDistance" : "6.048433780670166",
-    "timeline_current" : "0",
-    "timeline_end" : "50",
-    "uiGraphPan" : "{\n  \"x\" : 628.6016838570332,\n  \"y\" : 307.3873082130561\n  }"
+    "camera_focalDistance" : "16.31309318542481",
+    "timeline_current" : "17",
+    "timeline_end" : "600",
+    "uiGraphPan" : "{\n  \"x\" : 1099.261474609375,\n  \"y\" : 112.4687042236328\n  }"
     },
   "title" : "",
   "ports" : [
@@ -79,7 +79,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "FilePath" : "C:/Users/Jonah/development/fabric/extension_repos/SimpLSystem/Canvas/genetic/dfGenomes/plant.canvas"
+            "FilePath" : "C:/Users/Jonah/development/fabric/extension_repos/SimpLSystem/Canvas/genetic/dfGenomes/plantSimpler.canvas"
             },
           "name" : "dfgPath"
           },
@@ -92,7 +92,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 0.2000000029802322
+            "Scalar" : 0.25
             },
           "name" : "breederRate"
           },
@@ -100,7 +100,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 0.5
+            "Scalar" : 0.05000000074505806
             },
           "name" : "mutationRate"
           },
@@ -108,7 +108,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 0.02999999932944775
+            "Scalar" : 0.1000000014901161
             },
           "name" : "mutationAmount"
           },
@@ -143,7 +143,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":291.9747009277344,\"y\":-67.06879425048828}"
+        "uiGraphPos" : "{\"x\":253.7776184082031,\"y\":-63.69846343994141}"
         },
       "name" : "Iterate_1",
       "ports" : [
@@ -164,7 +164,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Size" : 10
+            "Size" : 50
             },
           "name" : "populationSize"
           },
@@ -172,7 +172,7 @@
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Size" : 12
+            "Size" : 16
             },
           "name" : "maxIterations"
           },
@@ -201,7 +201,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":854.223388671875,\"y\":140.9716033935547}"
+        "uiGraphPos" : "{\"x\":760.977783203125,\"y\":162.3170318603516}"
         },
       "name" : "DecomposeSimpLSpecimen_1",
       "ports" : [
@@ -278,7 +278,7 @@
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":713.3682250976563,\"y\":115.7800674438477}"
+        "uiGraphPos" : "{\"x\":620.12255859375,\"y\":137.12548828125}"
         },
       "name" : "Get_1",
       "ports" : [
@@ -500,7 +500,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":1055.275146484375,\"y\":181.2628173828125}"
+        "uiGraphPos" : "{\"x\":962.0296630859375,\"y\":202.6082458496094}"
         },
       "name" : "Clone_1",
       "ports" : [
@@ -534,7 +534,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1
+            "Scalar" : 0
             },
           "name" : "rhs"
           },
@@ -550,7 +550,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":560.5440673828125,\"y\":-39.09416961669922}"
+        "uiGraphPos" : "{\"x\":494.2609252929688,\"y\":-19.99562835693359}"
         },
       "name" : "Cache_2",
       "ports" : [
@@ -566,7 +566,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-543.1990356445313,\"y\":97.07005310058594}"
+        "uiGraphPos" : "{\"x\":-529.7178955078125,\"y\":99.31694030761719}"
         },
       "name" : "Push_1",
       "ports" : [
@@ -632,7 +632,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-660.9561157226563,\"y\":258.4432678222656}"
+        "uiGraphPos" : "{\"x\":-659.90576171875,\"y\":322.4308471679688}"
         },
       "name" : "StringLengthCriterion_1",
       "ports" : [
@@ -640,7 +640,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 0
+            "Scalar" : 0.1000000014901161
             },
           "name" : "importance"
           },
@@ -648,7 +648,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Boolean" : false
+            "Boolean" : true
             },
           "name" : "lessIsBetter"
           },
@@ -664,7 +664,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":-771.7733154296875,\"y\":70.96438598632813}"
+        "uiGraphPos" : "{\"x\":-626.6669311523438,\"y\":418.7903442382813}"
         },
       "name" : "NumLinesCriterion_1",
       "ports" : [
@@ -672,7 +672,7 @@ dfgEntry {
           "objectType" : "InstPort",
           "nodePortType" : "In",
           "defaultValues" : {
-            "Scalar" : 1
+            "Scalar" : 0.25
             },
           "name" : "importance"
           },
@@ -723,7 +723,7 @@ dfgEntry {
           "nodePortType" : "In",
           "defaultValues" : {
             "Vec3" : {
-              "x" : 0.6100000143051148,
+              "x" : 0.75,
               "y" : 0,
               "z" : 0
               }
@@ -939,7 +939,7 @@ dfgEntry {
     {
       "objectType" : "Inst",
       "metadata" : {
-        "uiGraphPos" : "{\"x\":564.3778076171875,\"y\":20.46450805664063}"
+        "uiGraphPos" : "{\"x\":498.0946655273438,\"y\":39.56304931640625}"
         },
       "name" : "Cache_3",
       "ports" : [
@@ -951,6 +951,59 @@ dfgEntry {
         ],
       "executable" : "Fabric.Core.Data.Cache",
       "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-776.0166625976563,\"y\":93.05427551269531}"
+        },
+      "name" : "PopulatedCellsCriterion_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "importance"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.25
+            },
+          "name" : "intendedFraction"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "ThirdParty.SimpLSystem.PopulatedCellsCriterion.PopulatedCellsCriterion",
+      "presetGUID" : "B9597B9230723419E2C54DA1864252C8"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-738.80908203125,\"y\":229.4820861816406}"
+        },
+      "name" : "EconomicalStringUsageCriterion_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.1000000014901161
+            },
+          "name" : "importance"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "ThirdParty.SimpLSystem.EconomicalStringUsageCriterion.EconomicalStringUsageCriterion",
+      "presetGUID" : "02EE82675DDA494CEC57159B5FA93369"
       }
     ],
   "connections" : {
@@ -999,20 +1052,22 @@ dfgEntry {
       "DrawColoredLines_3.specimens"
       ],
     "Push_1.array" : [
-      "Push_2.array",
+      "Push_2.array"
+      ],
+    "Push_2.array" : [
       "SimpLFitness_1.criteria"
-      ],
-    "StringLengthCriterion_1.result" : [
-      "Push_2.element"
-      ],
-    "NumLinesCriterion_1.result" : [
-      "Push_1.element"
       ],
     "DrawColoredLines_3.this" : [
       "this"
       ],
     "Cache_3.value" : [
       "DrawColoredLines_3.scores"
+      ],
+    "PopulatedCellsCriterion_1.result" : [
+      "Push_1.element"
+      ],
+    "EconomicalStringUsageCriterion_1.result" : [
+      "Push_2.element"
       ]
     },
   "requiredPresets" : {
@@ -1752,6 +1807,9 @@ dfgEntry {
         {
           "objectType" : "Port",
           "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
           "name" : "importance",
           "execPortType" : "In",
           "typeSpec" : "Scalar"
@@ -1792,6 +1850,9 @@ dfgEntry {
         {
           "objectType" : "Port",
           "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
           "name" : "importance",
           "execPortType" : "In",
           "typeSpec" : "Scalar"
@@ -1819,6 +1880,88 @@ dfgEntry {
 
 dfgEntry {
   result = NumLinesCriterion(importance, lessIsBetter);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.PopulatedCellsCriterion.PopulatedCellsCriterion" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  importance: Scalar\n  intendedFraction: Scalar\n  result: PopulatedCellsCriterion\n"
+        },
+      "title" : "PopulatedCellsCriterion",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "importance",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 0.6499999761581421
+            },
+          "name" : "intendedFraction",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PopulatedCellsCriterion"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "B9597B9230723419E2C54DA1864252C8",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = PopulatedCellsCriterion(importance, intendedFraction);
+}
+"
+      },
+    "ThirdParty.SimpLSystem.EconomicalStringUsageCriterion.EconomicalStringUsageCriterion" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiTooltip" : "Supported types:\n  importance: Scalar\n  result: EconomicalStringUsageCriterion\n"
+        },
+      "title" : "EconomicalStringUsageCriterion",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "importance",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "EconomicalStringUsageCriterion"
+          }
+        ],
+      "extDeps" : {
+        "SimpLSystem" : "*"
+        },
+      "presetGUID" : "02EE82675DDA494CEC57159B5FA93369",
+      "code" : "require SimpLSystem;
+
+dfgEntry {
+  result = EconomicalStringUsageCriterion(importance);
 }
 "
       }

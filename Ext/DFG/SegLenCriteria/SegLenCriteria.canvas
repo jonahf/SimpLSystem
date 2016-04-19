@@ -2,9 +2,9 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: StringLengthCriterion\n"
+    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: SegLenCriteria\n"
     },
-  "title" : "StringLengthCriterion",
+  "title" : "SegLenCriteria",
   "ports" : [
     {
       "objectType" : "Port",
@@ -28,17 +28,17 @@
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "StringLengthCriterion"
+      "typeSpec" : "SegLenCriteria"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "01A24080A9133171DCE53D16B6CCE04E",
+  "presetGUID" : "5D000F92FB7763FD57832D09C214D35D",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = StringLengthCriterion(importance, lessIsBetter);
+  result = SegLenCriteria(importance, lessIsBetter);
 }
 "
   }

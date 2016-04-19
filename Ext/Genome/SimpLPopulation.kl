@@ -131,8 +131,15 @@ private function Scalar[] SimpLPopulation.evaluatePopulation!() {
     return pScore;
 
   Scalar maxScore;
+  Size best = 0;
   for (Size i = 0; i<pScore.size(); i++)
-    maxScore = Math_max(maxScore, pScore[i]);
+    if (pScore[i] > maxScore) {
+      maxScore = pScore[i];
+      best = i;
+    }
+
+  report("best genome: " + this.genepool[best].stringPortValues);
+
   if (maxScore > 0) {    
     for (Size i = 0; i<pScore.size(); i++)
       pScore[i] /= maxScore;
@@ -193,8 +200,10 @@ private function SimpLSpecimen SimpLPopulation.createSpecimen!(SimpLGenotype gen
       setError("Errors executing bindings.");
     }
     String evolvedString = String(this.binding.getArgValue("evolved"));
-    if (evolvedString.length() >= desiredStringLength)
+    if (evolvedString.length() > desiredStringLength) {
+      this.binding.setArgValue("iterations", RTVal(Scalar(i-1)));
       break;
+    }
   }
   this.binding.setArgValue("createGeo", RTVal(true));
 

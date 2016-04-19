@@ -129,9 +129,20 @@ private function SimpLFitness.generateScoresInCriteria!() {
   for (Size ci; ci<numCriteria; ci++)
     this.criteria[ci].setup();
 
-  for (Size si; si<numSpecimens; si++)
-    for (Size ci; ci<numCriteria; ci++)
-      this.specimenCritScores[si][ci] = this.criteria[ci].evaluate(this.specimens[si]);
+  SimpLFitness_generateScoresInCriteria_task<<<numSpecimens*numCriteria>>>(this.specimens, this.criteria, this.specimenCritScores);
+  // for (Size si; si<numSpecimens; si++)
+  //   for (Size ci; ci<numCriteria; ci++)
+  //     this.specimenCritScores[si][ci] = this.criteria[ci].evaluate(this.specimens[si]);
+}
+
+operator SimpLFitness_generateScoresInCriteria_task<<<i>>>(SimpLSpecimen specimens[],
+                                                           io SimpLFitnessCriterion criteria[],
+                                                           io Scalar specimenCritScores[][]) {
+  Size numSpecimens = specimens.size();
+  Size numCriteria = criteria.size();
+  Size ci = i / numSpecimens;
+  Size si = i - ci*numSpecimens;
+  specimenCritScores[si][ci] = criteria[ci].evaluate(specimens[si]);
 }
 
 private function SimpLFitness.rankScoresInCriteria!() {

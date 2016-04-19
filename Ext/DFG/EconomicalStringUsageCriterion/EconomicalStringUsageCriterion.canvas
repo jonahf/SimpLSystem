@@ -2,9 +2,9 @@
 {
   "objectType" : "Func",
   "metadata" : {
-    "uiTooltip" : "Supported types:\n  importance: Scalar\n  lessIsBetter: Boolean\n  result: StringLengthCriterion\n"
+    "uiTooltip" : "Supported types:\n  importance: Scalar\n  result: EconomicalStringUsageCriterion\n"
     },
-  "title" : "StringLengthCriterion",
+  "title" : "EconomicalStringUsageCriterion",
   "ports" : [
     {
       "objectType" : "Port",
@@ -18,27 +18,20 @@
       },
     {
       "objectType" : "Port",
-      "nodePortType" : "Out",
-      "name" : "lessIsBetter",
-      "execPortType" : "In",
-      "typeSpec" : "Boolean"
-      },
-    {
-      "objectType" : "Port",
       "nodePortType" : "In",
       "name" : "result",
       "execPortType" : "Out",
-      "typeSpec" : "StringLengthCriterion"
+      "typeSpec" : "EconomicalStringUsageCriterion"
       }
     ],
   "extDeps" : {
     "SimpLSystem" : "*"
     },
-  "presetGUID" : "01A24080A9133171DCE53D16B6CCE04E",
+  "presetGUID" : "02EE82675DDA494CEC57159B5FA93369",
   "code" : "require SimpLSystem;
 
 dfgEntry {
-  result = StringLengthCriterion(importance, lessIsBetter);
+  result = EconomicalStringUsageCriterion(importance);
 }
 "
   }
